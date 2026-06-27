@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Grammar Cheat Sheet | สรุปไวยากรณ์อังกฤษ</title>
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --line: #d9e1ee;
+      --head: #15315b;
+      --head-text: #ffffff;
+      --row: #f9fbff;
+      --row-alt: #eef5ff;
+      --hover: #fff7d6;
+      --shadow: 0 6px 18px rgba(22, 38, 66, 0.1);
+      --radius: 12px;
+      --blue: #334d85;
+      --green: #059669;
+      --purple: #7c3aed;
+      --orange: #ea580c;
+      --pink: #db2777;
+      --teal: #0891b2;
+      --red: #dc2626;
+      --yellow: #ca8a04;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --text: #e5e7eb;
+        --muted: #b6c0cf;
+        --line: #334155;
+        --head: #273e7e;
+        --head-text: #ffffff;
+        --row: #162033;
+        --row-alt: #1d293d;
+        --hover: #3a2f16;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      line-height: 1.42;
+    }
+
+    header {
+      padding: 12px 14px;
+      color: white;
+      text-align: center;
+      background: linear-gradient(135deg, #21356d, #7c3aed, #db2777);
+    }
+
+    header h1 { margin: 0 0 6px; font-size: clamp(1.55rem, 4vw, 2.8rem); }
+    header p { max-width: 920px; margin: 0 auto; font-size: 0.92rem; opacity: 0.95; }
+
+    main {
+      width: min(1500px, 97vw);
+      margin: 16px auto 34px;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .toc, section, .card-grid, .mind-map {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .toc {
+      position: sticky;
+      grid-column: 1;
+      grid-row: 1 / -1;
+      top: 10px;
+      max-height: calc(100vh - 20px);
+      overflow: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc a {
+      display: block;
+      color: var(--text);
+      text-decoration: none;
+      padding: 7px 9px;
+      border-radius: 9px;
+      font-size: 0.84rem;
+      background: var(--row);
+      border: 1px solid var(--line);
+    }
+
+    .toc a:hover { background: var(--hover); transform: translateX(2px); }
+
+    section {
+      grid-column: 2;
+      margin: 14px 0;
+      overflow: hidden;
+    }
+
+    .section-title {
+      position: relative;
+      padding: 12px 14px;
+      padding-right: 142px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+    }
+
+    .section-title h2 { margin: 0; font-size: clamp(0.92rem, 2vw, 1.28rem); }
+    .section-title p { margin: 2px 0 0; opacity: 0.9; font-size: 0.76rem; }
+
+    .table-wrap {
+      overflow: auto;
+      max-height: 76vh;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+      min-width: 960px;
+      font-size: 0.74rem;
+    }
+
+    th, td {
+      padding: 4px 6px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      color: var(--head-text);
+      background: var(--head);
+      text-align: left;
+      white-space: normal;
+      line-height: 1.2;
+    }
+
+    td { line-height: 1.34; }
+
+    #parts table { min-width: 1580px; }
+    #structure table,
+    #questions table,
+    #articles table,
+    #modals table,
+    #conjunctions table,
+    #prepositions table { min-width: 920px; }
+    #verbs table,
+    #pronouns table,
+    #patterns table { min-width: 1080px; }
+    #tenses table { min-width: 1500px; }
+    #rules table { min-width: 1180px; }
+    #mistakes table { min-width: 1320px; }
+    #sentence-lesson table { min-width: 1280px; }
+    #vocab table { min-width: 1180px; }
+
+    #parts th:nth-child(1), #parts td:nth-child(1),
+    #mistakes th:nth-child(1), #mistakes td:nth-child(1),
+    #patterns th:nth-child(1), #patterns td:nth-child(1),
+    #sentence-lesson th:nth-child(1), #sentence-lesson td:nth-child(1) {
+      width: 48px;
+      text-align: center;
+    }
+
+    #parts th:nth-child(4), #parts td:nth-child(4) { width: 15%; }
+    #parts th:nth-child(5), #parts td:nth-child(5),
+    #parts th:nth-child(6), #parts td:nth-child(6),
+    #parts th:nth-child(9), #parts td:nth-child(9),
+    #parts th:nth-child(10), #parts td:nth-child(10),
+    #parts th:nth-child(11), #parts td:nth-child(11) { width: 11%; }
+    
+    #parts th:nth-child(2), #parts td:nth-child(2),
+    #parts th:nth-child(3), #parts td:nth-child(3) { width: 9%; }
+
+    #verbs th:nth-child(1), #verbs td:nth-child(1),
+    #verbs th:nth-child(6), #verbs td:nth-child(6) { width: 15%; }
+    #verbs th:nth-child(7), #verbs td:nth-child(7) { width: 25%; }
+
+    #tenses th:nth-child(1), #tenses td:nth-child(1) { width: 11%; }
+    #tenses th:nth-child(2), #tenses td:nth-child(2),
+    #tenses th:nth-child(4), #tenses td:nth-child(4),
+    #tenses th:nth-child(8), #tenses td:nth-child(8),
+    #tenses th:nth-child(10), #tenses td:nth-child(10) { width: 13%; }
+
+    #vocab th:nth-child(1), #vocab td:nth-child(1) { width: 150px; }
+    #vocab th:nth-child(2), #vocab td:nth-child(2) { width: auto; }
+
+    #mistakes th:nth-child(2), #mistakes td:nth-child(2),
+    #mistakes th:nth-child(3), #mistakes td:nth-child(3) { width: 18%; }
+    #mistakes th:nth-child(4), #mistakes td:nth-child(4),
+    #mistakes th:nth-child(5), #mistakes td:nth-child(5) { width: 28%; }
+
+    #sentence-lesson th:nth-child(2), #sentence-lesson td:nth-child(2) { width: 42%; }
+    #sentence-lesson th:nth-child(3), #sentence-lesson td:nth-child(3),
+    #sentence-lesson th:nth-child(4), #sentence-lesson td:nth-child(4) { width: 25%; }
+
+    tr:nth-child(odd) td { background: var(--row); }
+    tr:nth-child(even) td { background: var(--row-alt); }
+    tr:hover td { background: var(--hover); }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      margin: 1px 2px 1px 0;
+      border-radius: 999px;
+      color: white;
+      font-weight: 700;
+      font-size: 0.68rem;
+    }
+
+    .noun { background: var(--blue); }
+    .verb { background: var(--green); }
+    .adj { background: var(--purple); }
+    .adv { background: var(--orange); }
+    .prep { background: var(--teal); }
+    .conj { background: var(--pink); }
+    .warn { background: var(--red); }
+    .tip { background: var(--yellow); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .mini-card {
+      padding: 11px;
+      border-radius: 12px;
+      background: var(--row);
+      border: 1px solid var(--line);
+    }
+
+    .mini-card h3 { margin: 0 0 5px; color: var(--blue); font-size: 1rem; }
+    .mini-card p { margin: 6px 0; }
+    .mini-card ul { margin: 5px 0 0; padding-left: 18px; }
+
+    .mind-map {
+      margin: 12px;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .root-node {
+      justify-self: center;
+      padding: 11px 18px;
+      border-radius: 14px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--pink));
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .branches {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+    }
+
+    .node {
+      padding: 10px;
+      border-radius: 10px;
+      background: var(--row-alt);
+      border: 2px solid var(--line);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .note {
+      padding: 10px 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    .sentence-cell {
+      line-height: 1.55;
+      min-width: 240px;
+    }
+
+    .word {
+      position: relative;
+      display: inline-block;
+      padding: 0 5px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      cursor: help;
+      font-weight: 700;
+      font-size: 0.72rem;
+      outline: none;
+    }
+
+    .word:hover,
+    .word:focus {
+      color: white;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .word .dialog {
+      position: absolute;
+      left: 50%;
+      top: calc(100% + 10px);
+      z-index: 5;
+      width: 190px;
+      padding: 8px;
+      border-radius: 11px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      line-height: 1.35;
+      font-size: 0.74rem;
+      font-weight: 400;
+      transform: translateX(-50%) translateY(6px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .word .dialog::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      transform: translateX(-50%);
+      border: 8px solid transparent;
+      border-bottom-color: var(--card);
+    }
+
+    .word:hover .dialog,
+    .word:focus .dialog {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .pos-noun { border-color: var(--blue); }
+    .pos-pronoun { border-color: var(--teal); }
+    .pos-verb { border-color: var(--green); }
+    .pos-adj { border-color: var(--purple); }
+    .pos-adv { border-color: var(--orange); }
+    .pos-prep { border-color: var(--teal); }
+    .pos-conj { border-color: var(--pink); }
+    .pos-interj { border-color: var(--yellow); }
+
+    .lesson-popout-btn,
+    .lesson-panel button {
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .lesson-popout-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 7px 10px;
+      color: var(--head);
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .lesson-popout-btn:hover,
+    .lesson-popout-btn:focus,
+    .lesson-panel button:hover,
+    .lesson-panel button:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+      outline: 2px solid rgba(255, 255, 255, 0.75);
+      outline-offset: 2px;
+    }
+
+    .lesson-panel-stack {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 50;
+      width: min(460px, calc(100vw - 20px));
+      max-height: calc(100vh - 20px);
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .lesson-panel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      max-height: min(560px, calc(100vh - 20px));
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      color: var(--text);
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.28);
+    }
+
+    .lesson-panel.is-collapsed {
+      max-height: none;
+    }
+
+    .lesson-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--pink));
+    }
+
+    .lesson-panel-title {
+      min-width: 0;
+      font-weight: 900;
+      line-height: 1.2;
+      font-size: 0.9rem;
+    }
+
+    .lesson-panel-actions {
+      display: flex;
+      flex: 0 0 auto;
+      gap: 5px;
+    }
+
+    .lesson-panel button {
+      padding: 6px 9px;
+      color: var(--head);
+      background: #ffffff;
+    }
+
+    .lesson-panel-content {
+      overflow: auto;
+      padding: 8px;
+    }
+
+    .lesson-panel-content section {
+      grid-column: auto;
+      margin: 0;
+      border-radius: 16px;
+      box-shadow: none;
+    }
+
+    .lesson-panel-content .table-wrap {
+      max-height: none;
+    }
+
+    .lesson-panel.is-collapsed .lesson-panel-content {
+      display: none;
+    }
+
+    @media (max-width: 760px) {
+      main {
+        width: 100%;
+        margin: 0;
+        display: block;
+      }
+      section, .toc { border-radius: 0; }
+      .toc {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        max-height: none;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+      }
+      .toc a { flex: 0 0 auto; }
+      .section-title { padding-right: 12px; }
+      .lesson-popout-btn { position: static; margin-top: 8px; }
+      .lesson-panel-stack { top: auto; right: 10px; bottom: 10px; width: calc(100vw - 20px); max-height: 80vh; }
+      .lesson-panel { max-height: 55vh; }
+      table { min-width: 880px; font-size: 0.7rem; }
+      th, td { padding: 4px 5px; }
+    }
+
+    @page { size: A4 landscape; margin: 10mm; }
+
+    @media print {
+      :root {
+        --bg: #ffffff;
+        --card: #ffffff;
+        --text: #000000;
+        --muted: #333333;
+        --line: #999999;
+        --head: #222222;
+        --row: #ffffff;
+        --row-alt: #f1f1f1;
+        --hover: #ffffff;
+        --shadow: none;
+      }
+
+      body { background: white; font-size: 9px; }
+      main { display: block; width: 100%; margin: 0; }
+      header, .toc { box-shadow: none; page-break-after: avoid; }
+      .toc {
+        position: static;
+        display: block;
+        max-height: none;
+        overflow: visible;
+        border: 0;
+        padding: 0;
+        margin: 0 0 8px;
+      }
+      .toc a { display: inline-block; padding: 2px 5px; border: 0; }
+      section { box-shadow: none; page-break-inside: avoid; margin: 8px 0; }
+      header { padding: 6px; }
+      .section-title { padding: 8px 10px; }
+      th, td { padding: 4px 5px; }
+      .table-wrap { overflow: visible; max-height: none; }
+      th { position: static; }
+      a { color: #000; text-decoration: none; }
+      .word { border: 0; padding: 0; background: transparent; color: #000; }
+      .word .dialog { display: none; }
+      .lesson-popout-btn,
+      .lesson-panel-stack { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h4>📘 English Grammar Cheat Sheet</h4>
+    <p>สรุปไวยากรณ์อังกฤษพร้อมคำอ่าน คำแปลภาษาไทย ตัวอย่าง และเทคนิคจำง่าย | English + Thai visual reference for learners.</p>
+  </header>
+
+  <div class="lesson-panel-stack" id="lessonPanelStack" aria-live="polite" aria-label="Separated lesson windows"></div>
+
+  <main>
+    <nav class="toc" aria-label="Table of contents">
+      <a href="#parts">1. Parts of Speech | ชนิดของคำ</a>
+      <a href="#structure">2. Sentence Structure | โครงสร้างประโยค</a>
+      <a href="#verbs">3. Verb Forms | กริยา 3 ช่อง</a>
+      <a href="#tenses">4. 12 Tenses | กาลทั้ง 12</a>
+      <a href="#questions">5. Question Words | คำถาม</a>
+      <a href="#prepositions">6. Prepositions | บุพบท</a>
+      <a href="#conjunctions">7. Conjunctions | สันธาน</a>
+      <a href="#pronouns">8. Pronouns | สรรพนาม</a>
+      <a href="#articles">9. Articles | คำนำหน้านาม</a>
+      <a href="#modals">10. Modal Verbs | กริยาช่วย</a>
+      <a href="#rules">11. Grammar Rules | กฎสำคัญ</a>
+      <a href="#mistakes">12. Common Mistakes | ข้อผิดพลาด</a>
+      <a href="#vocab">13. Vocabulary | คำศัพท์</a>
+      <a href="#patterns">14. Sentence Patterns | รูปประโยค</a>
+      <a href="#mindmap">15. Mind Map | แผนผัง</a>
+      <a href="#tips">16. Learning Tips | เทคนิคเรียน</a>
+      <a href="#sentence-lesson">17. 100 Sentences | บทเรียนประโยค</a>
+    </nav>
+
+    <section id="parts">
+      <div class="section-title"><h2>1. 🧩 Parts of Speech | ชนิดของคำ</h2><p>คำทุกคำมีหน้าที่ในประโยค | Every word has a job.</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>No.</th><th>Thai Name</th><th>English Name</th><th>Definition</th><th>Main Function</th><th>Ask Yourself Question</th><th>Position in Sentence</th><th>Examples</th><th>Example Sentence</th><th>Common Mistakes</th><th>Memory Trick</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>คำนาม (คำ-นาม)</td><td><span class="badge noun">Noun (นาวน์)</span></td><td>Name of a person, place, thing, or idea | ชื่อคน สถานที่ สิ่งของ ความคิด</td><td>Subject/Object | ประธาน/กรรม</td><td>Who? What? | ใคร? อะไร?</td><td>Before verb, after verb/preposition | หน้า verb, หลัง verb/preposition</td><td>teacher, school, book, love</td><td>The teacher reads a book. | ครูอ่านหนังสือ</td><td>Using adjective as noun: a beautiful ❌</td><td>Noun = name | นามคือชื่อ</td></tr>
+            <tr><td>2</td><td>คำสรรพนาม (คำ-สับ-พะ-นาม)</td><td><span class="badge noun">Pronoun (โพร-นาวน์)</span></td><td>Word used instead of a noun | ใช้แทนคำนาม</td><td>Avoid repetition | ลดการพูดซ้ำ</td><td>Replaces which noun? | แทนคำนามใด?</td><td>Same place as noun | ตำแหน่งเดียวกับนาม</td><td>I, you, he, she, it, they</td><td>Mary is kind. She helps me. | แมรี่ใจดี เธอช่วยฉัน</td><td>Me am happy ❌ → I am happy ✅</td><td>Pro = instead | ใช้แทน</td></tr>
+            <tr><td>3</td><td>คำกริยา (คำ-กริ-ยา)</td><td><span class="badge verb">Verb (เวิร์บ)</span></td><td>Action or state | การกระทำหรือสภาพ</td><td>Tell action/time | บอกการกระทำ/เวลา</td><td>Do what? Be what? | ทำอะไร? เป็นอะไร?</td><td>After subject | หลังประธาน</td><td>go, eat, is, have</td><td>They play football. | พวกเขาเล่นฟุตบอล</td><td>He go ❌ → He goes ✅</td><td>Verb = engine | เครื่องยนต์ประโยค</td></tr>
+            <tr><td>4</td><td>คำคุณศัพท์ (คำ-คุน-นะ-สับ)</td><td><span class="badge adj">Adjective (แอด-เจ็ค-ทิฟ)</span></td><td>Describes a noun | ขยายคำนาม</td><td>Give details | เพิ่มรายละเอียด</td><td>What kind? Which? How many? | แบบไหน? อันไหน? กี่?</td><td>Before noun, after be/linking verb | หน้านาม/หลัง be</td><td>happy, red, three, beautiful</td><td>She has a red bag. | เธอมีกระเป๋าสีแดง</td><td>She sings beautiful ❌ → beautifully ✅</td><td>Adj adds color to nouns | เติมสีให้นาม</td></tr>
+            <tr><td>5</td><td>คำวิเศษณ์ (คำ-วิ-เสด)</td><td><span class="badge adv">Adverb (แอด-เวิร์บ)</span></td><td>Describes verb, adjective, or adverb | ขยายกริยา คุณศัพท์ หรือวิเศษณ์</td><td>Tell how/when/where/how often | บอกอย่างไร เมื่อไร ที่ไหน บ่อยแค่ไหน</td><td>How? When? Where? | อย่างไร? เมื่อไร? ที่ไหน?</td><td>Flexible; often after verb | ยืดหยุ่น มักหลังกริยา</td><td>quickly, very, always, here</td><td>He runs quickly. | เขาวิ่งเร็ว</td><td>very much beautiful ❌ → very beautiful ✅</td><td>Adverb often ends -ly | มักลงท้าย -ly</td></tr>
+            <tr><td>6</td><td>คำบุพบท (คำ-บุบ-พะ-บด)</td><td><span class="badge prep">Preposition (เพร็พ-พะ-ซิ-ชัน)</span></td><td>Shows relationship | บอกความสัมพันธ์</td><td>Connect noun to time/place/direction | เชื่อมนามกับเวลา สถานที่ ทิศทาง</td><td>Where? When? In what relation? | ที่ไหน? เมื่อไร? เกี่ยวกันอย่างไร?</td><td>Before noun/pronoun | หน้านาม/สรรพนาม</td><td>in, on, at, by, for</td><td>The cat is on the table. | แมวอยู่บนโต๊ะ</td><td>Discuss about ❌ → discuss ✅</td><td>Pre-position = placed before | วางหน้า</td></tr>
+            <tr><td>7</td><td>คำสันธาน (คำ-สัน-ทาน)</td><td><span class="badge conj">Conjunction (คัน-จังค์-ชัน)</span></td><td>Connects words, phrases, clauses | เชื่อมคำ วลี อนุประโยค</td><td>Join ideas | เชื่อมความคิด</td><td>What does it connect? | เชื่อมอะไร?</td><td>Between connected parts | อยู่ระหว่างสิ่งที่เชื่อม</td><td>and, but, because, although</td><td>I stayed home because it rained. | ฉันอยู่บ้านเพราะฝนตก</td><td>Because I was tired. as sentence fragment ❌</td><td>Conjunction = bridge | สะพานเชื่อม</td></tr>
+            <tr><td>8</td><td>คำอุทาน (คำ-อุ-ทาน)</td><td><span class="badge tip">Interjection (อิน-เทอะ-เจ็ค-ชัน)</span></td><td>Shows emotion | แสดงอารมณ์</td><td>Express feeling | บอกความรู้สึก</td><td>What feeling? | รู้สึกอะไร?</td><td>Often at beginning | มักต้นประโยค</td><td>Wow!, Oh!, Ouch!, Hey!</td><td>Wow! This is amazing. | ว้าว! นี่สุดยอดมาก</td><td>Using too much in formal writing ❌</td><td>Interjection = emotion sound | เสียงอารมณ์</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="structure">
+      <div class="section-title"><h2>2. 🏗️ Sentence Structure | โครงสร้างประโยค</h2><p>S = Subject ประธาน, V = Verb กริยา, O = Object กรรม, C = Complement ส่วนเติมเต็ม</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Pattern</th><th>Formula</th><th>Usage</th><th>Example</th><th>Thai Translation</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>S + V</td><td>Subject + Verb</td><td>Complete action without object | การกระทำจบในตัว</td><td>Birds fly.</td><td>นกบิน</td><td>Use intransitive verbs | กริยาไม่ต้องมีกรรม</td></tr>
+            <tr><td>S + V + O</td><td>Subject + Verb + Object</td><td>Action affects object | การกระทำมีกรรม</td><td>She reads a book.</td><td>เธออ่านหนังสือ</td><td>Ask “verb what?” | กริยาอะไร</td></tr>
+            <tr><td>S + V + C</td><td>Subject + Linking Verb + Complement</td><td>Describe subject | บอกสภาพประธาน</td><td>He is tired.</td><td>เขาเหนื่อย</td><td>C can be noun/adjective | ส่วนเติมเต็มเป็นนาม/คุณศัพท์</td></tr>
+            <tr><td>S + V + O + O</td><td>Subject + Verb + Indirect Object + Direct Object</td><td>Give/send/tell someone something | ให้/ส่ง/บอกใครบางอย่าง</td><td>Mom gave me money.</td><td>แม่ให้เงินฉัน</td><td>me = indirect, money = direct | ฉัน=กรรมรอง เงิน=กรรมตรง</td></tr>
+            <tr><td>S + V + O + C</td><td>Subject + Verb + Object + Complement</td><td>Object becomes/gets description | กรรมถูกเติมความหมาย</td><td>They made him captain.</td><td>พวกเขาแต่งตั้งเขาเป็นกัปตัน</td><td>C describes object | C ขยายกรรม</td></tr>
+            <tr><td>There is</td><td>There is + singular/uncountable noun</td><td>Existence | มี/มีอยู่</td><td>There is a cat.</td><td>มีแมวหนึ่งตัว</td><td>Use with one thing | ใช้กับเอกพจน์</td></tr>
+            <tr><td>There are</td><td>There are + plural noun</td><td>Existence | มี/มีอยู่</td><td>There are many books.</td><td>มีหนังสือหลายเล่ม</td><td>Use with plural | ใช้กับพหูพจน์</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="verbs">
+      <div class="section-title"><h2>3. 🏃 Verb Forms | กริยา 3 ช่องและ V-ing</h2><p>Common verbs with Thai meaning, pronunciation idea, and examples | กริยาพบบ่อยพร้อมความหมายและตัวอย่าง</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Verb</th><th>V1</th><th>V2</th><th>V3</th><th>V-ing</th><th>Meaning</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>be (บี)</td><td>am/is/are</td><td>was/were</td><td>been</td><td>being</td><td>เป็น/อยู่/คือ</td><td>I am happy. | ฉันมีความสุข</td></tr>
+            <tr><td>become (บี-คัม)</td><td>become</td><td>became</td><td>become</td><td>becoming</td><td>กลายเป็น</td><td>She became a doctor. | เธอกลายเป็นหมอ</td></tr>
+            <tr><td>begin (บิ-กิน)</td><td>begin</td><td>began</td><td>begun</td><td>beginning</td><td>เริ่ม</td><td>Class begins at nine. | ชั้นเรียนเริ่มเก้าโมง</td></tr>
+            <tr><td>break (เบรก)</td><td>break</td><td>broke</td><td>broken</td><td>breaking</td><td>แตก/ทำพัง</td><td>Do not break the glass. | อย่าทำแก้วแตก</td></tr>
+            <tr><td>bring (บริง)</td><td>bring</td><td>brought</td><td>brought</td><td>bringing</td><td>นำมา</td><td>Bring your notebook. | นำสมุดมาด้วย</td></tr>
+            <tr><td>build (บิลด์)</td><td>build</td><td>built</td><td>built</td><td>building</td><td>สร้าง</td><td>They built a house. | พวกเขาสร้างบ้าน</td></tr>
+            <tr><td>buy (บาย)</td><td>buy</td><td>bought</td><td>bought</td><td>buying</td><td>ซื้อ</td><td>I bought milk. | ฉันซื้อนม</td></tr>
+            <tr><td>catch (แคตช์)</td><td>catch</td><td>caught</td><td>caught</td><td>catching</td><td>จับ/ขึ้นทัน</td><td>Catch the bus. | ขึ้นรถบัสให้ทัน</td></tr>
+            <tr><td>choose (ชูส)</td><td>choose</td><td>chose</td><td>chosen</td><td>choosing</td><td>เลือก</td><td>Choose one answer. | เลือกหนึ่งคำตอบ</td></tr>
+            <tr><td>come (คัม)</td><td>come</td><td>came</td><td>come</td><td>coming</td><td>มา</td><td>Please come here. | กรุณามาที่นี่</td></tr>
+            <tr><td>cost (คอสต์)</td><td>cost</td><td>cost</td><td>cost</td><td>costing</td><td>มีราคา</td><td>It costs ten dollars. | มันราคา 10 ดอลลาร์</td></tr>
+            <tr><td>cut (คัท)</td><td>cut</td><td>cut</td><td>cut</td><td>cutting</td><td>ตัด</td><td>Cut the paper. | ตัดกระดาษ</td></tr>
+            <tr><td>do (ดู)</td><td>do/does</td><td>did</td><td>done</td><td>doing</td><td>ทำ</td><td>Do your homework. | ทำการบ้านของคุณ</td></tr>
+            <tr><td>draw (ดรอว์)</td><td>draw</td><td>drew</td><td>drawn</td><td>drawing</td><td>วาด</td><td>She draws a flower. | เธอวาดดอกไม้</td></tr>
+            <tr><td>drink (ดริงก์)</td><td>drink</td><td>drank</td><td>drunk</td><td>drinking</td><td>ดื่ม</td><td>Drink water. | ดื่มน้ำ</td></tr>
+            <tr><td>drive (ไดรฟ์)</td><td>drive</td><td>drove</td><td>driven</td><td>driving</td><td>ขับรถ</td><td>He drives carefully. | เขาขับรถอย่างระมัดระวัง</td></tr>
+            <tr><td>eat (อีท)</td><td>eat</td><td>ate</td><td>eaten</td><td>eating</td><td>กิน</td><td>We eat rice. | พวกเรากินข้าว</td></tr>
+            <tr><td>fall (ฟอล)</td><td>fall</td><td>fell</td><td>fallen</td><td>falling</td><td>ตก/ล้ม</td><td>Leaves fall in autumn. | ใบไม้ร่วงในฤดูใบไม้ร่วง</td></tr>
+            <tr><td>feel (ฟีล)</td><td>feel</td><td>felt</td><td>felt</td><td>feeling</td><td>รู้สึก</td><td>I feel better. | ฉันรู้สึกดีขึ้น</td></tr>
+            <tr><td>find (ไฟนด์)</td><td>find</td><td>found</td><td>found</td><td>finding</td><td>พบ/หาเจอ</td><td>Find the answer. | หาคำตอบ</td></tr>
+            <tr><td>fly (ฟลาย)</td><td>fly</td><td>flew</td><td>flown</td><td>flying</td><td>บิน</td><td>Birds fly high. | นกบินสูง</td></tr>
+            <tr><td>forget (ฟอร์-เก็ต)</td><td>forget</td><td>forgot</td><td>forgotten</td><td>forgetting</td><td>ลืม</td><td>Do not forget me. | อย่าลืมฉัน</td></tr>
+            <tr><td>get (เก็ต)</td><td>get</td><td>got</td><td>got/gotten</td><td>getting</td><td>ได้รับ/ได้/กลายเป็น</td><td>I got a gift. | ฉันได้รับของขวัญ</td></tr>
+            <tr><td>give (กิฟ)</td><td>give</td><td>gave</td><td>given</td><td>giving</td><td>ให้</td><td>Give me a pen. | ให้ปากกาฉัน</td></tr>
+            <tr><td>go (โก)</td><td>go</td><td>went</td><td>gone</td><td>going</td><td>ไป</td><td>They go to school. | พวกเขาไปโรงเรียน</td></tr>
+            <tr><td>grow (โกร)</td><td>grow</td><td>grew</td><td>grown</td><td>growing</td><td>เติบโต/ปลูก</td><td>Plants grow fast. | พืชเติบโตเร็ว</td></tr>
+            <tr><td>have (แฮฟ)</td><td>have/has</td><td>had</td><td>had</td><td>having</td><td>มี/กิน</td><td>She has a car. | เธอมีรถ</td></tr>
+            <tr><td>hear (เฮียร์)</td><td>hear</td><td>heard</td><td>heard</td><td>hearing</td><td>ได้ยิน</td><td>I hear music. | ฉันได้ยินเสียงเพลง</td></tr>
+            <tr><td>hold (โฮลด์)</td><td>hold</td><td>held</td><td>held</td><td>holding</td><td>ถือ/จัด</td><td>Hold my hand. | จับมือฉัน</td></tr>
+            <tr><td>keep (คีพ)</td><td>keep</td><td>kept</td><td>kept</td><td>keeping</td><td>เก็บ/รักษา</td><td>Keep quiet. | เงียบไว้</td></tr>
+            <tr><td>know (โน)</td><td>know</td><td>knew</td><td>known</td><td>knowing</td><td>รู้</td><td>I know him. | ฉันรู้จักเขา</td></tr>
+            <tr><td>leave (ลีฟ)</td><td>leave</td><td>left</td><td>left</td><td>leaving</td><td>ออกจาก/ทิ้งไว้</td><td>We left early. | พวกเราออกไปเร็ว</td></tr>
+            <tr><td>lend (เลนด์)</td><td>lend</td><td>lent</td><td>lent</td><td>lending</td><td>ให้ยืม</td><td>Lend me your pen. | ให้ฉันยืมปากกา</td></tr>
+            <tr><td>let (เล็ท)</td><td>let</td><td>let</td><td>let</td><td>letting</td><td>อนุญาต/ปล่อย</td><td>Let me help. | ให้ฉันช่วย</td></tr>
+            <tr><td>lose (ลูส)</td><td>lose</td><td>lost</td><td>lost</td><td>losing</td><td>สูญเสีย/แพ้</td><td>Do not lose hope. | อย่าสูญเสียความหวัง</td></tr>
+            <tr><td>make (เมค)</td><td>make</td><td>made</td><td>made</td><td>making</td><td>ทำ/สร้าง</td><td>Make a cake. | ทำเค้ก</td></tr>
+            <tr><td>mean (มีน)</td><td>mean</td><td>meant</td><td>meant</td><td>meaning</td><td>หมายความว่า</td><td>What does it mean? | มันหมายความว่าอะไร</td></tr>
+            <tr><td>meet (มีท)</td><td>meet</td><td>met</td><td>met</td><td>meeting</td><td>พบ</td><td>Nice to meet you. | ยินดีที่ได้พบคุณ</td></tr>
+            <tr><td>pay (เพย์)</td><td>pay</td><td>paid</td><td>paid</td><td>paying</td><td>จ่าย</td><td>Pay the bill. | จ่ายบิล</td></tr>
+            <tr><td>put (พุท)</td><td>put</td><td>put</td><td>put</td><td>putting</td><td>วาง/ใส่</td><td>Put it here. | วางมันตรงนี้</td></tr>
+            <tr><td>read (รีด)</td><td>read</td><td>read</td><td>read</td><td>reading</td><td>อ่าน</td><td>Read this story. | อ่านเรื่องนี้</td></tr>
+            <tr><td>ride (ไรด์)</td><td>ride</td><td>rode</td><td>ridden</td><td>riding</td><td>ขี่</td><td>She rides a bike. | เธอขี่จักรยาน</td></tr>
+            <tr><td>ring (ริง)</td><td>ring</td><td>rang</td><td>rung</td><td>ringing</td><td>ดัง/โทร</td><td>The bell rang. | กระดิ่งดัง</td></tr>
+            <tr><td>run (รัน)</td><td>run</td><td>ran</td><td>run</td><td>running</td><td>วิ่ง/ดำเนิน</td><td>He runs every day. | เขาวิ่งทุกวัน</td></tr>
+            <tr><td>say (เซย์)</td><td>say</td><td>said</td><td>said</td><td>saying</td><td>พูดว่า</td><td>She said hello. | เธอกล่าวสวัสดี</td></tr>
+            <tr><td>see (ซี)</td><td>see</td><td>saw</td><td>seen</td><td>seeing</td><td>เห็น</td><td>I saw a bird. | ฉันเห็นนก</td></tr>
+            <tr><td>sell (เซล)</td><td>sell</td><td>sold</td><td>sold</td><td>selling</td><td>ขาย</td><td>They sell fruit. | พวกเขาขายผลไม้</td></tr>
+            <tr><td>send (เซนด์)</td><td>send</td><td>sent</td><td>sent</td><td>sending</td><td>ส่ง</td><td>Send me a message. | ส่งข้อความให้ฉัน</td></tr>
+            <tr><td>set (เซ็ต)</td><td>set</td><td>set</td><td>set</td><td>setting</td><td>ตั้ง/จัด</td><td>Set the alarm. | ตั้งนาฬิกาปลุก</td></tr>
+            <tr><td>show (โชว์)</td><td>show</td><td>showed</td><td>shown/showed</td><td>showing</td><td>แสดง/ให้ดู</td><td>Show me your work. | ให้ฉันดูงานของคุณ</td></tr>
+            <tr><td>sing (ซิง)</td><td>sing</td><td>sang</td><td>sung</td><td>singing</td><td>ร้องเพลง</td><td>She sings well. | เธอร้องเพลงเก่ง</td></tr>
+            <tr><td>sit (ซิท)</td><td>sit</td><td>sat</td><td>sat</td><td>sitting</td><td>นั่ง</td><td>Sit down. | นั่งลง</td></tr>
+            <tr><td>sleep (สลีพ)</td><td>sleep</td><td>slept</td><td>slept</td><td>sleeping</td><td>นอน</td><td>Sleep early. | นอนเร็ว</td></tr>
+            <tr><td>speak (สพีค)</td><td>speak</td><td>spoke</td><td>spoken</td><td>speaking</td><td>พูด</td><td>Speak English. | พูดภาษาอังกฤษ</td></tr>
+            <tr><td>spend (สเพนด์)</td><td>spend</td><td>spent</td><td>spent</td><td>spending</td><td>ใช้เวลา/เงิน</td><td>I spent two hours. | ฉันใช้เวลาสองชั่วโมง</td></tr>
+            <tr><td>stand (สแตนด์)</td><td>stand</td><td>stood</td><td>stood</td><td>standing</td><td>ยืน</td><td>Stand here. | ยืนตรงนี้</td></tr>
+            <tr><td>steal (สตีล)</td><td>steal</td><td>stole</td><td>stolen</td><td>stealing</td><td>ขโมย</td><td>Do not steal. | อย่าขโมย</td></tr>
+            <tr><td>swim (สวิม)</td><td>swim</td><td>swam</td><td>swum</td><td>swimming</td><td>ว่ายน้ำ</td><td>Can you swim? | คุณว่ายน้ำได้ไหม</td></tr>
+            <tr><td>take (เทค)</td><td>take</td><td>took</td><td>taken</td><td>taking</td><td>เอา/พา/ใช้เวลา</td><td>Take a photo. | ถ่ายรูป</td></tr>
+            <tr><td>teach (ทีช)</td><td>teach</td><td>taught</td><td>taught</td><td>teaching</td><td>สอน</td><td>He teaches math. | เขาสอนคณิตศาสตร์</td></tr>
+            <tr><td>tell (เทล)</td><td>tell</td><td>told</td><td>told</td><td>telling</td><td>บอก</td><td>Tell me the truth. | บอกความจริงกับฉัน</td></tr>
+            <tr><td>think (ธิงค์)</td><td>think</td><td>thought</td><td>thought</td><td>thinking</td><td>คิด</td><td>I think so. | ฉันคิดอย่างนั้น</td></tr>
+            <tr><td>throw (โธร)</td><td>throw</td><td>threw</td><td>thrown</td><td>throwing</td><td>โยน</td><td>Throw the ball. | โยนลูกบอล</td></tr>
+            <tr><td>understand (อัน-เดอะ-สแตนด์)</td><td>understand</td><td>understood</td><td>understood</td><td>understanding</td><td>เข้าใจ</td><td>I understand you. | ฉันเข้าใจคุณ</td></tr>
+            <tr><td>wake (เวค)</td><td>wake</td><td>woke</td><td>woken</td><td>waking</td><td>ตื่น/ปลุก</td><td>Wake up early. | ตื่นแต่เช้า</td></tr>
+            <tr><td>wear (แวร์)</td><td>wear</td><td>wore</td><td>worn</td><td>wearing</td><td>สวมใส่</td><td>Wear a jacket. | สวมแจ็กเก็ต</td></tr>
+            <tr><td>win (วิน)</td><td>win</td><td>won</td><td>won</td><td>winning</td><td>ชนะ</td><td>We won the game. | พวกเราชนะเกม</td></tr>
+            <tr><td>write (ไรท์)</td><td>write</td><td>wrote</td><td>written</td><td>writing</td><td>เขียน</td><td>Write your name. | เขียนชื่อของคุณ</td></tr>
+            <tr><td>accept (แอ็ค-เซ็พท์)</td><td>accept</td><td>accepted</td><td>accepted</td><td>accepting</td><td>ยอมรับ</td><td>Accept the offer. | ยอมรับข้อเสนอ</td></tr>
+            <tr><td>add (แอด)</td><td>add</td><td>added</td><td>added</td><td>adding</td><td>เพิ่ม</td><td>Add sugar. | เติมน้ำตาล</td></tr>
+            <tr><td>answer (แอน-เซอร์)</td><td>answer</td><td>answered</td><td>answered</td><td>answering</td><td>ตอบ</td><td>Answer the question. | ตอบคำถาม</td></tr>
+            <tr><td>ask (อาสค์)</td><td>ask</td><td>asked</td><td>asked</td><td>asking</td><td>ถาม/ขอ</td><td>Ask your teacher. | ถามครูของคุณ</td></tr>
+            <tr><td>believe (บิ-ลีฟ)</td><td>believe</td><td>believed</td><td>believed</td><td>believing</td><td>เชื่อ</td><td>I believe you. | ฉันเชื่อคุณ</td></tr>
+            <tr><td>call (คอล)</td><td>call</td><td>called</td><td>called</td><td>calling</td><td>โทร/เรียก</td><td>Call me later. | โทรหาฉันภายหลัง</td></tr>
+            <tr><td>change (เชนจ์)</td><td>change</td><td>changed</td><td>changed</td><td>changing</td><td>เปลี่ยน</td><td>Change your plan. | เปลี่ยนแผนของคุณ</td></tr>
+            <tr><td>clean (คลีน)</td><td>clean</td><td>cleaned</td><td>cleaned</td><td>cleaning</td><td>ทำความสะอาด</td><td>Clean your room. | ทำความสะอาดห้องของคุณ</td></tr>
+            <tr><td>close (โคลซ)</td><td>close</td><td>closed</td><td>closed</td><td>closing</td><td>ปิด</td><td>Close the door. | ปิดประตู</td></tr>
+            <tr><td>cook (คุก)</td><td>cook</td><td>cooked</td><td>cooked</td><td>cooking</td><td>ทำอาหาร</td><td>Mom cooks dinner. | แม่ทำอาหารเย็น</td></tr>
+            <tr><td>dance (แดนซ์)</td><td>dance</td><td>danced</td><td>danced</td><td>dancing</td><td>เต้น</td><td>They dance well. | พวกเขาเต้นเก่ง</td></tr>
+            <tr><td>decide (ดิ-ไซด์)</td><td>decide</td><td>decided</td><td>decided</td><td>deciding</td><td>ตัดสินใจ</td><td>Decide now. | ตัดสินใจตอนนี้</td></tr>
+            <tr><td>enjoy (เอ็น-จอย)</td><td>enjoy</td><td>enjoyed</td><td>enjoyed</td><td>enjoying</td><td>เพลิดเพลิน</td><td>Enjoy your meal. | ขอให้อร่อย</td></tr>
+            <tr><td>explain (อิก-สเพลน)</td><td>explain</td><td>explained</td><td>explained</td><td>explaining</td><td>อธิบาย</td><td>Explain the rule. | อธิบายกฎ</td></tr>
+            <tr><td>finish (ฟิน-นิช)</td><td>finish</td><td>finished</td><td>finished</td><td>finishing</td><td>ทำเสร็จ</td><td>Finish your work. | ทำงานของคุณให้เสร็จ</td></tr>
+            <tr><td>help (เฮลป์)</td><td>help</td><td>helped</td><td>helped</td><td>helping</td><td>ช่วย</td><td>Help your friend. | ช่วยเพื่อนของคุณ</td></tr>
+            <tr><td>hope (โฮพ)</td><td>hope</td><td>hoped</td><td>hoped</td><td>hoping</td><td>หวัง</td><td>I hope so. | ฉันหวังเช่นนั้น</td></tr>
+            <tr><td>invite (อิน-ไวท์)</td><td>invite</td><td>invited</td><td>invited</td><td>inviting</td><td>เชิญ</td><td>Invite your family. | เชิญครอบครัวของคุณ</td></tr>
+            <tr><td>join (จอยน์)</td><td>join</td><td>joined</td><td>joined</td><td>joining</td><td>เข้าร่วม</td><td>Join the club. | เข้าร่วมชมรม</td></tr>
+            <tr><td>learn (เลิร์น)</td><td>learn</td><td>learned/learnt</td><td>learned/learnt</td><td>learning</td><td>เรียนรู้</td><td>Learn English daily. | เรียนอังกฤษทุกวัน</td></tr>
+            <tr><td>like (ไลค์)</td><td>like</td><td>liked</td><td>liked</td><td>liking</td><td>ชอบ</td><td>I like tea. | ฉันชอบชา</td></tr>
+            <tr><td>listen (ลิส-ซึน)</td><td>listen</td><td>listened</td><td>listened</td><td>listening</td><td>ฟัง</td><td>Listen carefully. | ฟังอย่างตั้งใจ</td></tr>
+            <tr><td>live (ลิฟ)</td><td>live</td><td>lived</td><td>lived</td><td>living</td><td>อาศัยอยู่</td><td>I live in Bangkok. | ฉันอาศัยอยู่ในกรุงเทพฯ</td></tr>
+            <tr><td>look (ลุค)</td><td>look</td><td>looked</td><td>looked</td><td>looking</td><td>มอง/ดู</td><td>Look at me. | มองฉัน</td></tr>
+            <tr><td>love (เลิฟ)</td><td>love</td><td>loved</td><td>loved</td><td>loving</td><td>รัก</td><td>I love music. | ฉันรักดนตรี</td></tr>
+            <tr><td>move (มูฟ)</td><td>move</td><td>moved</td><td>moved</td><td>moving</td><td>ย้าย/เคลื่อน</td><td>Move the chair. | ย้ายเก้าอี้</td></tr>
+            <tr><td>need (นีด)</td><td>need</td><td>needed</td><td>needed</td><td>needing</td><td>ต้องการ/จำเป็น</td><td>I need help. | ฉันต้องการความช่วยเหลือ</td></tr>
+            <tr><td>open (โอ-เพิน)</td><td>open</td><td>opened</td><td>opened</td><td>opening</td><td>เปิด</td><td>Open the window. | เปิดหน้าต่าง</td></tr>
+            <tr><td>plan (แพลน)</td><td>plan</td><td>planned</td><td>planned</td><td>planning</td><td>วางแผน</td><td>Plan your trip. | วางแผนการเดินทาง</td></tr>
+            <tr><td>play (เพลย์)</td><td>play</td><td>played</td><td>played</td><td>playing</td><td>เล่น</td><td>Play football. | เล่นฟุตบอล</td></tr>
+            <tr><td>practice (แพร็ค-ทิส)</td><td>practice</td><td>practiced</td><td>practiced</td><td>practicing</td><td>ฝึกฝน</td><td>Practice speaking. | ฝึกพูด</td></tr>
+            <tr><td>prepare (พรี-แพร์)</td><td>prepare</td><td>prepared</td><td>prepared</td><td>preparing</td><td>เตรียม</td><td>Prepare for the test. | เตรียมสอบ</td></tr>
+            <tr><td>remember (ริ-เม็ม-เบอร์)</td><td>remember</td><td>remembered</td><td>remembered</td><td>remembering</td><td>จำได้</td><td>Remember this rule. | จำกฎนี้</td></tr>
+            <tr><td>start (สตาร์ท)</td><td>start</td><td>started</td><td>started</td><td>starting</td><td>เริ่ม</td><td>Start now. | เริ่มตอนนี้</td></tr>
+            <tr><td>study (สตัด-ดี)</td><td>study</td><td>studied</td><td>studied</td><td>studying</td><td>เรียน/ศึกษา</td><td>Study hard. | ตั้งใจเรียน</td></tr>
+            <tr><td>talk (ทอล์ค)</td><td>talk</td><td>talked</td><td>talked</td><td>talking</td><td>คุย</td><td>Talk to me. | คุยกับฉัน</td></tr>
+            <tr><td>travel (แทรฟ-เวิล)</td><td>travel</td><td>traveled</td><td>traveled</td><td>traveling</td><td>เดินทาง</td><td>We travel often. | พวกเราเดินทางบ่อย</td></tr>
+            <tr><td>try (ทราย)</td><td>try</td><td>tried</td><td>tried</td><td>trying</td><td>พยายาม/ลอง</td><td>Try again. | ลองอีกครั้ง</td></tr>
+            <tr><td>use (ยูส)</td><td>use</td><td>used</td><td>used</td><td>using</td><td>ใช้</td><td>Use a dictionary. | ใช้พจนานุกรม</td></tr>
+            <tr><td>visit (วิ-ซิท)</td><td>visit</td><td>visited</td><td>visited</td><td>visiting</td><td>เยี่ยม/ไปเที่ยว</td><td>Visit Thailand. | ไปเที่ยวประเทศไทย</td></tr>
+            <tr><td>wait (เวท)</td><td>wait</td><td>waited</td><td>waited</td><td>waiting</td><td>รอ</td><td>Wait here. | รอตรงนี้</td></tr>
+            <tr><td>want (วอนท์)</td><td>want</td><td>wanted</td><td>wanted</td><td>wanting</td><td>ต้องการ</td><td>I want coffee. | ฉันต้องการกาแฟ</td></tr>
+            <tr><td>watch (วอทช์)</td><td>watch</td><td>watched</td><td>watched</td><td>watching</td><td>ดู/เฝ้าดู</td><td>Watch TV. | ดูทีวี</td></tr>
+            <tr><td>work (เวิร์ค)</td><td>work</td><td>worked</td><td>worked</td><td>working</td><td>ทำงาน</td><td>Work together. | ทำงานร่วมกัน</td></tr>
+            <tr><td>worry (เวอร์-รี)</td><td>worry</td><td>worried</td><td>worried</td><td>worrying</td><td>กังวล</td><td>Do not worry. | อย่ากังวล</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tenses">
+      <div class="section-title"><h2>4. ⏰ 12 English Tenses | กาลภาษาอังกฤษ 12 แบบ</h2><p>Timeline symbols: Past ← Now → Future | อดีต ปัจจุบัน อนาคต</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tense</th><th>Formula</th><th>Signal Words</th><th>Usage</th><th>Positive</th><th>Negative</th><th>Question</th><th>Example</th><th>Timeline</th><th>Thai Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>Present Simple</td><td>S + V1(s/es)</td><td>always, usually, every day</td><td>Facts, habits | ความจริง นิสัย</td><td>She works.</td><td>She does not work.</td><td>Does she work?</td><td>The sun rises. | ดวงอาทิตย์ขึ้น</td><td>Now/repeated</td><td>ทำเป็นประจำ</td></tr>
+            <tr><td>Present Continuous</td><td>S + am/is/are + V-ing</td><td>now, right now, at the moment</td><td>Happening now | กำลังเกิดขึ้น</td><td>She is working.</td><td>She is not working.</td><td>Is she working?</td><td>I am studying now. | ฉันกำลังเรียน</td><td>Now in progress</td><td>กำลังทำ</td></tr>
+            <tr><td>Present Perfect</td><td>S + has/have + V3</td><td>already, yet, ever, since, for</td><td>Past result now | ผลจากอดีตถึงปัจจุบัน</td><td>She has worked.</td><td>She has not worked.</td><td>Has she worked?</td><td>I have finished. | ฉันทำเสร็จแล้ว</td><td>Past → Now</td><td>ทำแล้ว/เคยทำ</td></tr>
+            <tr><td>Present Perfect Continuous</td><td>S + has/have been + V-ing</td><td>since, for, all day</td><td>Started past, still continuing | เริ่มในอดีตและยังต่อเนื่อง</td><td>She has been working.</td><td>She has not been working.</td><td>Has she been working?</td><td>They have been waiting. | พวกเขารออยู่</td><td>Past → Now continuing</td><td>ทำมาตลอด</td></tr>
+            <tr><td>Past Simple</td><td>S + V2</td><td>yesterday, last night, ago</td><td>Finished past action | จบแล้วในอดีต</td><td>She worked.</td><td>She did not work.</td><td>Did she work?</td><td>We visited Chiang Mai. | เราไปเชียงใหม่</td><td>Past</td><td>ทำแล้วในอดีต</td></tr>
+            <tr><td>Past Continuous</td><td>S + was/were + V-ing</td><td>while, when, at 8 yesterday</td><td>Past action in progress | กำลังทำในอดีต</td><td>She was working.</td><td>She was not working.</td><td>Was she working?</td><td>I was sleeping when you called. | ฉันกำลังนอนตอนคุณโทร</td><td>Past in progress</td><td>กำลังทำอยู่ตอนนั้น</td></tr>
+            <tr><td>Past Perfect</td><td>S + had + V3</td><td>before, after, by the time</td><td>Earlier past action | เหตุการณ์ก่อนอีกอดีตหนึ่ง</td><td>She had worked.</td><td>She had not worked.</td><td>Had she worked?</td><td>He had left before I arrived. | เขาออกไปก่อนฉันมาถึง</td><td>Past before past</td><td>ทำไปแล้วก่อน</td></tr>
+            <tr><td>Past Perfect Continuous</td><td>S + had been + V-ing</td><td>for, since, before</td><td>Duration before past | ช่วงเวลาต่อเนื่องก่อนอดีต</td><td>She had been working.</td><td>She had not been working.</td><td>Had she been working?</td><td>It had been raining. | ฝนตกมาตลอด</td><td>Past continuing before past</td><td>ทำมาต่อเนื่องก่อนตอนนั้น</td></tr>
+            <tr><td>Future Simple</td><td>S + will + V1</td><td>tomorrow, soon, next week</td><td>Future, promise, prediction | อนาคต สัญญา คาดการณ์</td><td>She will work.</td><td>She will not work.</td><td>Will she work?</td><td>I will help you. | ฉันจะช่วยคุณ</td><td>Now → Future</td><td>จะทำ</td></tr>
+            <tr><td>Future Continuous</td><td>S + will be + V-ing</td><td>at this time tomorrow</td><td>Future action in progress | กำลังทำในอนาคต</td><td>She will be working.</td><td>She will not be working.</td><td>Will she be working?</td><td>I will be flying tomorrow. | ฉันจะกำลังบินพรุ่งนี้</td><td>Future in progress</td><td>จะกำลังทำ</td></tr>
+            <tr><td>Future Perfect</td><td>S + will have + V3</td><td>by, by then, by next year</td><td>Completed before future time | เสร็จก่อนเวลาอนาคต</td><td>She will have worked.</td><td>She will not have worked.</td><td>Will she have worked?</td><td>We will have finished by noon. | เราจะเสร็จก่อนเที่ยง</td><td>Before future point</td><td>จะทำเสร็จแล้ว</td></tr>
+            <tr><td>Future Perfect Continuous</td><td>S + will have been + V-ing</td><td>for, by, by the time</td><td>Duration up to future time | ระยะเวลาต่อเนื่องถึงอนาคต</td><td>She will have been working.</td><td>She will not have been working.</td><td>Will she have been working?</td><td>By May, I will have been studying for a year. | ถึงเดือนพฤษภาคม ฉันจะเรียนมาครบหนึ่งปี</td><td>Past/Now → Future duration</td><td>จะทำมาต่อเนื่อง</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="questions">
+      <div class="section-title"><h2>5. ❓ Question Words | คำแสดงคำถาม</h2><p>WH/H words help you ask for missing information | คำถามช่วยค้นหาข้อมูลที่ขาด</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Word</th><th>Meaning</th><th>Used For</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>Who (ฮู)</td><td>ใคร</td><td>Person as subject | คนที่เป็นประธาน</td><td>Who called you? | ใครโทรหาคุณ</td></tr>
+            <tr><td>Whom (ฮูม)</td><td>ใคร/ผู้ใด</td><td>Person as object | คนที่เป็นกรรม</td><td>Whom did you meet? | คุณพบใคร</td></tr>
+            <tr><td>Whose (ฮูซ)</td><td>ของใคร</td><td>Owner | เจ้าของ</td><td>Whose bag is this? | กระเป๋านี้ของใคร</td></tr>
+            <tr><td>What (วอท)</td><td>อะไร</td><td>Thing, action, information | สิ่งของ การกระทำ ข้อมูล</td><td>What do you want? | คุณต้องการอะไร</td></tr>
+            <tr><td>Which (วิช)</td><td>อันไหน</td><td>Choice | ตัวเลือก</td><td>Which one is yours? | อันไหนของคุณ</td></tr>
+            <tr><td>Where (แวร์)</td><td>ที่ไหน</td><td>Place | สถานที่</td><td>Where do you live? | คุณอาศัยอยู่ที่ไหน</td></tr>
+            <tr><td>When (เว็น)</td><td>เมื่อไร</td><td>Time | เวลา</td><td>When is your birthday? | วันเกิดคุณเมื่อไร</td></tr>
+            <tr><td>Why (วาย)</td><td>ทำไม</td><td>Reason | เหตุผล</td><td>Why are you late? | ทำไมคุณมาสาย</td></tr>
+            <tr><td>How (ฮาว)</td><td>อย่างไร</td><td>Method, condition | วิธีการ สภาพ</td><td>How are you? | คุณเป็นอย่างไร</td></tr>
+            <tr><td>How many (ฮาว เม-นี)</td><td>กี่/จำนวนเท่าไร</td><td>Countable quantity | ปริมาณนับได้</td><td>How many books? | หนังสือกี่เล่ม</td></tr>
+            <tr><td>How much (ฮาว มัช)</td><td>เท่าไร/ราคาเท่าไร</td><td>Uncountable quantity or price | ปริมาณนับไม่ได้/ราคา</td><td>How much water? | น้ำเท่าไร</td></tr>
+            <tr><td>How long (ฮาว ลอง)</td><td>นานแค่ไหน/ยาวแค่ไหน</td><td>Duration/length | ระยะเวลา/ความยาว</td><td>How long will it take? | จะใช้เวลานานแค่ไหน</td></tr>
+            <tr><td>How often (ฮาว ออฟ-เทิน)</td><td>บ่อยแค่ไหน</td><td>Frequency | ความถี่</td><td>How often do you exercise? | คุณออกกำลังกายบ่อยแค่ไหน</td></tr>
+            <tr><td>How far (ฮาว ฟาร์)</td><td>ไกลแค่ไหน</td><td>Distance | ระยะทาง</td><td>How far is it? | มันไกลแค่ไหน</td></tr>
+            <tr><td>How old (ฮาว โอลด์)</td><td>อายุเท่าไร</td><td>Age | อายุ</td><td>How old are you? | คุณอายุเท่าไร</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="prepositions">
+      <div class="section-title"><h2>6. 📍 Prepositions | คำบุพบท</h2><p>Prepositions show time, place, movement, direction, method, and reason | บอกเวลา สถานที่ การเคลื่อนที่ ทิศทาง วิธี เหตุผล</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Group</th><th>Prepositions</th><th>Rules / Thai Meaning</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td>Time | เวลา</td><td>at, on, in, by, before, after, during, for, since, until</td><td>at = เวลาแน่นอน, on = วัน, in = เดือน/ปี/ช่วงยาว</td><td>at 7 o'clock | เจ็ดโมง; on Monday | วันจันทร์; in June | เดือนมิถุนายน</td></tr>
+            <tr><td>Place | สถานที่</td><td>in, on, at, under, above, between, among, near, beside, behind</td><td>in = ใน, on = บน, at = จุด/สถานที่</td><td>in the room | ในห้อง; on the table | บนโต๊ะ; at school | ที่โรงเรียน</td></tr>
+            <tr><td>Movement | การเคลื่อนที่</td><td>to, into, onto, out of, off, through, across, along, past, around</td><td>บอกการเคลื่อนจากที่หนึ่งไปอีกที่หนึ่ง</td><td>walk to school | เดินไปโรงเรียน; go into the room | เข้าไปในห้อง</td></tr>
+            <tr><td>Direction | ทิศทาง</td><td>up, down, toward, away from, from, over, under, left, right, north</td><td>บอกทิศทางหรือแนวการเคลื่อน</td><td>look toward the door | มองไปทางประตู; walk down the street | เดินไปตามถนน</td></tr>
+            <tr><td>Method | วิธีการ</td><td>by, with, without, via, through, on, in</td><td>by = โดย, with = ด้วย, without = โดยไม่มี</td><td>by bus | โดยรถบัส; write with a pen | เขียนด้วยปากกา</td></tr>
+            <tr><td>Reason | เหตุผล</td><td>for, because of, due to, thanks to, from, out of</td><td>บอกสาเหตุหรือวัตถุประสงค์</td><td>because of rain | เพราะฝน; for health | เพื่อสุขภาพ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="conjunctions">
+      <div class="section-title"><h2>7. 🔗 Conjunctions | คำสันธาน</h2><p>Connect ideas smoothly | เชื่อมความคิดให้ลื่นไหล</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Group</th><th>Words</th><th>Use / Thai Meaning</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td>Coordinating | FANBOYS</td><td>for, and, nor, but, or, yet, so</td><td>Connect equal ideas | เชื่อมสิ่งที่เท่ากัน</td><td>I like tea and coffee. | ฉันชอบชาและกาแฟ; She was tired, but she studied. | เธอเหนื่อยแต่เธอเรียน</td></tr>
+            <tr><td>Subordinating</td><td>because, although, if, when, while, before, after, since, until, unless</td><td>Connect main clause + dependent clause | เชื่อมประโยคหลักกับอนุประโยค</td><td>I stayed home because it rained. | ฉันอยู่บ้านเพราะฝนตก</td></tr>
+            <tr><td>Correlative</td><td>both...and, either...or, neither...nor, not only...but also, whether...or</td><td>Paired connectors | คำเชื่อมเป็นคู่</td><td>Both Tom and Ann are kind. | ทั้งทอมและแอนใจดี</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="pronouns">
+      <div class="section-title"><h2>8. 👤 Pronouns | คำสรรพนาม</h2><p>Use the right form by position | เลือกรูปให้ตรงตำแหน่ง</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Subject</th><th>Object</th><th>Possessive Adjective</th><th>Possessive Pronoun</th><th>Reflexive</th><th>Thai Meaning</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>I (ไอ)</td><td>me (มี)</td><td>my (มาย)</td><td>mine (มายน์)</td><td>myself (มาย-เซลฟ์)</td><td>ฉัน</td><td>I love my family. | ฉันรักครอบครัวของฉัน</td></tr>
+            <tr><td>you (ยู)</td><td>you (ยู)</td><td>your (ยัวร์)</td><td>yours (ยัวร์ซ)</td><td>yourself/yourselves (ยัวร์-เซลฟ์/ยัวร์-เซลฟ์ซ)</td><td>คุณ/พวกคุณ</td><td>This book is yours. | หนังสือนี้เป็นของคุณ</td></tr>
+            <tr><td>he (ฮี)</td><td>him (ฮิม)</td><td>his (ฮิส)</td><td>his (ฮิส)</td><td>himself (ฮิม-เซลฟ์)</td><td>เขาผู้ชาย</td><td>He helped himself. | เขาช่วยตัวเอง</td></tr>
+            <tr><td>she (ชี)</td><td>her (เฮอร์)</td><td>her (เฮอร์)</td><td>hers (เฮอร์ซ)</td><td>herself (เฮอร์-เซลฟ์)</td><td>เธอผู้หญิง</td><td>Her bag is red. | กระเป๋าของเธอสีแดง</td></tr>
+            <tr><td>it (อิท)</td><td>it (อิท)</td><td>its (อิทส์)</td><td>its (rare)</td><td>itself (อิท-เซลฟ์)</td><td>มัน</td><td>The cat licked itself. | แมวเลียตัวเอง</td></tr>
+            <tr><td>we (วี)</td><td>us (อัส)</td><td>our (อาวร์)</td><td>ours (อาวร์ซ)</td><td>ourselves (อาวร์-เซลฟ์ซ)</td><td>พวกเรา</td><td>Our team won. | ทีมของเราชนะ</td></tr>
+            <tr><td>they (เธย์)</td><td>them (เธ็ม)</td><td>their (แธร์)</td><td>theirs (แธร์ซ)</td><td>themselves (เธ็ม-เซลฟ์ซ)</td><td>พวกเขา</td><td>They did it themselves. | พวกเขาทำเอง</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="articles">
+      <div class="section-title"><h2>9. 🏷️ Articles | คำนำหน้านาม</h2><p>a, an, the, and zero article | ใช้กับคำนามให้ถูกต้อง</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Article</th><th>Pronunciation</th><th>Rules</th><th>Examples</th><th>Thai Meaning / Notes</th></tr></thead>
+          <tbody>
+            <tr><td>a</td><td>อะ</td><td>Before singular countable noun starting with consonant sound | หน้านามนับได้เอกพจน์เสียงพยัญชนะ</td><td>a book, a university</td><td>หนึ่ง/สักหนึ่ง | university ออกเสียงยู จึงใช้ a</td></tr>
+            <tr><td>an</td><td>แอน</td><td>Before singular countable noun starting with vowel sound | หน้านามนับได้เอกพจน์เสียงสระ</td><td>an apple, an hour</td><td>หนึ่ง/สักหนึ่ง | hour เสียงขึ้นต้นเป็นเอา</td></tr>
+            <tr><td>the</td><td>เดอะ/ดิ</td><td>Specific noun, known noun, unique thing | นามเฉพาะเจาะจง รู้กันแล้ว สิ่งเดียว</td><td>the sun, the book on the table</td><td>นั้น/นี้/ดังกล่าว</td></tr>
+            <tr><td>No article</td><td>โน อาร์-ทิ-เคิล</td><td>General plural/uncountable, names, meals, languages | นามพหูพจน์ทั่วไป นามนับไม่ได้ ชื่อ ภาษา มื้ออาหาร</td><td>I like cats. Water is important. Thai is easy.</td><td>ไม่ต้องใส่ a/an/the</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="modals">
+      <div class="section-title"><h2>10. 🧠 Modal Verbs | กริยาช่วยแสดงความหมายพิเศษ</h2><p>Modal + base verb | Modal ตามด้วย V1 ไม่เติม s/es</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Modal</th><th>Use</th><th>Meaning</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td>can (แคน)</td><td>Ability, permission | ความสามารถ อนุญาต</td><td>สามารถ/ได้</td><td>I can swim. | ฉันว่ายน้ำได้</td></tr>
+            <tr><td>could (คุด)</td><td>Past ability, polite request | ความสามารถในอดีต ขอแบบสุภาพ</td><td>เคยสามารถ/ช่วย...ได้ไหม</td><td>Could you help me? | คุณช่วยฉันได้ไหม</td></tr>
+            <tr><td>may (เมย์)</td><td>Permission, possibility | ขออนุญาต ความเป็นไปได้</td><td>อาจ/ขอ</td><td>May I come in? | ขอเข้าไปได้ไหม</td></tr>
+            <tr><td>might (ไมท์)</td><td>Small possibility | ความเป็นไปได้น้อย</td><td>อาจจะ</td><td>It might rain. | ฝนอาจจะตก</td></tr>
+            <tr><td>must (มัสต์)</td><td>Strong obligation, certainty | จำเป็นมาก ความแน่ใจ</td><td>ต้อง/ต้องเป็น</td><td>You must stop. | คุณต้องหยุด</td></tr>
+            <tr><td>shall (แชล)</td><td>Offer, formal future | เสนอ/อนาคตแบบทางการ</td><td>จะ/ให้...ไหม</td><td>Shall we begin? | เราเริ่มกันไหม</td></tr>
+            <tr><td>should (ชูด)</td><td>Advice, expectation | คำแนะนำ ความคาดหวัง</td><td>ควร</td><td>You should rest. | คุณควรพักผ่อน</td></tr>
+            <tr><td>will (วิล)</td><td>Future, promise, willingness | อนาคต สัญญา ความเต็มใจ</td><td>จะ</td><td>I will call you. | ฉันจะโทรหาคุณ</td></tr>
+            <tr><td>would (วูด)</td><td>Polite request, habit in past, imagined situation | สุภาพ นิสัยอดีต สมมติ</td><td>จะ/อยากจะ</td><td>I would like tea. | ฉันอยากได้ชา</td></tr>
+            <tr><td>ought to (ออท ทู)</td><td>Moral advice | คำแนะนำเชิงควรทำ</td><td>ควรจะ</td><td>You ought to apologize. | คุณควรขอโทษ</td></tr>
+            <tr><td>need (นีด)</td><td>Necessity | ความจำเป็น</td><td>จำเป็นต้อง</td><td>You need not worry. | คุณไม่จำเป็นต้องกังวล</td></tr>
+            <tr><td>dare (แดร์)</td><td>Courage/challenge | กล้า/ท้า</td><td>กล้า</td><td>How dare you say that? | คุณกล้าพูดอย่างนั้นได้อย่างไร</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="rules">
+      <div class="section-title"><h2>11. 📏 Common Grammar Rules | กฎไวยากรณ์สำคัญ</h2><p>High-frequency rules for exams and writing | กฎที่ใช้บ่อยในการสอบและการเขียน</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Rule</th><th>English Explanation</th><th>Thai Explanation</th><th>Example</th><th>Tip</th></tr></thead>
+          <tbody>
+            <tr><td>Subject Verb Agreement</td><td>Subject and verb must match.</td><td>ประธานกับกริยาต้องสอดคล้องกัน</td><td>She likes music. They like music.</td><td>He/She/It + V-s/es</td></tr>
+            <tr><td>Plural Rules</td><td>Add -s, -es, or change spelling.</td><td>เติม -s, -es หรือเปลี่ยนรูป</td><td>cat → cats, box → boxes, child → children</td><td>Check irregular plurals.</td></tr>
+            <tr><td>Countable</td><td>Can be counted; use a/an, many, few.</td><td>นับได้ ใช้ a/an, many, few</td><td>a book, three apples</td><td>Ask “How many?”</td></tr>
+            <tr><td>Uncountable</td><td>Cannot be counted directly; use much, little.</td><td>นับตรงไม่ได้ ใช้ much, little</td><td>water, rice, information</td><td>Ask “How much?”</td></tr>
+            <tr><td>Comparative</td><td>Compare two things.</td><td>เปรียบเทียบสองสิ่ง</td><td>taller, more beautiful</td><td>short adj + -er; long adj + more</td></tr>
+            <tr><td>Superlative</td><td>Compare one with all others.</td><td>ที่สุดในกลุ่ม</td><td>the tallest, the most beautiful</td><td>Usually use “the”.</td></tr>
+            <tr><td>Gerund</td><td>V-ing used as noun.</td><td>V-ing ทำหน้าที่เป็นคำนาม</td><td>Swimming is fun.</td><td>After enjoy, avoid, finish, mind.</td></tr>
+            <tr><td>Infinitive</td><td>to + V1 or bare V1.</td><td>to + กริยาช่อง 1 หรือ V1 เปล่า</td><td>I want to learn. Let me go.</td><td>After modal: no “to”.</td></tr>
+            <tr><td>Passive Voice</td><td>Focus on receiver of action.</td><td>เน้นผู้ถูกกระทำ</td><td>The room was cleaned.</td><td>be + V3</td></tr>
+            <tr><td>Reported Speech</td><td>Report someone’s words.</td><td>เล่าคำพูดของคนอื่น</td><td>He said that he was tired.</td><td>Often shift tense back.</td></tr>
+            <tr><td>Conditionals</td><td>If-sentences for real/imagined results.</td><td>ประโยคเงื่อนไข</td><td>If it rains, I will stay home.</td><td>If + present, will + V1.</td></tr>
+            <tr><td>Relative Clauses</td><td>Add information about a noun.</td><td>อนุประโยคขยายคำนาม</td><td>The man who called is my uncle.</td><td>who = person, which = thing, that = both.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="mistakes">
+      <div class="section-title"><h2>12. ⚠️ Common Mistakes | ข้อผิดพลาดที่พบบ่อย</h2><p>Wrong vs correct with reasons | เปรียบเทียบผิด-ถูกพร้อมเหตุผล</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>No.</th><th>Wrong</th><th>Correct</th><th>Reason</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>He go to school.</td><td>He goes to school.</td><td>He/She/It + V-s/es | ประธานเอกพจน์เติม s/es</td><td>He goes every day. | เขาไปทุกวัน</td></tr>
+            <tr><td>2</td><td>She don't like tea.</td><td>She doesn't like tea.</td><td>Use does not with she | ใช้ does กับ she</td><td>She doesn't like tea. | เธอไม่ชอบชา</td></tr>
+            <tr><td>3</td><td>I am agree.</td><td>I agree.</td><td>Agree is a verb | agree เป็นกริยา</td><td>I agree with you. | ฉันเห็นด้วยกับคุณ</td></tr>
+            <tr><td>4</td><td>I am go home.</td><td>I am going home.</td><td>Continuous needs V-ing | กำลังทำต้องใช้ V-ing</td><td>I am going now. | ฉันกำลังไปตอนนี้</td></tr>
+            <tr><td>5</td><td>She can sings.</td><td>She can sing.</td><td>Modal + V1 | หลัง modal ใช้ V1</td><td>She can sing well. | เธอร้องเพลงได้ดี</td></tr>
+            <tr><td>6</td><td>He did went.</td><td>He did go / He went.</td><td>Did + V1 | did ตามด้วย V1</td><td>Did he go? | เขาไปไหม</td></tr>
+            <tr><td>7</td><td>I have 20 years.</td><td>I am 20 years old.</td><td>Age uses be | อายุใช้ verb be</td><td>I am 20. | ฉันอายุ 20</td></tr>
+            <tr><td>8</td><td>It depend on you.</td><td>It depends on you.</td><td>It + V-s | it เติม s</td><td>It depends. | แล้วแต่</td></tr>
+            <tr><td>9</td><td>She is teacher.</td><td>She is a teacher.</td><td>Singular countable noun needs article | นามนับได้เอกพจน์ต้องมี article</td><td>He is a doctor. | เขาเป็นหมอ</td></tr>
+            <tr><td>10</td><td>I like a music.</td><td>I like music.</td><td>Music is uncountable/general | music นับไม่ได้</td><td>I love music. | ฉันรักดนตรี</td></tr>
+            <tr><td>11</td><td>She has a informations.</td><td>She has information.</td><td>Information is uncountable | information นับไม่ได้</td><td>I need information. | ฉันต้องการข้อมูล</td></tr>
+            <tr><td>12</td><td>Many water</td><td>Much water</td><td>Use much with uncountable | ใช้ much กับนับไม่ได้</td><td>How much water? | น้ำเท่าไร</td></tr>
+            <tr><td>13</td><td>Much books</td><td>Many books</td><td>Use many with countable plural | ใช้ many กับพหูพจน์นับได้</td><td>Many students came. | นักเรียนหลายคนมา</td></tr>
+            <tr><td>14</td><td>I have a lot of homeworks.</td><td>I have a lot of homework.</td><td>Homework is uncountable | homework นับไม่ได้</td><td>Some homework. | การบ้านบางส่วน</td></tr>
+            <tr><td>15</td><td>She is more tall.</td><td>She is taller.</td><td>Short adjective + -er | คุณศัพท์สั้นเติม -er</td><td>He is older. | เขาแก่กว่า</td></tr>
+            <tr><td>16</td><td>The most fastest</td><td>The fastest</td><td>Do not double compare | ไม่ใช้ซ้ำซ้อน</td><td>the best, not most best | ดีที่สุด</td></tr>
+            <tr><td>17</td><td>Better than me am.</td><td>Better than I am / better than me.</td><td>Complete clause or object form | ใช้ประโยคสมบูรณ์หรือกรรม</td><td>She is taller than I am. | เธอสูงกว่าฉัน</td></tr>
+            <tr><td>18</td><td>I very like it.</td><td>I like it very much.</td><td>Very does not modify verbs directly | very ไม่ขยายกริยาโดยตรง</td><td>I really like it. | ฉันชอบจริงๆ</td></tr>
+            <tr><td>19</td><td>She sings beautiful.</td><td>She sings beautifully.</td><td>Adverb modifies verb | adverb ขยายกริยา</td><td>He speaks clearly. | เขาพูดชัดเจน</td></tr>
+            <tr><td>20</td><td>He is a loudly person.</td><td>He is a loud person.</td><td>Adjective modifies noun | adjective ขยายนาม</td><td>a quick answer | คำตอบเร็ว</td></tr>
+            <tr><td>21</td><td>I went to there.</td><td>I went there.</td><td>There is an adverb, no to | there ไม่ต้องมี to</td><td>Come here. | มาที่นี่</td></tr>
+            <tr><td>22</td><td>Go to home.</td><td>Go home.</td><td>Home as adverb often no to | home เป็น adverb</td><td>I went home. | ฉันกลับบ้าน</td></tr>
+            <tr><td>23</td><td>Discuss about it.</td><td>Discuss it.</td><td>Discuss takes direct object | discuss ไม่ใช้ about</td><td>We discussed the plan. | เราคุยแผน</td></tr>
+            <tr><td>24</td><td>Married with him.</td><td>Married to him.</td><td>Use married to | แต่งงานกับใช้ to</td><td>She is married to Tom. | เธอแต่งงานกับทอม</td></tr>
+            <tr><td>25</td><td>Listen music.</td><td>Listen to music.</td><td>Listen takes to | listen ใช้ to</td><td>Listen to me. | ฟังฉัน</td></tr>
+            <tr><td>26</td><td>Explain me the rule.</td><td>Explain the rule to me.</td><td>Explain + thing + to person | explain + สิ่ง + to คน</td><td>Explain it to her. | อธิบายให้เธอฟัง</td></tr>
+            <tr><td>27</td><td>Borrow me your pen.</td><td>Lend me your pen.</td><td>Borrow = take, lend = give | borrow=ยืมจาก lend=ให้ยืม</td><td>Can I borrow your pen? | ฉันขอยืมปากกาได้ไหม</td></tr>
+            <tr><td>28</td><td>Can you borrow me money?</td><td>Can you lend me money?</td><td>Speaker receives; other person lends | ผู้พูดรับ อีกฝ่ายให้ยืม</td><td>She lent me money. | เธอให้ฉันยืมเงิน</td></tr>
+            <tr><td>29</td><td>I look forward to meet you.</td><td>I look forward to meeting you.</td><td>to is preposition here + V-ing | to เป็นบุพบทจึงตามด้วย V-ing</td><td>Look forward to seeing you. | ตั้งตารอพบคุณ</td></tr>
+            <tr><td>30</td><td>I enjoy to read.</td><td>I enjoy reading.</td><td>Enjoy + V-ing | enjoy ตามด้วย V-ing</td><td>I enjoy cooking. | ฉันสนุกกับการทำอาหาร</td></tr>
+            <tr><td>31</td><td>I want go.</td><td>I want to go.</td><td>Want + to V1 | want ตามด้วย to V1</td><td>She wants to learn. | เธอต้องการเรียน</td></tr>
+            <tr><td>32</td><td>Let me to help.</td><td>Let me help.</td><td>Let + object + V1 | let ตามด้วย object + V1</td><td>Let him go. | ปล่อยเขาไป</td></tr>
+            <tr><td>33</td><td>Make me to laugh.</td><td>Make me laugh.</td><td>Make + object + V1 | make ตามด้วย object + V1</td><td>It made me cry. | มันทำให้ฉันร้องไห้</td></tr>
+            <tr><td>34</td><td>I suggest you to study.</td><td>I suggest that you study.</td><td>Suggest + that clause | suggest ใช้ that clause</td><td>She suggested that we wait. | เธอแนะนำให้เรารอ</td></tr>
+            <tr><td>35</td><td>He avoid to answer.</td><td>He avoids answering.</td><td>Avoid + V-ing | avoid ตามด้วย V-ing</td><td>Avoid making noise. | เลี่ยงการส่งเสียง</td></tr>
+            <tr><td>36</td><td>I am used to wake early.</td><td>I am used to waking early.</td><td>Be used to + V-ing | คุ้นเคยกับใช้ V-ing</td><td>She is used to driving. | เธอชินกับการขับรถ</td></tr>
+            <tr><td>37</td><td>I used to waking early.</td><td>I used to wake early.</td><td>Used to + V1 for past habit | เคยทำใช้ V1</td><td>I used to live here. | ฉันเคยอยู่ที่นี่</td></tr>
+            <tr><td>38</td><td>I have seen him yesterday.</td><td>I saw him yesterday.</td><td>Finished time uses past simple | เวลาจบแล้วใช้ past simple</td><td>She called last night. | เธอโทรเมื่อคืน</td></tr>
+            <tr><td>39</td><td>I didn't went.</td><td>I didn't go.</td><td>Didn't + V1 | didn't ตามด้วย V1</td><td>He didn't eat. | เขาไม่ได้กิน</td></tr>
+            <tr><td>40</td><td>Have you ever went?</td><td>Have you ever gone?</td><td>Perfect uses V3 | perfect ใช้ V3</td><td>Have you ever been there? | คุณเคยไปที่นั่นไหม</td></tr>
+            <tr><td>41</td><td>I have been to there.</td><td>I have been there.</td><td>No to before there | there ไม่ใช้ to</td><td>I have been home. | ฉันเคยอยู่บ้าน</td></tr>
+            <tr><td>42</td><td>Since three years</td><td>For three years</td><td>For + duration | for + ระยะเวลา</td><td>for two days | เป็นเวลาสองวัน</td></tr>
+            <tr><td>43</td><td>For 2020</td><td>Since 2020</td><td>Since + starting point | since + จุดเริ่มต้น</td><td>since Monday | ตั้งแต่วันจันทร์</td></tr>
+            <tr><td>44</td><td>I live here since 2020.</td><td>I have lived here since 2020.</td><td>Since to now uses present perfect | ตั้งแต่อดีตถึงปัจจุบันใช้ present perfect</td><td>She has worked here for years. | เธอทำงานที่นี่มาหลายปี</td></tr>
+            <tr><td>45</td><td>When I will arrive, I call you.</td><td>When I arrive, I will call you.</td><td>Time clause uses present for future | อนุประโยคเวลาใช้ present</td><td>If it rains, I will stay. | ถ้าฝนตก ฉันจะอยู่</td></tr>
+            <tr><td>46</td><td>If I will see him</td><td>If I see him</td><td>If clause type 1 uses present | if clause ใช้ present</td><td>If you study, you will pass. | ถ้าคุณเรียน คุณจะผ่าน</td></tr>
+            <tr><td>47</td><td>If I was rich</td><td>If I were rich</td><td>Hypothetical often uses were | สมมติใช้ were</td><td>If I were you. | ถ้าฉันเป็นคุณ</td></tr>
+            <tr><td>48</td><td>I wish I am taller.</td><td>I wish I were taller.</td><td>Wish unreal present uses past form | wish สมมติใช้รูปอดีต</td><td>I wish I knew. | ฉันหวังว่าฉันรู้</td></tr>
+            <tr><td>49</td><td>She said she is tired.</td><td>She said she was tired.</td><td>Reported speech often backshifts | reported speech ถอย tense</td><td>He said he had a car. | เขาบอกว่าเขามีรถ</td></tr>
+            <tr><td>50</td><td>He asked where was I.</td><td>He asked where I was.</td><td>Indirect question uses statement order | คำถามอ้อมเรียงเหมือนบอกเล่า</td><td>Do you know where she lives? | คุณรู้ไหมว่าเธออยู่ที่ไหน</td></tr>
+            <tr><td>51</td><td>Do you know where does he live?</td><td>Do you know where he lives?</td><td>No auxiliary in indirect question | คำถามอ้อมไม่ใช้ does</td><td>I wonder what she wants. | ฉันสงสัยว่าเธอต้องการอะไร</td></tr>
+            <tr><td>52</td><td>Where you are going?</td><td>Where are you going?</td><td>Direct question needs auxiliary inversion | คำถามตรงสลับช่วยกริยา</td><td>What do you mean? | คุณหมายความว่าอะไร</td></tr>
+            <tr><td>53</td><td>Why you late?</td><td>Why are you late?</td><td>Need be verb | ต้องมี verb be</td><td>Why is he sad? | ทำไมเขาเศร้า</td></tr>
+            <tr><td>54</td><td>What means this word?</td><td>What does this word mean?</td><td>Use do/does in question | คำถามใช้ do/does</td><td>What does it mean? | มันหมายความว่าอะไร</td></tr>
+            <tr><td>55</td><td>How do you call this?</td><td>What do you call this?</td><td>Ask name with what | ถามชื่อเรียกใช้ what</td><td>What do you call this in English? | ภาษาอังกฤษเรียกว่าอะไร</td></tr>
+            <tr><td>56</td><td>How is it called?</td><td>What is it called?</td><td>Use what for name | ใช้ what ถามชื่อ</td><td>What is this called? | สิ่งนี้เรียกว่าอะไร</td></tr>
+            <tr><td>57</td><td>I and my friend went.</td><td>My friend and I went.</td><td>Put I last in compound subject | วาง I หลังสุด</td><td>Tom and I studied. | ทอมและฉันเรียน</td></tr>
+            <tr><td>58</td><td>Me and him are friends.</td><td>He and I are friends.</td><td>Subject pronouns needed | ต้องใช้รูปประธาน</td><td>She and I work here. | เธอกับฉันทำงานที่นี่</td></tr>
+            <tr><td>59</td><td>Between you and I</td><td>Between you and me</td><td>After preposition use object pronoun | หลัง preposition ใช้กรรม</td><td>for him and me | สำหรับเขาและฉัน</td></tr>
+            <tr><td>60</td><td>This is mine book.</td><td>This is my book.</td><td>Possessive adjective before noun | หน้านามใช้ my</td><td>This book is mine. | หนังสือนี้เป็นของฉัน</td></tr>
+            <tr><td>61</td><td>Its raining.</td><td>It's raining.</td><td>It's = it is | it's = it is</td><td>It's cold. | อากาศหนาว</td></tr>
+            <tr><td>62</td><td>The dog wagged it's tail.</td><td>The dog wagged its tail.</td><td>Its = possessive | its = ของมัน</td><td>The cat ate its food. | แมวกินอาหารของมัน</td></tr>
+            <tr><td>63</td><td>Your welcome.</td><td>You're welcome.</td><td>You're = you are | you're = you are</td><td>You're kind. | คุณใจดี</td></tr>
+            <tr><td>64</td><td>You're book</td><td>Your book</td><td>Your = possessive | your = ของคุณ</td><td>Your idea is good. | ความคิดของคุณดี</td></tr>
+            <tr><td>65</td><td>There car is red.</td><td>Their car is red.</td><td>Their = possessive | their = ของพวกเขา</td><td>Their house is big. | บ้านของพวกเขาใหญ่</td></tr>
+            <tr><td>66</td><td>Their are many people.</td><td>There are many people.</td><td>There are = มี | there are = มี</td><td>There is a problem. | มีปัญหา</td></tr>
+            <tr><td>67</td><td>Too people came.</td><td>Two people came.</td><td>Two = number | two = เลขสอง</td><td>Two cats. | แมวสองตัว</td></tr>
+            <tr><td>68</td><td>I have too books.</td><td>I have two books.</td><td>Too = also/excessively | too = ด้วย/เกินไป</td><td>Too hot. | ร้อนเกินไป</td></tr>
+            <tr><td>69</td><td>I go to school by walk.</td><td>I walk to school / go on foot.</td><td>Use on foot, not by walk | ใช้ on foot</td><td>He goes by bus. | เขาไปโดยรถบัส</td></tr>
+            <tr><td>70</td><td>I go by my car.</td><td>I go in my car / by car.</td><td>by car has no possessive | by car ไม่ใส่ my</td><td>by taxi, in a taxi | โดยแท็กซี่/ในแท็กซี่</td></tr>
+            <tr><td>71</td><td>In Monday</td><td>On Monday</td><td>Use on for days | วันใช้ on</td><td>on Friday | วันศุกร์</td></tr>
+            <tr><td>72</td><td>On July</td><td>In July</td><td>Use in for months | เดือนใช้ in</td><td>in 2026 | ปี 2026</td></tr>
+            <tr><td>73</td><td>At the morning</td><td>In the morning</td><td>Use in for parts of day | ช่วงวันใช้ in</td><td>in the evening | ตอนเย็น</td></tr>
+            <tr><td>74</td><td>In night</td><td>At night</td><td>Use at night | กลางคืนใช้ at night</td><td>at noon | ตอนเที่ยง</td></tr>
+            <tr><td>75</td><td>On 7 o'clock</td><td>At 7 o'clock</td><td>Exact time uses at | เวลาเจาะจงใช้ at</td><td>at midnight | เที่ยงคืน</td></tr>
+            <tr><td>76</td><td>Arrive to Bangkok</td><td>Arrive in Bangkok</td><td>Arrive in city/country | เมือง/ประเทศใช้ in</td><td>arrive at the station | ถึงสถานี</td></tr>
+            <tr><td>77</td><td>Arrive to school</td><td>Arrive at school</td><td>Arrive at place/building | สถานที่ใช้ at</td><td>arrive at work | ถึงที่ทำงาน</td></tr>
+            <tr><td>78</td><td>Different than</td><td>Different from</td><td>Standard phrase | วลีมาตรฐาน</td><td>This is different from that. | สิ่งนี้ต่างจากสิ่งนั้น</td></tr>
+            <tr><td>79</td><td>Similar with</td><td>Similar to</td><td>Use similar to | similar ใช้ to</td><td>It is similar to mine. | มันคล้ายของฉัน</td></tr>
+            <tr><td>80</td><td>Good in English</td><td>Good at English</td><td>Skill uses good at | ทักษะใช้ good at</td><td>good at math | เก่งคณิตศาสตร์</td></tr>
+            <tr><td>81</td><td>Interested on</td><td>Interested in</td><td>Use interested in | สนใจใช้ in</td><td>I am interested in art. | ฉันสนใจศิลปะ</td></tr>
+            <tr><td>82</td><td>Afraid from</td><td>Afraid of</td><td>Use afraid of | กลัวใช้ of</td><td>afraid of dogs | กลัวสุนัข</td></tr>
+            <tr><td>83</td><td>Proud for</td><td>Proud of</td><td>Use proud of | ภูมิใจใช้ of</td><td>proud of you | ภูมิใจในตัวคุณ</td></tr>
+            <tr><td>84</td><td>Depend of</td><td>Depend on</td><td>Use depend on | ขึ้นอยู่กับใช้ on</td><td>It depends on time. | ขึ้นอยู่กับเวลา</td></tr>
+            <tr><td>85</td><td>Wait me</td><td>Wait for me</td><td>Wait + for person | รอใครใช้ for</td><td>Wait for us. | รอพวกเรา</td></tr>
+            <tr><td>86</td><td>Ask to him</td><td>Ask him</td><td>Ask + person directly | ask ตามด้วยคนได้เลย</td><td>Ask the teacher. | ถามครู</td></tr>
+            <tr><td>87</td><td>Request for help</td><td>Request help / ask for help</td><td>Request as verb takes object | request เป็นกริยาไม่ต้อง for</td><td>Ask for advice. | ขอคำแนะนำ</td></tr>
+            <tr><td>88</td><td>Despite of rain</td><td>Despite the rain</td><td>Despite no of | despite ไม่ใช้ of</td><td>Despite problems, we won. | แม้มีปัญหา เราชนะ</td></tr>
+            <tr><td>89</td><td>Although it rained, but we went.</td><td>Although it rained, we went.</td><td>Do not use although + but together | ไม่ใช้ although กับ but คู่กัน</td><td>Although tired, she worked. | แม้เหนื่อย เธอทำงาน</td></tr>
+            <tr><td>90</td><td>Because I was sick.</td><td>I stayed home because I was sick.</td><td>Because-clause needs main clause | because ต้องมีประโยคหลัก</td><td>Because it rained, we stayed. | เพราะฝนตก เราอยู่บ้าน</td></tr>
+            <tr><td>91</td><td>Before to sleep</td><td>Before sleeping / before I sleep</td><td>Preposition + V-ing or clause | preposition + V-ing หรือ clause</td><td>After eating, wash dishes. | หลังทานอาหาร ล้างจาน</td></tr>
+            <tr><td>92</td><td>I am boring.</td><td>I am bored.</td><td>-ed feeling, -ing cause | -ed รู้สึก, -ing สิ่งที่ทำให้รู้สึก</td><td>The movie is boring. | หนังน่าเบื่อ</td></tr>
+            <tr><td>93</td><td>I am exciting.</td><td>I am excited.</td><td>People feel -ed | คนรู้สึกใช้ -ed</td><td>The game is exciting. | เกมน่าตื่นเต้น</td></tr>
+            <tr><td>94</td><td>She is fun.</td><td>She is funny / The activity is fun.</td><td>Funny = makes people laugh; fun = enjoyable | funny ตลก fun สนุก</td><td>The party was fun. | งานเลี้ยงสนุก</td></tr>
+            <tr><td>95</td><td>I feel myself happy.</td><td>I feel happy.</td><td>Feel + adjective | feel ตามด้วย adjective</td><td>I feel tired. | ฉันรู้สึกเหนื่อย</td></tr>
+            <tr><td>96</td><td>It makes me to happy.</td><td>It makes me happy.</td><td>Make + object + adjective | make + กรรม + adjective</td><td>You make me proud. | คุณทำให้ฉันภูมิใจ</td></tr>
+            <tr><td>97</td><td>The news are good.</td><td>The news is good.</td><td>News is singular uncountable | news เป็นเอกพจน์นับไม่ได้</td><td>The news is shocking. | ข่าวน่าตกใจ</td></tr>
+            <tr><td>98</td><td>Mathematics are hard.</td><td>Mathematics is hard.</td><td>Subject name can be singular | ชื่อวิชาเป็นเอกพจน์</td><td>Physics is interesting. | ฟิสิกส์น่าสนใจ</td></tr>
+            <tr><td>99</td><td>People is friendly.</td><td>People are friendly.</td><td>People is plural | people เป็นพหูพจน์</td><td>People are waiting. | ผู้คนกำลังรอ</td></tr>
+            <tr><td>100</td><td>Everyone are here.</td><td>Everyone is here.</td><td>Everyone is singular | everyone เป็นเอกพจน์</td><td>Everybody knows. | ทุกคนรู้</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="vocab">
+      <div class="section-title"><h2>13. 🗂️ Vocabulary Categories | หมวดคำศัพท์</h2><p>Each category has 30 words with Thai meanings | แต่ละหมวดมี 30 คำพร้อมคำแปล</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>30 Words | คำศัพท์ 30 คำ</th></tr></thead>
+          <tbody>
+            <tr><td>Family | ครอบครัว</td><td>father (ฟา-เธอร์)=พ่อ, mother (มา-เธอร์)=แม่, parent=ผู้ปกครอง, son=ลูกชาย, daughter=ลูกสาว, child=เด็ก/ลูก, brother=พี่/น้องชาย, sister=พี่/น้องสาว, husband=สามี, wife=ภรรยา, grandfather=ปู่/ตา, grandmother=ย่า/ยาย, uncle=ลุง/อา, aunt=ป้า/น้า, cousin=ลูกพี่ลูกน้อง, nephew=หลานชาย, niece=หลานสาว, family=ครอบครัว, relative=ญาติ, twin=ฝาแฝด, baby=ทารก, teenager=วัยรุ่น, adult=ผู้ใหญ่, elder=ผู้สูงอายุ, ancestor=บรรพบุรุษ, descendant=ลูกหลาน, stepfather=พ่อเลี้ยง, stepmother=แม่เลี้ยง, in-law=ญาติฝ่ายคู่สมรส, sibling=พี่น้อง</td></tr>
+            <tr><td>Food | อาหาร</td><td>rice=ข้าว, bread=ขนมปัง, noodle=ก๋วยเตี๋ยว, chicken=ไก่, pork=หมู, beef=เนื้อวัว, fish=ปลา, egg=ไข่, milk=นม, cheese=ชีส, butter=เนย, soup=ซุป, salad=สลัด, fruit=ผลไม้, vegetable=ผัก, apple=แอปเปิล, banana=กล้วย, orange=ส้ม, mango=มะม่วง, sugar=น้ำตาล, salt=เกลือ, pepper=พริกไทย, oil=น้ำมัน, sauce=ซอส, dessert=ของหวาน, cake=เค้ก, coffee=กาแฟ, tea=ชา, water=น้ำ, juice=น้ำผลไม้</td></tr>
+            <tr><td>Animals | สัตว์</td><td>dog=สุนัข, cat=แมว, bird=นก, fish=ปลา, cow=วัว, pig=หมู, chicken=ไก่, duck=เป็ด, horse=ม้า, sheep=แกะ, goat=แพะ, elephant=ช้าง, tiger=เสือ, lion=สิงโต, monkey=ลิง, bear=หมี, rabbit=กระต่าย, deer=กวาง, snake=งู, turtle=เต่า, frog=กบ, mouse=หนู, rat=หนูใหญ่, whale=วาฬ, dolphin=โลมา, shark=ฉลาม, butterfly=ผีเสื้อ, bee=ผึ้ง, ant=มด, spider=แมงมุม</td></tr>
+            <tr><td>Business | ธุรกิจ</td><td>company=บริษัท, business=ธุรกิจ, market=ตลาด, customer=ลูกค้า, client=ลูกค้า, product=สินค้า, service=บริการ, price=ราคา, cost=ต้นทุน, profit=กำไร, loss=ขาดทุน, revenue=รายได้, sale=การขาย, contract=สัญญา, meeting=การประชุม, manager=ผู้จัดการ, employee=พนักงาน, employer=นายจ้าง, supplier=ผู้จัดหา, invoice=ใบแจ้งหนี้, budget=งบประมาณ, investment=การลงทุน, brand=แบรนด์, strategy=กลยุทธ์, target=เป้าหมาย, report=รายงาน, negotiation=การเจรจา, delivery=การจัดส่ง, warehouse=คลังสินค้า, startup=ธุรกิจเริ่มต้น</td></tr>
+            <tr><td>Computer | คอมพิวเตอร์</td><td>computer=คอมพิวเตอร์, laptop=แล็ปท็อป, keyboard=แป้นพิมพ์, mouse=เมาส์, monitor=จอภาพ, printer=เครื่องพิมพ์, scanner=เครื่องสแกน, speaker=ลำโพง, camera=กล้อง, cable=สาย, charger=ที่ชาร์จ, battery=แบตเตอรี่, screen=หน้าจอ, file=ไฟล์, folder=โฟลเดอร์, software=ซอฟต์แวร์, hardware=ฮาร์ดแวร์, internet=อินเทอร์เน็ต, website=เว็บไซต์, browser=เบราว์เซอร์, password=รหัสผ่าน, account=บัญชี, email=อีเมล, download=ดาวน์โหลด, upload=อัปโหลด, network=เครือข่าย, cloud=คลาวด์, database=ฐานข้อมูล, virus=ไวรัส, backup=สำรองข้อมูล</td></tr>
+            <tr><td>Programming | การเขียนโปรแกรม</td><td>code=โค้ด, program=โปรแกรม, function=ฟังก์ชัน, variable=ตัวแปร, constant=ค่าคงที่, array=อาร์เรย์, object=ออบเจ็กต์, class=คลาส, method=เมธอด, loop=ลูป, condition=เงื่อนไข, boolean=ค่าจริงเท็จ, string=ข้อความ, number=ตัวเลข, integer=จำนวนเต็ม, error=ข้อผิดพลาด, bug=บั๊ก, debug=ดีบัก, compiler=คอมไพเลอร์, interpreter=ตัวแปลคำสั่ง, syntax=ไวยากรณ์โค้ด, framework=เฟรมเวิร์ก, library=ไลบรารี, API=เอพีไอ, server=เซิร์ฟเวอร์, client=ไคลเอนต์, request=คำขอ, response=คำตอบ, repository=คลังโค้ด, branch=สาขาโค้ด</td></tr>
+            <tr><td>Travel | การเดินทาง</td><td>travel=เดินทาง, trip=ทริป, journey=การเดินทาง, flight=เที่ยวบิน, airport=สนามบิน, ticket=ตั๋ว, passport=หนังสือเดินทาง, visa=วีซ่า, luggage=กระเป๋าเดินทาง, hotel=โรงแรม, reservation=การจอง, map=แผนที่, guide=ไกด์, tourist=นักท่องเที่ยว, destination=จุดหมาย, beach=ชายหาด, mountain=ภูเขา, museum=พิพิธภัณฑ์, taxi=แท็กซี่, train=รถไฟ, bus=รถบัส, boat=เรือ, subway=รถไฟใต้ดิน, station=สถานี, platform=ชานชาลา, schedule=ตารางเวลา, delay=ความล่าช้า, arrival=การมาถึง, departure=การออกเดินทาง, souvenir=ของที่ระลึก</td></tr>
+            <tr><td>Office | สำนักงาน</td><td>office=สำนักงาน, desk=โต๊ะทำงาน, chair=เก้าอี้, meeting=ประชุม, document=เอกสาร, printer=เครื่องพิมพ์, copier=เครื่องถ่ายเอกสาร, phone=โทรศัพท์, email=อีเมล, calendar=ปฏิทิน, schedule=ตารางงาน, deadline=กำหนดส่ง, task=งาน, project=โครงการ, report=รายงาน, file=แฟ้ม, folder=โฟลเดอร์, cabinet=ตู้เก็บเอกสาร, pen=ปากกา, pencil=ดินสอ, notebook=สมุด, stapler=ที่เย็บกระดาษ, clip=คลิป, envelope=ซองจดหมาย, memo=บันทึกข้อความ, colleague=เพื่อนร่วมงาน, boss=หัวหน้า, assistant=ผู้ช่วย, reception=แผนกต้อนรับ, break=พัก</td></tr>
+            <tr><td>Education | การศึกษา</td><td>school=โรงเรียน, university=มหาวิทยาลัย, classroom=ห้องเรียน, teacher=ครู, student=นักเรียน, lesson=บทเรียน, subject=วิชา, homework=การบ้าน, exam=การสอบ, test=แบบทดสอบ, grade=เกรด, score=คะแนน, book=หนังสือ, textbook=ตำรา, notebook=สมุด, pencil=ดินสอ, ruler=ไม้บรรทัด, dictionary=พจนานุกรม, library=ห้องสมุด, laboratory=ห้องทดลอง, lecture=การบรรยาย, assignment=งานมอบหมาย, project=โครงงาน, research=วิจัย, knowledge=ความรู้, skill=ทักษะ, practice=การฝึก, certificate=ประกาศนียบัตร, scholarship=ทุนการศึกษา, graduation=การสำเร็จการศึกษา</td></tr>
+            <tr><td>Health | สุขภาพ</td><td>health=สุขภาพ, doctor=หมอ, nurse=พยาบาล, patient=ผู้ป่วย, hospital=โรงพยาบาล, clinic=คลินิก, medicine=ยา, pill=เม็ดยา, fever=ไข้, cough=ไอ, cold=หวัด, headache=ปวดหัว, stomachache=ปวดท้อง, pain=ความเจ็บปวด, wound=บาดแผล, injury=การบาดเจ็บ, disease=โรค, symptom=อาการ, treatment=การรักษา, surgery=การผ่าตัด, exercise=ออกกำลังกาย, diet=อาหารควบคุม, sleep=การนอน, rest=พักผ่อน, stress=ความเครียด, blood=เลือด, heart=หัวใจ, lung=ปอด, bone=กระดูก, muscle=กล้ามเนื้อ</td></tr>
+            <tr><td>Shopping | การซื้อของ</td><td>shop=ร้านค้า, store=ร้าน, market=ตลาด, mall=ห้าง, customer=ลูกค้า, cashier=แคชเชียร์, price=ราคา, discount=ส่วนลด, sale=ลดราคา, receipt=ใบเสร็จ, cart=รถเข็น, basket=ตะกร้า, bag=ถุง, product=สินค้า, brand=แบรนด์, size=ขนาด, color=สี, quality=คุณภาพ, quantity=ปริมาณ, payment=การชำระเงิน, cash=เงินสด, card=บัตร, refund=คืนเงิน, exchange=เปลี่ยนสินค้า, delivery=จัดส่ง, online=ออนไลน์, order=คำสั่งซื้อ, checkout=ชำระเงิน, barcode=บาร์โค้ด, warranty=การรับประกัน</td></tr>
+            <tr><td>Weather | อากาศ</td><td>weather=อากาศ, sunny=แดดออก, cloudy=มีเมฆ, rainy=ฝนตก, windy=ลมแรง, stormy=มีพายุ, snowy=หิมะตก, hot=ร้อน, warm=อบอุ่น, cool=เย็น, cold=หนาว, humid=ชื้น, dry=แห้ง, wet=เปียก, foggy=มีหมอก, clear=แจ่มใส, thunder=ฟ้าร้อง, lightning=ฟ้าแลบ, temperature=อุณหภูมิ, forecast=พยากรณ์, season=ฤดูกาล, spring=ฤดูใบไม้ผลิ, summer=ฤดูร้อน, autumn=ฤดูใบไม้ร่วง, winter=ฤดูหนาว, climate=ภูมิอากาศ, breeze=ลมอ่อน, flood=น้ำท่วม, drought=ภัยแล้ง, rainbow=รุ้ง</td></tr>
+            <tr><td>Colors | สี</td><td>red=แดง, blue=น้ำเงิน/ฟ้า, green=เขียว, yellow=เหลือง, black=ดำ, white=ขาว, gray=เทา, brown=น้ำตาล, pink=ชมพู, purple=ม่วง, orange=ส้ม, gold=ทอง, silver=เงิน, beige=เบจ, cream=ครีม, navy=กรมท่า, turquoise=ฟ้าอมเขียว, violet=ม่วงไวโอเลต, indigo=คราม, maroon=แดงเข้ม, coral=ส้มอมชมพู, mint=เขียวมิ้นต์, olive=เขียวมะกอก, lime=เขียวมะนาว, cyan=ฟ้าไซแอน, magenta=ชมพูม่วง, tan=น้ำตาลอ่อน, peach=พีช, lavender=ม่วงอ่อน, transparent=โปร่งใส</td></tr>
+            <tr><td>Numbers | ตัวเลข</td><td>zero=ศูนย์, one=หนึ่ง, two=สอง, three=สาม, four=สี่, five=ห้า, six=หก, seven=เจ็ด, eight=แปด, nine=เก้า, ten=สิบ, eleven=สิบเอ็ด, twelve=สิบสอง, thirteen=สิบสาม, fourteen=สิบสี่, fifteen=สิบห้า, sixteen=สิบหก, seventeen=สิบเจ็ด, eighteen=สิบแปด, nineteen=สิบเก้า, twenty=ยี่สิบ, thirty=สามสิบ, forty=สี่สิบ, fifty=ห้าสิบ, sixty=หกสิบ, seventy=เจ็ดสิบ, eighty=แปดสิบ, ninety=เก้าสิบ, hundred=ร้อย, thousand=พัน</td></tr>
+            <tr><td>Time | เวลา</td><td>time=เวลา, second=วินาที, minute=นาที, hour=ชั่วโมง, day=วัน, week=สัปดาห์, month=เดือน, year=ปี, morning=เช้า, noon=เที่ยง, afternoon=บ่าย, evening=เย็น, night=กลางคืน, midnight=เที่ยงคืน, today=วันนี้, tomorrow=พรุ่งนี้, yesterday=เมื่อวาน, now=ตอนนี้, later=ภายหลัง, soon=เร็วๆ นี้, early=เร็ว/แต่เช้า, late=สาย/ช้า, schedule=ตารางเวลา, appointment=นัดหมาย, deadline=กำหนดส่ง, calendar=ปฏิทิน, clock=นาฬิกา, past=อดีต, present=ปัจจุบัน, future=อนาคต</td></tr>
+            <tr><td>Days | วัน</td><td>Monday=วันจันทร์, Tuesday=วันอังคาร, Wednesday=วันพุธ, Thursday=วันพฤหัสบดี, Friday=วันศุกร์, Saturday=วันเสาร์, Sunday=วันอาทิตย์, weekday=วันธรรมดา, weekend=สุดสัปดาห์, today=วันนี้, tomorrow=พรุ่งนี้, yesterday=เมื่อวาน, holiday=วันหยุด, birthday=วันเกิด, workday=วันทำงาน, school day=วันที่มีเรียน, public holiday=วันหยุดราชการ, New Year's Day=วันปีใหม่, Valentine's Day=วันวาเลนไทน์, Songkran Day=วันสงกรานต์, Labor Day=วันแรงงาน, Mother's Day=วันแม่, Father's Day=วันพ่อ, Christmas Day=วันคริสต์มาส, morning=ตอนเช้า, afternoon=ตอนบ่าย, evening=ตอนเย็น, night=ตอนกลางคืน, dawn=รุ่งเช้า, dusk=พลบค่ำ</td></tr>
+            <tr><td>Months | เดือน</td><td>January=มกราคม, February=กุมภาพันธ์, March=มีนาคม, April=เมษายน, May=พฤษภาคม, June=มิถุนายน, July=กรกฎาคม, August=สิงหาคม, September=กันยายน, October=ตุลาคม, November=พฤศจิกายน, December=ธันวาคม, month=เดือน, quarter=ไตรมาส, semester=ภาคเรียน, season=ฤดูกาล, new year=ปีใหม่, midyear=กลางปี, year-end=สิ้นปี, calendar=ปฏิทิน, date=วันที่, week=สัปดาห์, weekend=สุดสัปดาห์, holiday=วันหยุด, birthday=วันเกิด, anniversary=วันครบรอบ, payday=วันเงินเดือนออก, deadline=กำหนดส่ง, schedule=ตารางเวลา, appointment=นัดหมาย</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="patterns">
+      <div class="section-title"><h2>14. 💬 English Sentence Patterns | รูปประโยคอังกฤษที่ใช้บ่อย</h2><p>100 reusable patterns with Thai meaning | 100 โครงสร้างประโยคนำไปใช้ได้ทันที</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>No.</th><th>Pattern</th><th>Thai Meaning</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>I am...</td><td>ฉันเป็น/ฉันอยู่/ฉันรู้สึก...</td><td>I am ready. | ฉันพร้อม</td></tr>
+            <tr><td>2</td><td>I am not...</td><td>ฉันไม่...</td><td>I am not sure. | ฉันไม่แน่ใจ</td></tr>
+            <tr><td>3</td><td>Are you...?</td><td>คุณ...ไหม</td><td>Are you busy? | คุณยุ่งไหม</td></tr>
+            <tr><td>4</td><td>He is...</td><td>เขา...</td><td>He is kind. | เขาใจดี</td></tr>
+            <tr><td>5</td><td>She is...</td><td>เธอ...</td><td>She is a teacher. | เธอเป็นครู</td></tr>
+            <tr><td>6</td><td>It is...</td><td>มัน/อากาศ/สิ่งนั้น...</td><td>It is hot. | อากาศร้อน</td></tr>
+            <tr><td>7</td><td>We are...</td><td>พวกเรา...</td><td>We are students. | พวกเราเป็นนักเรียน</td></tr>
+            <tr><td>8</td><td>They are...</td><td>พวกเขา...</td><td>They are happy. | พวกเขามีความสุข</td></tr>
+            <tr><td>9</td><td>I have...</td><td>ฉันมี...</td><td>I have a question. | ฉันมีคำถาม</td></tr>
+            <tr><td>10</td><td>I don't have...</td><td>ฉันไม่มี...</td><td>I don't have time. | ฉันไม่มีเวลา</td></tr>
+            <tr><td>11</td><td>Do you have...?</td><td>คุณมี...ไหม</td><td>Do you have a pen? | คุณมีปากกาไหม</td></tr>
+            <tr><td>12</td><td>There is...</td><td>มี...หนึ่ง/นับไม่ได้</td><td>There is a problem. | มีปัญหา</td></tr>
+            <tr><td>13</td><td>There are...</td><td>มี...หลาย</td><td>There are many choices. | มีหลายตัวเลือก</td></tr>
+            <tr><td>14</td><td>There isn't...</td><td>ไม่มี...</td><td>There isn't any milk. | ไม่มีนมเลย</td></tr>
+            <tr><td>15</td><td>There aren't...</td><td>ไม่มี...หลาย</td><td>There aren't enough chairs. | มีเก้าอี้ไม่พอ</td></tr>
+            <tr><td>16</td><td>Is there...?</td><td>มี...ไหม</td><td>Is there a bank near here? | มีธนาคารใกล้ๆ ไหม</td></tr>
+            <tr><td>17</td><td>Are there...?</td><td>มี...หลายไหม</td><td>Are there any questions? | มีคำถามไหม</td></tr>
+            <tr><td>18</td><td>I like...</td><td>ฉันชอบ...</td><td>I like English. | ฉันชอบภาษาอังกฤษ</td></tr>
+            <tr><td>19</td><td>I don't like...</td><td>ฉันไม่ชอบ...</td><td>I don't like noise. | ฉันไม่ชอบเสียงดัง</td></tr>
+            <tr><td>20</td><td>Do you like...?</td><td>คุณชอบ...ไหม</td><td>Do you like coffee? | คุณชอบกาแฟไหม</td></tr>
+            <tr><td>21</td><td>I want...</td><td>ฉันต้องการ...</td><td>I want water. | ฉันต้องการน้ำ</td></tr>
+            <tr><td>22</td><td>I want to...</td><td>ฉันต้องการที่จะ...</td><td>I want to learn. | ฉันต้องการเรียนรู้</td></tr>
+            <tr><td>23</td><td>I need...</td><td>ฉันต้องการ/จำเป็นต้องมี...</td><td>I need help. | ฉันต้องการความช่วยเหลือ</td></tr>
+            <tr><td>24</td><td>I need to...</td><td>ฉันจำเป็นต้อง...</td><td>I need to go. | ฉันต้องไป</td></tr>
+            <tr><td>25</td><td>I would like...</td><td>ฉันอยากได้...</td><td>I would like tea. | ฉันอยากได้ชา</td></tr>
+            <tr><td>26</td><td>I would like to...</td><td>ฉันอยากจะ...</td><td>I would like to order. | ฉันอยากสั่งอาหาร</td></tr>
+            <tr><td>27</td><td>Would you like...?</td><td>คุณอยากได้...ไหม</td><td>Would you like some water? | คุณอยากได้น้ำไหม</td></tr>
+            <tr><td>28</td><td>Can I...?</td><td>ฉันขอ/ฉันสามารถ...ไหม</td><td>Can I sit here? | ฉันนั่งตรงนี้ได้ไหม</td></tr>
+            <tr><td>29</td><td>Can you...?</td><td>คุณช่วย/คุณสามารถ...ไหม</td><td>Can you help me? | คุณช่วยฉันได้ไหม</td></tr>
+            <tr><td>30</td><td>Could I...?</td><td>ฉันขอ...ได้ไหมแบบสุภาพ</td><td>Could I ask a question? | ฉันขอถามได้ไหม</td></tr>
+            <tr><td>31</td><td>Could you...?</td><td>คุณช่วย...ได้ไหมแบบสุภาพ</td><td>Could you repeat that? | คุณช่วยพูดซ้ำได้ไหม</td></tr>
+            <tr><td>32</td><td>May I...?</td><td>ขออนุญาต...</td><td>May I come in? | ขอเข้าไปได้ไหม</td></tr>
+            <tr><td>33</td><td>Should I...?</td><td>ฉันควร...ไหม</td><td>Should I call him? | ฉันควรโทรหาเขาไหม</td></tr>
+            <tr><td>34</td><td>You should...</td><td>คุณควร...</td><td>You should rest. | คุณควรพัก</td></tr>
+            <tr><td>35</td><td>You shouldn't...</td><td>คุณไม่ควร...</td><td>You shouldn't worry. | คุณไม่ควรกังวล</td></tr>
+            <tr><td>36</td><td>I can...</td><td>ฉันสามารถ...</td><td>I can drive. | ฉันขับรถได้</td></tr>
+            <tr><td>37</td><td>I can't...</td><td>ฉันไม่สามารถ...</td><td>I can't swim. | ฉันว่ายน้ำไม่ได้</td></tr>
+            <tr><td>38</td><td>I will...</td><td>ฉันจะ...</td><td>I will help you. | ฉันจะช่วยคุณ</td></tr>
+            <tr><td>39</td><td>I won't...</td><td>ฉันจะไม่...</td><td>I won't forget. | ฉันจะไม่ลืม</td></tr>
+            <tr><td>40</td><td>Will you...?</td><td>คุณจะ...ไหม</td><td>Will you join us? | คุณจะร่วมกับเราไหม</td></tr>
+            <tr><td>41</td><td>I am going to...</td><td>ฉันกำลังจะ/วางแผนจะ...</td><td>I am going to study. | ฉันจะเรียน</td></tr>
+            <tr><td>42</td><td>Are you going to...?</td><td>คุณกำลังจะ...ไหม</td><td>Are you going to travel? | คุณจะเดินทางไหม</td></tr>
+            <tr><td>43</td><td>I have to...</td><td>ฉันต้อง...</td><td>I have to work. | ฉันต้องทำงาน</td></tr>
+            <tr><td>44</td><td>I don't have to...</td><td>ฉันไม่จำเป็นต้อง...</td><td>I don't have to go. | ฉันไม่จำเป็นต้องไป</td></tr>
+            <tr><td>45</td><td>Do I have to...?</td><td>ฉันต้อง...ไหม</td><td>Do I have to pay? | ฉันต้องจ่ายไหม</td></tr>
+            <tr><td>46</td><td>I used to...</td><td>ฉันเคย...</td><td>I used to live here. | ฉันเคยอยู่ที่นี่</td></tr>
+            <tr><td>47</td><td>I am used to...</td><td>ฉันคุ้นเคยกับ...</td><td>I am used to working late. | ฉันชินกับการทำงานดึก</td></tr>
+            <tr><td>48</td><td>I have been...</td><td>ฉันเคย/ฉันเป็นมาตั้งแต่...</td><td>I have been busy. | ฉันยุ่งมาตลอด</td></tr>
+            <tr><td>49</td><td>Have you ever...?</td><td>คุณเคย...ไหม</td><td>Have you ever been abroad? | คุณเคยไปต่างประเทศไหม</td></tr>
+            <tr><td>50</td><td>I have never...</td><td>ฉันไม่เคย...</td><td>I have never tried it. | ฉันไม่เคยลองมัน</td></tr>
+            <tr><td>51</td><td>How are you?</td><td>คุณเป็นอย่างไร</td><td>How are you today? | วันนี้คุณเป็นอย่างไร</td></tr>
+            <tr><td>52</td><td>How do you...?</td><td>คุณ...อย่างไร</td><td>How do you spell it? | คุณสะกดอย่างไร</td></tr>
+            <tr><td>53</td><td>How long...?</td><td>นานแค่ไหน</td><td>How long does it take? | ใช้เวลานานแค่ไหน</td></tr>
+            <tr><td>54</td><td>How often...?</td><td>บ่อยแค่ไหน</td><td>How often do you study? | คุณเรียนบ่อยแค่ไหน</td></tr>
+            <tr><td>55</td><td>How much...?</td><td>เท่าไร</td><td>How much is it? | ราคาเท่าไร</td></tr>
+            <tr><td>56</td><td>How many...?</td><td>กี่</td><td>How many people came? | มีกี่คนมา</td></tr>
+            <tr><td>57</td><td>What is...?</td><td>...คืออะไร</td><td>What is your name? | คุณชื่ออะไร</td></tr>
+            <tr><td>58</td><td>What do you...?</td><td>คุณ...อะไร</td><td>What do you mean? | คุณหมายความว่าอะไร</td></tr>
+            <tr><td>59</td><td>Where is...?</td><td>...อยู่ที่ไหน</td><td>Where is the restroom? | ห้องน้ำอยู่ที่ไหน</td></tr>
+            <tr><td>60</td><td>Where do you...?</td><td>คุณ...ที่ไหน</td><td>Where do you live? | คุณอยู่ที่ไหน</td></tr>
+            <tr><td>61</td><td>When is...?</td><td>...เมื่อไร</td><td>When is the meeting? | ประชุมเมื่อไร</td></tr>
+            <tr><td>62</td><td>When do you...?</td><td>คุณ...เมื่อไร</td><td>When do you start? | คุณเริ่มเมื่อไร</td></tr>
+            <tr><td>63</td><td>Why are you...?</td><td>ทำไมคุณ...</td><td>Why are you late? | ทำไมคุณมาสาย</td></tr>
+            <tr><td>64</td><td>Why do you...?</td><td>ทำไมคุณ...</td><td>Why do you study English? | ทำไมคุณเรียนอังกฤษ</td></tr>
+            <tr><td>65</td><td>Who is...?</td><td>ใครคือ...</td><td>Who is your teacher? | ใครคือครูของคุณ</td></tr>
+            <tr><td>66</td><td>Who do you...?</td><td>คุณ...ใคร</td><td>Who do you trust? | คุณไว้ใจใคร</td></tr>
+            <tr><td>67</td><td>Which one...?</td><td>อันไหน...</td><td>Which one do you prefer? | คุณชอบอันไหนมากกว่า</td></tr>
+            <tr><td>68</td><td>What kind of...?</td><td>ประเภทไหน</td><td>What kind of music do you like? | คุณชอบเพลงแบบไหน</td></tr>
+            <tr><td>69</td><td>What time...?</td><td>กี่โมง</td><td>What time is it? | กี่โมงแล้ว</td></tr>
+            <tr><td>70</td><td>I'm looking for...</td><td>ฉันกำลังหา...</td><td>I'm looking for my keys. | ฉันกำลังหากุญแจ</td></tr>
+            <tr><td>71</td><td>I'm interested in...</td><td>ฉันสนใจ...</td><td>I'm interested in art. | ฉันสนใจศิลปะ</td></tr>
+            <tr><td>72</td><td>I'm good at...</td><td>ฉันเก่ง...</td><td>I'm good at English. | ฉันเก่งอังกฤษ</td></tr>
+            <tr><td>73</td><td>I'm afraid of...</td><td>ฉันกลัว...</td><td>I'm afraid of snakes. | ฉันกลัวงู</td></tr>
+            <tr><td>74</td><td>I'm proud of...</td><td>ฉันภูมิใจใน...</td><td>I'm proud of you. | ฉันภูมิใจในตัวคุณ</td></tr>
+            <tr><td>75</td><td>I'm sorry for...</td><td>ฉันขอโทษสำหรับ...</td><td>I'm sorry for being late. | ขอโทษที่มาสาย</td></tr>
+            <tr><td>76</td><td>Thank you for...</td><td>ขอบคุณสำหรับ...</td><td>Thank you for helping me. | ขอบคุณที่ช่วยฉัน</td></tr>
+            <tr><td>77</td><td>Please...</td><td>กรุณา...</td><td>Please sit down. | กรุณานั่งลง</td></tr>
+            <tr><td>78</td><td>Let's...</td><td>ไป...กันเถอะ</td><td>Let's begin. | เริ่มกันเถอะ</td></tr>
+            <tr><td>79</td><td>Let me...</td><td>ให้ฉัน...</td><td>Let me explain. | ให้ฉันอธิบาย</td></tr>
+            <tr><td>80</td><td>Why don't we...?</td><td>ทำไมเราไม่...ล่ะ</td><td>Why don't we eat out? | ทำไมเราไม่ไปกินข้างนอกล่ะ</td></tr>
+            <tr><td>81</td><td>What about...?</td><td>แล้ว...ล่ะ</td><td>What about tomorrow? | แล้วพรุ่งนี้ล่ะ</td></tr>
+            <tr><td>82</td><td>How about...?</td><td>แล้ว...ดีไหม</td><td>How about coffee? | กาแฟดีไหม</td></tr>
+            <tr><td>83</td><td>It depends on...</td><td>มันขึ้นอยู่กับ...</td><td>It depends on the weather. | ขึ้นอยู่กับอากาศ</td></tr>
+            <tr><td>84</td><td>It takes...</td><td>ใช้เวลา...</td><td>It takes ten minutes. | ใช้เวลาสิบนาที</td></tr>
+            <tr><td>85</td><td>It looks...</td><td>มันดู...</td><td>It looks delicious. | มันดูอร่อย</td></tr>
+            <tr><td>86</td><td>It sounds...</td><td>มันฟังดู...</td><td>It sounds good. | ฟังดูดี</td></tr>
+            <tr><td>87</td><td>It seems...</td><td>มันดูเหมือนว่า...</td><td>It seems easy. | มันดูง่าย</td></tr>
+            <tr><td>88</td><td>It is important to...</td><td>สำคัญที่จะ...</td><td>It is important to practice. | การฝึกสำคัญ</td></tr>
+            <tr><td>89</td><td>It is difficult to...</td><td>ยากที่จะ...</td><td>It is difficult to decide. | ตัดสินใจยาก</td></tr>
+            <tr><td>90</td><td>It is easy to...</td><td>ง่ายที่จะ...</td><td>It is easy to learn. | เรียนง่าย</td></tr>
+            <tr><td>91</td><td>I'm trying to...</td><td>ฉันกำลังพยายาม...</td><td>I'm trying to improve. | ฉันกำลังพยายามพัฒนา</td></tr>
+            <tr><td>92</td><td>I'm planning to...</td><td>ฉันวางแผนจะ...</td><td>I'm planning to travel. | ฉันวางแผนจะเดินทาง</td></tr>
+            <tr><td>93</td><td>I'm thinking about...</td><td>ฉันกำลังคิดเรื่อง...</td><td>I'm thinking about changing jobs. | ฉันคิดเรื่องเปลี่ยนงาน</td></tr>
+            <tr><td>94</td><td>I forgot to...</td><td>ฉันลืมที่จะ...</td><td>I forgot to call. | ฉันลืมโทร</td></tr>
+            <tr><td>95</td><td>I remember...</td><td>ฉันจำได้ว่า...</td><td>I remember meeting her. | ฉันจำได้ว่าเคยพบเธอ</td></tr>
+            <tr><td>96</td><td>I agree with...</td><td>ฉันเห็นด้วยกับ...</td><td>I agree with you. | ฉันเห็นด้วยกับคุณ</td></tr>
+            <tr><td>97</td><td>I disagree with...</td><td>ฉันไม่เห็นด้วยกับ...</td><td>I disagree with that idea. | ฉันไม่เห็นด้วยกับความคิดนั้น</td></tr>
+            <tr><td>98</td><td>In my opinion,...</td><td>ในความเห็นของฉัน...</td><td>In my opinion, it is useful. | ในความเห็นฉัน มันมีประโยชน์</td></tr>
+            <tr><td>99</td><td>As far as I know,...</td><td>เท่าที่ฉันรู้...</td><td>As far as I know, he is honest. | เท่าที่ฉันรู้ เขาซื่อสัตย์</td></tr>
+            <tr><td>100</td><td>The reason is that...</td><td>เหตุผลคือ...</td><td>The reason is that I was sick. | เหตุผลคือฉันป่วย</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="mindmap">
+      <div class="section-title"><h2>15. 🧭 Learning Mind Map | แผนผังการเรียน</h2><p>Visual grammar learning path | เส้นทางการเรียนแบบภาพรวม</p></div>
+      <div class="mind-map">
+        <div class="root-node">English Grammar | ไวยากรณ์อังกฤษ</div>
+        <div class="branches">
+          <div class="node">├── Parts of Speech<br />ชนิดของคำ</div>
+          <div class="node">├── Tenses<br />กาล</div>
+          <div class="node">├── Verbs<br />กริยา</div>
+          <div class="node">├── Questions<br />คำถาม</div>
+          <div class="node">├── Vocabulary<br />คำศัพท์</div>
+          <div class="node">├── Writing<br />การเขียน</div>
+          <div class="node">├── Speaking<br />การพูด</div>
+          <div class="node">└── Listening<br />การฟัง</div>
+        </div>
+      </div>
+      <div class="note">Study order | ลำดับแนะนำ: Words → Sentence Patterns → Tenses → Speaking/Writing practice.</div>
+    </section>
+
+    <section id="tips">
+      <div class="section-title"><h2>16. 🌟 Learning Tips | เทคนิคการเรียน</h2><p>Colorful cards for fast review | การ์ดสีช่วยจำเร็ว</p></div>
+      <div class="grid">
+        <div class="mini-card"><h3>📦 How to Identify Nouns | วิธีหาคำนาม</h3><p>Ask “Who or what?” | ถามว่า “ใครหรืออะไร?” Nouns can usually take a/an/the or plural -s.</p><ul><li>a student | นักเรียนคนหนึ่ง</li><li>three books | หนังสือสามเล่ม</li></ul></div>
+        <div class="mini-card"><h3>⚙️ How to Identify Verbs | วิธีหากริยา</h3><p>Ask “What happens?” or “What does the subject do?” | ถามว่า “เกิดอะไรขึ้น/ประธานทำอะไร?”</p><ul><li>She runs. | เธอวิ่ง</li><li>They are happy. | พวกเขามีความสุข</li></ul></div>
+        <div class="mini-card"><h3>🎨 How to Identify Adjectives | วิธีหาคุณศัพท์</h3><p>Ask “What kind? Which one? How many?” | ถามว่า “แบบไหน อันไหน กี่?” Adjectives describe nouns.</p><ul><li>a red car | รถสีแดง</li><li>three cats | แมวสามตัว</li></ul></div>
+        <div class="mini-card"><h3>🚀 How to Identify Adverbs | วิธีหาคำวิเศษณ์</h3><p>Ask “How, when, where, how often?” | ถามว่า “อย่างไร เมื่อไร ที่ไหน บ่อยแค่ไหน?” Often ends in -ly.</p><ul><li>quickly | อย่างรวดเร็ว</li><li>always | เสมอ</li></ul></div>
+        <div class="mini-card"><h3>🧠 Memory Tricks | เทคนิคจำ</h3><p>Noun = name, Verb = action, Adjective = color, Adverb = detail, Preposition = position, Conjunction = bridge.</p><p>นาม=ชื่อ กริยา=การกระทำ คุณศัพท์=สีสัน วิเศษณ์=รายละเอียด บุพบท=ตำแหน่ง สันธาน=สะพาน</p></div>
+        <div class="mini-card"><h3>⚡ Common Shortcuts | ทางลัดที่ใช้บ่อย</h3><p>He/She/It + V-s. Modal + V1. Did + V1. To + V1. Enjoy + V-ing. Be + V-ing. Have + V3.</p><p>จำสูตรสั้นก่อน แล้วค่อยเพิ่มรายละเอียด</p></div>
+        <div class="mini-card"><h3>📝 Exam Tips | เทคนิคสอบ</h3><p>Find the subject, check the time signal, choose the verb form, then check articles and prepositions.</p><p>หาประธาน → ดูคำบอกเวลา → เลือกกริยา → ตรวจ article/preposition</p></div>
+      </div>
+    </section>
+
+    <section id="sentence-lesson">
+      <div class="section-title"><h2>17. 🗣️ 100 Sentence Lessons | บทเรียนประโยค 100 ประโยค</h2><p>Point at or focus the highlighted words to see a CSS dialog with pronunciation, Part of Speech, and Thai meaning. | ชี้หรือกด Tab ที่คำไฮไลต์เพื่อดูคำอ่าน ชนิดคำ และคำแปล</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>No.</th><th>Sentence With POS Dialog</th><th>Thai Translation</th><th>Grammar Focus</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td class="sentence-cell"><span class="word pos-pronoun" tabindex="0">I<span class="dialog">I (ไอ)<br><b>Pronoun</b> | คำสรรพนาม<br>แปลว่า ฉัน</span></span> read <span class="word pos-noun" tabindex="0">books<span class="dialog">books (บุคส์)<br><b>Noun</b> | คำนาม<br>แปลว่า หนังสือหลายเล่ม</span></span> every day.</td><td>ฉันอ่านหนังสือทุกวัน</td><td>Present Simple | กิจวัตร</td></tr>
+            <tr><td>2</td><td class="sentence-cell">She <span class="word pos-verb" tabindex="0">cooks<span class="dialog">cooks (คุกส์)<br><b>Verb</b> | คำกริยา<br>แปลว่า ทำอาหาร</span></span> dinner for her family.</td><td>เธอทำอาหารเย็นให้ครอบครัวของเธอ</td><td>Verb + object</td></tr>
+            <tr><td>3</td><td class="sentence-cell">The <span class="word pos-adj" tabindex="0">small<span class="dialog">small (สมอล)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า เล็ก</span></span> cat sleeps on the sofa.</td><td>แมวตัวเล็กนอนบนโซฟา</td><td>Adjective before noun</td></tr>
+            <tr><td>4</td><td class="sentence-cell">They speak English <span class="word pos-adv" tabindex="0">clearly<span class="dialog">clearly (เคลียร์-ลี)<br><b>Adverb</b> | คำวิเศษณ์<br>แปลว่า อย่างชัดเจน</span></span>.</td><td>พวกเขาพูดภาษาอังกฤษอย่างชัดเจน</td><td>Adverb of manner</td></tr>
+            <tr><td>5</td><td class="sentence-cell">We study <span class="word pos-prep" tabindex="0">at<span class="dialog">at (แอท)<br><b>Preposition</b> | คำบุพบท<br>แปลว่า ที่/เวลา ณ</span></span> school.</td><td>พวกเราเรียนที่โรงเรียน</td><td>Preposition of place</td></tr>
+            <tr><td>6</td><td class="sentence-cell">Tom likes tea <span class="word pos-conj" tabindex="0">and<span class="dialog">and (แอนด์)<br><b>Conjunction</b> | คำสันธาน<br>แปลว่า และ</span></span> coffee.</td><td>ทอมชอบชาและกาแฟ</td><td>Conjunction joins nouns</td></tr>
+            <tr><td>7</td><td class="sentence-cell"><span class="word pos-interj" tabindex="0">Wow<span class="dialog">Wow (วาว)<br><b>Interjection</b> | คำอุทาน<br>แปลว่า ว้าว</span></span>! This picture is beautiful.</td><td>ว้าว! รูปนี้สวยมาก</td><td>Interjection shows feeling</td></tr>
+            <tr><td>8</td><td class="sentence-cell">My brother <span class="word pos-verb" tabindex="0">plays<span class="dialog">plays (เพลย์ซ)<br><b>Verb</b> | คำกริยา<br>แปลว่า เล่น</span></span> football after school.</td><td>น้องชาย/พี่ชายของฉันเล่นฟุตบอลหลังเลิกเรียน</td><td>He/She/It + V-s</td></tr>
+            <tr><td>9</td><td class="sentence-cell">The teacher explains the <span class="word pos-noun" tabindex="0">lesson<span class="dialog">lesson (เลส-ซัน)<br><b>Noun</b> | คำนาม<br>แปลว่า บทเรียน</span></span>.</td><td>ครูอธิบายบทเรียน</td><td>Noun as object</td></tr>
+            <tr><td>10</td><td class="sentence-cell">This soup tastes <span class="word pos-adj" tabindex="0">delicious<span class="dialog">delicious (ดิ-ลิช-เชิส)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า อร่อย</span></span>.</td><td>ซุปนี้รสชาติอร่อย</td><td>Linking verb + adjective</td></tr>
+            <tr><td>11</td><td class="sentence-cell">He runs <span class="word pos-adv" tabindex="0">quickly<span class="dialog">quickly (ควิค-ลี)<br><b>Adverb</b> | คำวิเศษณ์<br>แปลว่า อย่างรวดเร็ว</span></span> to catch the bus.</td><td>เขาวิ่งอย่างรวดเร็วเพื่อให้ทันรถบัส</td><td>Adverb modifies verb</td></tr>
+            <tr><td>12</td><td class="sentence-cell">There is a <span class="word pos-noun" tabindex="0">market<span class="dialog">market (มาร์-คิท)<br><b>Noun</b> | คำนาม<br>แปลว่า ตลาด</span></span> near my house.</td><td>มีตลาดใกล้บ้านของฉัน</td><td>There is + singular noun</td></tr>
+            <tr><td>13</td><td class="sentence-cell">There are many <span class="word pos-noun" tabindex="0">students<span class="dialog">students (สทิว-เดินทส์)<br><b>Noun</b> | คำนาม<br>แปลว่า นักเรียนหลายคน</span></span> in the classroom.</td><td>มีนักเรียนหลายคนในห้องเรียน</td><td>There are + plural noun</td></tr>
+            <tr><td>14</td><td class="sentence-cell">Can you <span class="word pos-verb" tabindex="0">help<span class="dialog">help (เฮลป์)<br><b>Verb</b> | คำกริยา<br>แปลว่า ช่วย</span></span> me?</td><td>คุณช่วยฉันได้ไหม</td><td>Modal + V1</td></tr>
+            <tr><td>15</td><td class="sentence-cell">I would like a glass of <span class="word pos-noun" tabindex="0">water<span class="dialog">water (วอ-เทอร์)<br><b>Noun</b> | คำนาม<br>แปลว่า น้ำ</span></span>.</td><td>ฉันอยากได้น้ำหนึ่งแก้ว</td><td>Polite request</td></tr>
+            <tr><td>16</td><td class="sentence-cell">Please open the <span class="word pos-noun" tabindex="0">window<span class="dialog">window (วิน-โดว์)<br><b>Noun</b> | คำนาม<br>แปลว่า หน้าต่าง</span></span>.</td><td>กรุณาเปิดหน้าต่าง</td><td>Imperative sentence</td></tr>
+            <tr><td>17</td><td class="sentence-cell">The train arrives <span class="word pos-prep" tabindex="0">at<span class="dialog">at (แอท)<br><b>Preposition</b> | คำบุพบท<br>ใช้กับเวลาแน่นอน</span></span> six o'clock.</td><td>รถไฟมาถึงตอนหกโมง</td><td>At + exact time</td></tr>
+            <tr><td>18</td><td class="sentence-cell">My parents live <span class="word pos-prep" tabindex="0">in<span class="dialog">in (อิน)<br><b>Preposition</b> | คำบุพบท<br>แปลว่า ใน/ที่ ใช้กับเมือง ประเทศ พื้นที่</span></span> Bangkok.</td><td>พ่อแม่ของฉันอาศัยอยู่ในกรุงเทพฯ</td><td>In + city</td></tr>
+            <tr><td>19</td><td class="sentence-cell">She is <span class="word pos-adj" tabindex="0">tired<span class="dialog">tired (ไทร์ด)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า เหนื่อย</span></span> after work.</td><td>เธอเหนื่อยหลังเลิกงาน</td><td>Be + adjective</td></tr>
+            <tr><td>20</td><td class="sentence-cell">The baby is <span class="word pos-verb" tabindex="0">crying<span class="dialog">crying (คราย-อิง)<br><b>Verb</b> | คำกริยา V-ing<br>แปลว่า กำลังร้องไห้</span></span>.</td><td>ทารกกำลังร้องไห้</td><td>Present Continuous</td></tr>
+            <tr><td>21</td><td class="sentence-cell">I have <span class="word pos-verb" tabindex="0">finished<span class="dialog">finished (ฟิน-นิชท์)<br><b>Verb</b> | คำกริยา V3<br>แปลว่า ทำเสร็จแล้ว</span></span> my homework.</td><td>ฉันทำการบ้านเสร็จแล้ว</td><td>Present Perfect</td></tr>
+            <tr><td>22</td><td class="sentence-cell">We visited the museum <span class="word pos-adv" tabindex="0">yesterday<span class="dialog">yesterday (เยส-เทอร์-เดย์)<br><b>Adverb</b> | คำวิเศษณ์บอกเวลา<br>แปลว่า เมื่อวาน</span></span>.</td><td>พวกเราไปเยี่ยมชมพิพิธภัณฑ์เมื่อวาน</td><td>Past Simple signal</td></tr>
+            <tr><td>23</td><td class="sentence-cell">He will call you <span class="word pos-adv" tabindex="0">tomorrow<span class="dialog">tomorrow (ทู-มอ-โรว์)<br><b>Adverb</b> | คำวิเศษณ์บอกเวลา<br>แปลว่า พรุ่งนี้</span></span>.</td><td>เขาจะโทรหาคุณพรุ่งนี้</td><td>Future Simple</td></tr>
+            <tr><td>24</td><td class="sentence-cell">If it rains, we will stay <span class="word pos-adv" tabindex="0">inside<span class="dialog">inside (อิน-ไซด์)<br><b>Adverb</b> | คำวิเศษณ์<br>แปลว่า ข้างใน</span></span>.</td><td>ถ้าฝนตก พวกเราจะอยู่ข้างใน</td><td>First conditional</td></tr>
+            <tr><td>25</td><td class="sentence-cell">Because I was sick, I stayed <span class="word pos-noun" tabindex="0">home<span class="dialog">home (โฮม)<br><b>Noun/Adverb</b> | คำนาม/คำวิเศษณ์<br>แปลว่า บ้าน/ที่บ้าน</span></span>.</td><td>เพราะฉันป่วย ฉันจึงอยู่บ้าน</td><td>Because clause</td></tr>
+            <tr><td>26</td><td class="sentence-cell">Although it was late, she kept <span class="word pos-verb" tabindex="0">studying<span class="dialog">studying (สตัด-ดี-อิง)<br><b>Verb/Gerund</b> | กริยา V-ing/คำนามกริยา<br>แปลว่า การเรียน/กำลังเรียน</span></span>.</td><td>แม้ว่าจะดึกแล้ว เธอยังคงเรียนต่อ</td><td>Although + contrast</td></tr>
+            <tr><td>27</td><td class="sentence-cell">The movie was very <span class="word pos-adj" tabindex="0">interesting<span class="dialog">interesting (อิน-เทอะ-เรส-ทิง)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า น่าสนใจ</span></span>.</td><td>ภาพยนตร์เรื่องนี้น่าสนใจมาก</td><td>-ing adjective = cause</td></tr>
+            <tr><td>28</td><td class="sentence-cell">I felt <span class="word pos-adj" tabindex="0">excited<span class="dialog">excited (อิก-ไซ-ทิด)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า ตื่นเต้น</span></span> before the trip.</td><td>ฉันรู้สึกตื่นเต้นก่อนการเดินทาง</td><td>-ed adjective = feeling</td></tr>
+            <tr><td>29</td><td class="sentence-cell">The dog is sleeping <span class="word pos-prep" tabindex="0">under<span class="dialog">under (อัน-เดอร์)<br><b>Preposition</b> | คำบุพบท<br>แปลว่า ใต้</span></span> the table.</td><td>สุนัขกำลังนอนใต้โต๊ะ</td><td>Preposition of place</td></tr>
+            <tr><td>30</td><td class="sentence-cell">My sister bought a <span class="word pos-adj" tabindex="0">new<span class="dialog">new (นิว)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า ใหม่</span></span> phone.</td><td>พี่/น้องสาวของฉันซื้อโทรศัพท์เครื่องใหม่</td><td>Adjective before noun</td></tr>
+            <tr><td>31</td><td class="sentence-cell">The children are playing <span class="word pos-prep" tabindex="0">outside<span class="dialog">outside (เอาท์-ไซด์)<br><b>Adverb/Preposition</b> | คำวิเศษณ์/บุพบท<br>แปลว่า ข้างนอก</span></span>.</td><td>เด็กๆ กำลังเล่นข้างนอก</td><td>Place word</td></tr>
+            <tr><td>32</td><td class="sentence-cell">Do you understand this <span class="word pos-noun" tabindex="0">question<span class="dialog">question (เควส-ชัน)<br><b>Noun</b> | คำนาม<br>แปลว่า คำถาม</span></span>?</td><td>คุณเข้าใจคำถามนี้ไหม</td><td>Do-question</td></tr>
+            <tr><td>33</td><td class="sentence-cell">Where did you <span class="word pos-verb" tabindex="0">buy<span class="dialog">buy (บาย)<br><b>Verb</b> | คำกริยา<br>แปลว่า ซื้อ</span></span> this bag?</td><td>คุณซื้อกระเป๋าใบนี้ที่ไหน</td><td>WH + did + V1</td></tr>
+            <tr><td>34</td><td class="sentence-cell">Who is your best <span class="word pos-noun" tabindex="0">friend<span class="dialog">friend (เฟรนด์)<br><b>Noun</b> | คำนาม<br>แปลว่า เพื่อน</span></span>?</td><td>ใครคือเพื่อนสนิทของคุณ</td><td>Who question</td></tr>
+            <tr><td>35</td><td class="sentence-cell">How often do you <span class="word pos-verb" tabindex="0">exercise<span class="dialog">exercise (เอ็ค-เซอร์-ไซซ์)<br><b>Verb/Noun</b> | กริยา/คำนาม<br>แปลว่า ออกกำลังกาย/การออกกำลังกาย</span></span>?</td><td>คุณออกกำลังกายบ่อยแค่ไหน</td><td>Frequency question</td></tr>
+            <tr><td>36</td><td class="sentence-cell">How much does this shirt <span class="word pos-verb" tabindex="0">cost<span class="dialog">cost (คอสต์)<br><b>Verb</b> | คำกริยา<br>แปลว่า มีราคา</span></span>?</td><td>เสื้อตัวนี้ราคาเท่าไร</td><td>Price question</td></tr>
+            <tr><td>37</td><td class="sentence-cell">The test was <span class="word pos-adj" tabindex="0">difficult<span class="dialog">difficult (ดิฟ-ฟิ-คัลท์)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า ยาก</span></span>, but I passed.</td><td>ข้อสอบยาก แต่ฉันผ่าน</td><td>But shows contrast</td></tr>
+            <tr><td>38</td><td class="sentence-cell">She writes emails <span class="word pos-adv" tabindex="0">carefully<span class="dialog">carefully (แคร์-ฟะ-ลี)<br><b>Adverb</b> | คำวิเศษณ์<br>แปลว่า อย่างระมัดระวัง</span></span>.</td><td>เธอเขียนอีเมลอย่างระมัดระวัง</td><td>Adverb ending -ly</td></tr>
+            <tr><td>39</td><td class="sentence-cell">Our team won the <span class="word pos-noun" tabindex="0">game<span class="dialog">game (เกม)<br><b>Noun</b> | คำนาม<br>แปลว่า เกม/การแข่งขัน</span></span>.</td><td>ทีมของเราชนะการแข่งขัน</td><td>Possessive adjective</td></tr>
+            <tr><td>40</td><td class="sentence-cell">This is <span class="word pos-pronoun" tabindex="0">mine<span class="dialog">mine (มายน์)<br><b>Pronoun</b> | คำสรรพนามแสดงความเป็นเจ้าของ<br>แปลว่า ของฉัน</span></span>.</td><td>นี่เป็นของฉัน</td><td>Possessive pronoun</td></tr>
+            <tr><td>41</td><td class="sentence-cell">He hurt <span class="word pos-pronoun" tabindex="0">himself<span class="dialog">himself (ฮิม-เซลฟ์)<br><b>Pronoun</b> | สรรพนามสะท้อน<br>แปลว่า ตัวเขาเอง</span></span>.</td><td>เขาทำให้ตัวเองเจ็บ</td><td>Reflexive pronoun</td></tr>
+            <tr><td>42</td><td class="sentence-cell">I need an <span class="word pos-noun" tabindex="0">umbrella<span class="dialog">umbrella (อัม-เบรล-ละ)<br><b>Noun</b> | คำนาม<br>แปลว่า ร่ม</span></span>.</td><td>ฉันต้องการร่มหนึ่งคัน</td><td>An + vowel sound</td></tr>
+            <tr><td>43</td><td class="sentence-cell">He is a <span class="word pos-noun" tabindex="0">university<span class="dialog">university (ยู-นิ-เวอร์-ซิ-ที)<br><b>Noun</b> | คำนาม<br>แปลว่า มหาวิทยาลัย</span></span> student.</td><td>เขาเป็นนักศึกษามหาวิทยาลัย</td><td>A + consonant sound</td></tr>
+            <tr><td>44</td><td class="sentence-cell">The sun rises in the <span class="word pos-noun" tabindex="0">east<span class="dialog">east (อีสต์)<br><b>Noun</b> | คำนาม<br>แปลว่า ทิศตะวันออก</span></span>.</td><td>ดวงอาทิตย์ขึ้นทางทิศตะวันออก</td><td>Fact uses Present Simple</td></tr>
+            <tr><td>45</td><td class="sentence-cell">I have lived here <span class="word pos-prep" tabindex="0">since<span class="dialog">since (ซินซ์)<br><b>Preposition/Conjunction</b> | บุพบท/สันธาน<br>แปลว่า ตั้งแต่</span></span> 2020.</td><td>ฉันอาศัยอยู่ที่นี่ตั้งแต่ปี 2020</td><td>Since + starting point</td></tr>
+            <tr><td>46</td><td class="sentence-cell">They have worked here <span class="word pos-prep" tabindex="0">for<span class="dialog">for (ฟอร์)<br><b>Preposition</b> | คำบุพบท<br>แปลว่า เป็นเวลา/เพื่อ</span></span> five years.</td><td>พวกเขาทำงานที่นี่มาเป็นเวลาห้าปี</td><td>For + duration</td></tr>
+            <tr><td>47</td><td class="sentence-cell">The room was <span class="word pos-verb" tabindex="0">cleaned<span class="dialog">cleaned (คลีนด์)<br><b>Verb</b> | คำกริยา V3<br>แปลว่า ถูกทำความสะอาด</span></span> yesterday.</td><td>ห้องถูกทำความสะอาดเมื่อวาน</td><td>Passive voice</td></tr>
+            <tr><td>48</td><td class="sentence-cell">She said that she was <span class="word pos-adj" tabindex="0">busy<span class="dialog">busy (บิซ-ซี)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า ยุ่ง</span></span>.</td><td>เธอบอกว่าเธอยุ่ง</td><td>Reported speech</td></tr>
+            <tr><td>49</td><td class="sentence-cell">The man <span class="word pos-pronoun" tabindex="0">who<span class="dialog">who (ฮู)<br><b>Pronoun</b> | สรรพนามสัมพันธ์<br>แปลว่า ผู้ที่/คนที่</span></span> called you is my uncle.</td><td>ผู้ชายที่โทรหาคุณคือลุงของฉัน</td><td>Relative clause</td></tr>
+            <tr><td>50</td><td class="sentence-cell">This is the book <span class="word pos-pronoun" tabindex="0">that<span class="dialog">that (แดท)<br><b>Pronoun/Determiner</b> | สรรพนาม/คำกำหนดนาม<br>แปลว่า ที่/นั้น</span></span> I bought.</td><td>นี่คือหนังสือที่ฉันซื้อ</td><td>Relative pronoun</td></tr>
+            <tr><td>51</td><td class="sentence-cell">The girl is <span class="word pos-verb" tabindex="0">reading<span class="dialog">reading (รีด-ดิง)<br><b>Verb</b> | คำกริยา V-ing<br>แปลว่า กำลังอ่าน</span></span> quietly.</td><td>เด็กผู้หญิงกำลังอ่านหนังสือเงียบๆ</td><td>Present Continuous</td></tr>
+            <tr><td>52</td><td class="sentence-cell">My father drinks coffee <span class="word pos-adv" tabindex="0">every morning<span class="dialog">every morning (เอฟ-วรี มอร์-นิง)<br><b>Adverb Phrase</b> | วลีคำวิเศษณ์<br>แปลว่า ทุกเช้า</span></span>.</td><td>พ่อของฉันดื่มกาแฟทุกเช้า</td><td>Time adverb phrase</td></tr>
+            <tr><td>53</td><td class="sentence-cell">The flowers smell <span class="word pos-adj" tabindex="0">sweet<span class="dialog">sweet (สวีท)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า หอมหวาน/หวาน</span></span>.</td><td>ดอกไม้มีกลิ่นหอมหวาน</td><td>Linking verb</td></tr>
+            <tr><td>54</td><td class="sentence-cell">I am learning English <span class="word pos-adv" tabindex="0">now<span class="dialog">now (นาว)<br><b>Adverb</b> | คำวิเศษณ์บอกเวลา<br>แปลว่า ตอนนี้</span></span>.</td><td>ฉันกำลังเรียนภาษาอังกฤษตอนนี้</td><td>Now = continuous signal</td></tr>
+            <tr><td>55</td><td class="sentence-cell">We should protect the <span class="word pos-noun" tabindex="0">environment<span class="dialog">environment (อิน-ไว-รัน-เมินท์)<br><b>Noun</b> | คำนาม<br>แปลว่า สิ่งแวดล้อม</span></span>.</td><td>พวกเราควรปกป้องสิ่งแวดล้อม</td><td>Should + V1</td></tr>
+            <tr><td>56</td><td class="sentence-cell">You must wear a <span class="word pos-noun" tabindex="0">helmet<span class="dialog">helmet (เฮล-เม็ท)<br><b>Noun</b> | คำนาม<br>แปลว่า หมวกกันน็อก</span></span>.</td><td>คุณต้องสวมหมวกกันน็อก</td><td>Must = strong obligation</td></tr>
+            <tr><td>57</td><td class="sentence-cell">May I ask a <span class="word pos-noun" tabindex="0">question<span class="dialog">question (เควส-ชัน)<br><b>Noun</b> | คำนาม<br>แปลว่า คำถาม</span></span>?</td><td>ฉันขอถามคำถามได้ไหม</td><td>May I = permission</td></tr>
+            <tr><td>58</td><td class="sentence-cell">Could you speak more <span class="word pos-adv" tabindex="0">slowly<span class="dialog">slowly (สโลว์-ลี)<br><b>Adverb</b> | คำวิเศษณ์<br>แปลว่า อย่างช้าๆ</span></span>?</td><td>คุณช่วยพูดช้าลงได้ไหม</td><td>Polite request</td></tr>
+            <tr><td>59</td><td class="sentence-cell">I might visit you <span class="word pos-adv" tabindex="0">soon<span class="dialog">soon (ซูน)<br><b>Adverb</b> | คำวิเศษณ์บอกเวลา<br>แปลว่า เร็วๆ นี้</span></span>.</td><td>ฉันอาจไปเยี่ยมคุณเร็วๆ นี้</td><td>Might = possibility</td></tr>
+            <tr><td>60</td><td class="sentence-cell">Would you like some <span class="word pos-noun" tabindex="0">tea<span class="dialog">tea (ที)<br><b>Noun</b> | คำนาม<br>แปลว่า ชา</span></span>?</td><td>คุณอยากได้ชาบ้างไหม</td><td>Would you like</td></tr>
+            <tr><td>61</td><td class="sentence-cell">The office is closed <span class="word pos-adv" tabindex="0">today<span class="dialog">today (ทู-เดย์)<br><b>Adverb/Noun</b> | วิเศษณ์/นาม<br>แปลว่า วันนี้</span></span>.</td><td>สำนักงานปิดวันนี้</td><td>Time word</td></tr>
+            <tr><td>62</td><td class="sentence-cell">She works in a <span class="word pos-adj" tabindex="0">large<span class="dialog">large (ลาร์จ)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า ใหญ่</span></span> company.</td><td>เธอทำงานในบริษัทใหญ่</td><td>Adjective + noun</td></tr>
+            <tr><td>63</td><td class="sentence-cell">The manager answered the email <span class="word pos-adv" tabindex="0">politely<span class="dialog">politely (พะ-ไลท์-ลี)<br><b>Adverb</b> | คำวิเศษณ์<br>แปลว่า อย่างสุภาพ</span></span>.</td><td>ผู้จัดการตอบอีเมลอย่างสุภาพ</td><td>Adverb of manner</td></tr>
+            <tr><td>64</td><td class="sentence-cell">I saved the file on my <span class="word pos-noun" tabindex="0">computer<span class="dialog">computer (คอม-พิว-เทอร์)<br><b>Noun</b> | คำนาม<br>แปลว่า คอมพิวเตอร์</span></span>.</td><td>ฉันบันทึกไฟล์ไว้ในคอมพิวเตอร์ของฉัน</td><td>Noun after possessive</td></tr>
+            <tr><td>65</td><td class="sentence-cell">The program has an <span class="word pos-noun" tabindex="0">error<span class="dialog">error (แอร์-เรอร์)<br><b>Noun</b> | คำนาม<br>แปลว่า ข้อผิดพลาด</span></span>.</td><td>โปรแกรมมีข้อผิดพลาด</td><td>Countable noun</td></tr>
+            <tr><td>66</td><td class="sentence-cell">The developer fixed the <span class="word pos-noun" tabindex="0">bug<span class="dialog">bug (บัก)<br><b>Noun</b> | คำนาม<br>แปลว่า ข้อบกพร่องในโปรแกรม</span></span>.</td><td>นักพัฒนาแก้บั๊กแล้ว</td><td>Object noun</td></tr>
+            <tr><td>67</td><td class="sentence-cell">Traveling by train is <span class="word pos-adj" tabindex="0">comfortable<span class="dialog">comfortable (คัมฟ์-เทอะ-เบิล)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า สะดวกสบาย</span></span>.</td><td>การเดินทางโดยรถไฟสะดวกสบาย</td><td>Gerund as subject</td></tr>
+            <tr><td>68</td><td class="sentence-cell">Eating vegetables is <span class="word pos-adj" tabindex="0">healthy<span class="dialog">healthy (เฮล-ธี)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า ดีต่อสุขภาพ</span></span>.</td><td>การกินผักดีต่อสุขภาพ</td><td>Gerund phrase</td></tr>
+            <tr><td>69</td><td class="sentence-cell">To learn grammar takes <span class="word pos-noun" tabindex="0">practice<span class="dialog">practice (แพร็ค-ทิส)<br><b>Noun/Verb</b> | คำนาม/กริยา<br>แปลว่า การฝึก/ฝึกฝน</span></span>.</td><td>การเรียนไวยากรณ์ต้องใช้การฝึกฝน</td><td>Infinitive as subject</td></tr>
+            <tr><td>70</td><td class="sentence-cell">I enjoy listening to <span class="word pos-noun" tabindex="0">music<span class="dialog">music (มิว-ซิค)<br><b>Noun</b> | คำนามนับไม่ได้<br>แปลว่า ดนตรี</span></span>.</td><td>ฉันสนุกกับการฟังเพลง</td><td>Enjoy + V-ing</td></tr>
+            <tr><td>71</td><td class="sentence-cell">He avoids making <span class="word pos-noun" tabindex="0">mistakes<span class="dialog">mistakes (มิส-เทคส์)<br><b>Noun</b> | คำนาม<br>แปลว่า ข้อผิดพลาด</span></span>.</td><td>เขาหลีกเลี่ยงการทำผิดพลาด</td><td>Avoid + V-ing</td></tr>
+            <tr><td>72</td><td class="sentence-cell">They decided to start a <span class="word pos-noun" tabindex="0">business<span class="dialog">business (บิซ-นิส)<br><b>Noun</b> | คำนาม<br>แปลว่า ธุรกิจ</span></span>.</td><td>พวกเขาตัดสินใจเริ่มธุรกิจ</td><td>Decide + to V1</td></tr>
+            <tr><td>73</td><td class="sentence-cell">The weather became <span class="word pos-adj" tabindex="0">cold<span class="dialog">cold (โคลด์)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า หนาว/เย็น</span></span> at night.</td><td>อากาศหนาวขึ้นตอนกลางคืน</td><td>Become + adjective</td></tr>
+            <tr><td>74</td><td class="sentence-cell">The road is <span class="word pos-adj" tabindex="0">dangerous<span class="dialog">dangerous (เดน-เจอะ-รัส)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า อันตราย</span></span> after rain.</td><td>ถนนอันตรายหลังฝนตก</td><td>Be + adjective</td></tr>
+            <tr><td>75</td><td class="sentence-cell">Please drive <span class="word pos-adv" tabindex="0">carefully<span class="dialog">carefully (แคร์-ฟะ-ลี)<br><b>Adverb</b> | คำวิเศษณ์<br>แปลว่า อย่างระมัดระวัง</span></span>.</td><td>กรุณาขับรถอย่างระมัดระวัง</td><td>Adverb after verb</td></tr>
+            <tr><td>76</td><td class="sentence-cell">The shop opens <span class="word pos-prep" tabindex="0">from<span class="dialog">from (ฟรอม)<br><b>Preposition</b> | คำบุพบท<br>แปลว่า จาก/ตั้งแต่</span></span> nine to five.</td><td>ร้านเปิดตั้งแต่เก้าโมงถึงห้าโมง</td><td>From...to...</td></tr>
+            <tr><td>77</td><td class="sentence-cell">I put the keys <span class="word pos-prep" tabindex="0">beside<span class="dialog">beside (บิ-ไซด์)<br><b>Preposition</b> | คำบุพบท<br>แปลว่า ข้างๆ</span></span> the door.</td><td>ฉันวางกุญแจไว้ข้างประตู</td><td>Place preposition</td></tr>
+            <tr><td>78</td><td class="sentence-cell">The plane flew <span class="word pos-prep" tabindex="0">over<span class="dialog">over (โอ-เวอร์)<br><b>Preposition/Adverb</b> | บุพบท/วิเศษณ์<br>แปลว่า เหนือ/ข้าม</span></span> the city.</td><td>เครื่องบินบินเหนือเมือง</td><td>Movement preposition</td></tr>
+            <tr><td>79</td><td class="sentence-cell">I sent the document by <span class="word pos-noun" tabindex="0">email<span class="dialog">email (อี-เมล)<br><b>Noun</b> | คำนาม<br>แปลว่า อีเมล</span></span>.</td><td>ฉันส่งเอกสารทางอีเมล</td><td>By + method</td></tr>
+            <tr><td>80</td><td class="sentence-cell">She was absent because of <span class="word pos-noun" tabindex="0">illness<span class="dialog">illness (อิล-นิส)<br><b>Noun</b> | คำนาม<br>แปลว่า ความเจ็บป่วย</span></span>.</td><td>เธอขาดเรียน/ขาดงานเพราะความเจ็บป่วย</td><td>Because of + noun</td></tr>
+            <tr><td>81</td><td class="sentence-cell">Both Jack and Jill are <span class="word pos-adj" tabindex="0">friendly<span class="dialog">friendly (เฟรนด์-ลี)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า เป็นมิตร</span></span>.</td><td>ทั้งแจ็กและจิลเป็นมิตร</td><td>Both...and...</td></tr>
+            <tr><td>82</td><td class="sentence-cell">Either tea or coffee is <span class="word pos-adj" tabindex="0">fine<span class="dialog">fine (ไฟน์)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า ดี/โอเค</span></span>.</td><td>ชาหรือกาแฟก็ได้</td><td>Either...or...</td></tr>
+            <tr><td>83</td><td class="sentence-cell">Neither answer is <span class="word pos-adj" tabindex="0">correct<span class="dialog">correct (คะ-เรคท์)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า ถูกต้อง</span></span>.</td><td>ไม่มีคำตอบใดถูกต้อง</td><td>Neither + singular verb</td></tr>
+            <tr><td>84</td><td class="sentence-cell">Not only the food but also the service was <span class="word pos-adj" tabindex="0">excellent<span class="dialog">excellent (เอ็ค-ซะ-เลินท์)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า ยอดเยี่ยม</span></span>.</td><td>ไม่เพียงแต่อาหาร แต่บริการก็ยอดเยี่ยมด้วย</td><td>Not only...but also...</td></tr>
+            <tr><td>85</td><td class="sentence-cell">Everyone <span class="word pos-verb" tabindex="0">knows<span class="dialog">knows (โนว์ซ)<br><b>Verb</b> | คำกริยา<br>แปลว่า รู้</span></span> the rule.</td><td>ทุกคนรู้กฎนี้</td><td>Everyone + singular verb</td></tr>
+            <tr><td>86</td><td class="sentence-cell">People are waiting <span class="word pos-adv" tabindex="0">outside<span class="dialog">outside (เอาท์-ไซด์)<br><b>Adverb</b> | คำวิเศษณ์<br>แปลว่า ข้างนอก</span></span>.</td><td>ผู้คนกำลังรออยู่ข้างนอก</td><td>People + plural verb</td></tr>
+            <tr><td>87</td><td class="sentence-cell">The news is <span class="word pos-adj" tabindex="0">surprising<span class="dialog">surprising (เซอร์-ไพร-ซิง)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า น่าประหลาดใจ</span></span>.</td><td>ข่าวนี้น่าประหลาดใจ</td><td>News is singular</td></tr>
+            <tr><td>88</td><td class="sentence-cell">Water is <span class="word pos-adj" tabindex="0">important<span class="dialog">important (อิม-พอร์-เทินท์)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า สำคัญ</span></span> for life.</td><td>น้ำสำคัญต่อชีวิต</td><td>Uncountable noun</td></tr>
+            <tr><td>89</td><td class="sentence-cell">I need some <span class="word pos-noun" tabindex="0">advice<span class="dialog">advice (แอด-ไวซ์)<br><b>Noun</b> | คำนามนับไม่ได้<br>แปลว่า คำแนะนำ</span></span>.</td><td>ฉันต้องการคำแนะนำบางอย่าง</td><td>Uncountable noun</td></tr>
+            <tr><td>90</td><td class="sentence-cell">This box is <span class="word pos-adj" tabindex="0">heavier<span class="dialog">heavier (เฮฟ-วี-เออร์)<br><b>Adjective</b> | คุณศัพท์ขั้นกว่า<br>แปลว่า หนักกว่า</span></span> than that one.</td><td>กล่องนี้หนักกว่ากล่องนั้น</td><td>Comparative</td></tr>
+            <tr><td>91</td><td class="sentence-cell">She is the <span class="word pos-adj" tabindex="0">smartest<span class="dialog">smartest (สมาร์ท-เทสท์)<br><b>Adjective</b> | คุณศัพท์ขั้นสุด<br>แปลว่า ฉลาดที่สุด</span></span> student in class.</td><td>เธอเป็นนักเรียนที่ฉลาดที่สุดในชั้น</td><td>Superlative</td></tr>
+            <tr><td>92</td><td class="sentence-cell">The story made me <span class="word pos-adj" tabindex="0">sad<span class="dialog">sad (แซด)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า เศร้า</span></span>.</td><td>เรื่องราวทำให้ฉันเศร้า</td><td>Make + object + adjective</td></tr>
+            <tr><td>93</td><td class="sentence-cell">Let him <span class="word pos-verb" tabindex="0">try<span class="dialog">try (ทราย)<br><b>Verb</b> | คำกริยา<br>แปลว่า ลอง/พยายาม</span></span> again.</td><td>ให้เขาลองอีกครั้ง</td><td>Let + object + V1</td></tr>
+            <tr><td>94</td><td class="sentence-cell">I heard her <span class="word pos-verb" tabindex="0">sing<span class="dialog">sing (ซิง)<br><b>Verb</b> | คำกริยา<br>แปลว่า ร้องเพลง</span></span>.</td><td>ฉันได้ยินเธอร้องเพลง</td><td>Perception verb + object + V1</td></tr>
+            <tr><td>95</td><td class="sentence-cell">The cake was cut with a <span class="word pos-noun" tabindex="0">knife<span class="dialog">knife (ไนฟ์)<br><b>Noun</b> | คำนาม<br>แปลว่า มีด</span></span>.</td><td>เค้กถูกตัดด้วยมีด</td><td>With + tool</td></tr>
+            <tr><td>96</td><td class="sentence-cell">The children shouted <span class="word pos-adv" tabindex="0">loudly<span class="dialog">loudly (ลาวด์-ลี)<br><b>Adverb</b> | คำวิเศษณ์<br>แปลว่า อย่างเสียงดัง</span></span>.</td><td>เด็กๆ ตะโกนเสียงดัง</td><td>Adverb of manner</td></tr>
+            <tr><td>97</td><td class="sentence-cell">My phone is <span class="word pos-prep" tabindex="0">inside<span class="dialog">inside (อิน-ไซด์)<br><b>Preposition/Adverb</b> | บุพบท/วิเศษณ์<br>แปลว่า ข้างใน</span></span> my bag.</td><td>โทรศัพท์ของฉันอยู่ในกระเป๋า</td><td>Place word</td></tr>
+            <tr><td>98</td><td class="sentence-cell">He smiled because he felt <span class="word pos-adj" tabindex="0">happy<span class="dialog">happy (แฮพ-พี)<br><b>Adjective</b> | คำคุณศัพท์<br>แปลว่า มีความสุข</span></span>.</td><td>เขายิ้มเพราะเขารู้สึกมีความสุข</td><td>Because + reason</td></tr>
+            <tr><td>99</td><td class="sentence-cell">Before dinner, we washed our <span class="word pos-noun" tabindex="0">hands<span class="dialog">hands (แฮนด์ซ)<br><b>Noun</b> | คำนาม<br>แปลว่า มือหลายข้าง</span></span>.</td><td>ก่อนอาหารเย็น พวกเราล้างมือ</td><td>Before + noun</td></tr>
+            <tr><td>100</td><td class="sentence-cell">Learning English every day builds <span class="word pos-noun" tabindex="0">confidence<span class="dialog">confidence (คอน-ฟิ-เดินซ์)<br><b>Noun</b> | คำนาม<br>แปลว่า ความมั่นใจ</span></span>.</td><td>การเรียนภาษาอังกฤษทุกวันสร้างความมั่นใจ</td><td>Gerund subject + verb + object</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">Tip | เทคนิค: ฝึกอ่านทีละประโยค แล้วชี้คำไฮไลต์เพื่อถามตัวเองว่า “คำนี้ทำหน้าที่อะไรในประโยค?”</div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      var panelStack = document.getElementById("lessonPanelStack");
+      var panelsCookieName = "grammarLessonPanels";
+
+      function setCookie(name, value, days) {
+        var maxAge = days * 24 * 60 * 60;
+        document.cookie = name + "=" + encodeURIComponent(value) + "; max-age=" + maxAge + "; path=/; SameSite=Lax";
+      }
+
+      function getCookie(name) {
+        var prefix = name + "=";
+        return document.cookie.split(";").map(function (item) {
+          return item.trim();
+        }).reduce(function (found, item) {
+          if (found) return found;
+          return item.indexOf(prefix) === 0 ? decodeURIComponent(item.slice(prefix.length)) : "";
+        }, "");
+      }
+
+      function removeCookie(name) {
+        document.cookie = name + "=; max-age=0; path=/; SameSite=Lax";
+      }
+
+      function cleanClone(clone) {
+        clone.removeAttribute("id");
+        clone.querySelectorAll(".lesson-popout-btn").forEach(function (button) {
+          button.remove();
+        });
+        clone.querySelectorAll("[id]").forEach(function (node) {
+          node.removeAttribute("id");
+        });
+      }
+
+      function savePanels() {
+        var data = Array.prototype.map.call(panelStack.querySelectorAll(".lesson-panel"), function (panel) {
+          return {
+            id: panel.dataset.sectionId,
+            collapsed: panel.classList.contains("is-collapsed")
+          };
+        });
+
+        if (data.length) {
+          setCookie(panelsCookieName, JSON.stringify(data), 30);
+        } else {
+          removeCookie(panelsCookieName);
+        }
+      }
+
+      function setCollapsed(panel, isCollapsed) {
+        var toggleButton = panel.querySelector(".lesson-panel-toggle");
+        panel.classList.toggle("is-collapsed", isCollapsed);
+        toggleButton.textContent = isCollapsed ? "ขยาย" : "ย่อ";
+        toggleButton.setAttribute("aria-expanded", String(!isCollapsed));
+        savePanels();
+      }
+
+      function createPanel(sectionId, initialCollapsed) {
+        var section = document.getElementById(sectionId);
+        if (!section) return null;
+
+        var heading = section.querySelector(".section-title h2");
+        var clone = section.cloneNode(true);
+        cleanClone(clone);
+
+        var panel = document.createElement("aside");
+        panel.className = "lesson-panel";
+        panel.dataset.sectionId = sectionId;
+        panel.setAttribute("aria-label", "Separated lesson window");
+
+        var head = document.createElement("div");
+        head.className = "lesson-panel-head";
+
+        var title = document.createElement("div");
+        title.className = "lesson-panel-title";
+        title.textContent = heading ? heading.textContent : "Lesson Window | หน้าต่างบทเรียน";
+
+        var actions = document.createElement("div");
+        actions.className = "lesson-panel-actions";
+
+        var toggleButton = document.createElement("button");
+        toggleButton.type = "button";
+        toggleButton.className = "lesson-panel-toggle";
+        toggleButton.textContent = "ย่อ";
+        toggleButton.setAttribute("aria-expanded", "true");
+        toggleButton.addEventListener("click", function () {
+          setCollapsed(panel, !panel.classList.contains("is-collapsed"));
+        });
+
+        var closeButton = document.createElement("button");
+        closeButton.type = "button";
+        closeButton.textContent = "ปิด";
+        closeButton.addEventListener("click", function () {
+          panel.remove();
+          savePanels();
+        });
+
+        var content = document.createElement("div");
+        content.className = "lesson-panel-content";
+        content.appendChild(clone);
+
+        actions.appendChild(toggleButton);
+        actions.appendChild(closeButton);
+        head.appendChild(title);
+        head.appendChild(actions);
+        panel.appendChild(head);
+        panel.appendChild(content);
+
+        panelStack.appendChild(panel);
+        setCollapsed(panel, Boolean(initialCollapsed));
+        return panel;
+      }
+
+      function openLesson(sectionId, shouldSave, initialCollapsed) {
+        var existingPanel = panelStack.querySelector('.lesson-panel[data-section-id="' + sectionId + '"]');
+        if (existingPanel) {
+          setCollapsed(existingPanel, false);
+          panelStack.appendChild(existingPanel);
+          existingPanel.scrollIntoView({ block: "nearest" });
+          if (shouldSave !== false) savePanels();
+          return;
+        }
+
+        var panel = createPanel(sectionId, initialCollapsed);
+        if (panel && shouldSave !== false) {
+          savePanels();
+        }
+      }
+
+      document.querySelectorAll("main > section[id]").forEach(function (section) {
+        var title = section.querySelector(".section-title");
+        if (!title || title.querySelector(".lesson-popout-btn")) return;
+
+        var button = document.createElement("button");
+        button.type = "button";
+        button.className = "lesson-popout-btn";
+        button.textContent = "แยกหน้าต่าง";
+        button.setAttribute("aria-label", "เปิดบทเรียนนี้ในหน้าต่างด้านขวา");
+        button.addEventListener("click", function () {
+          openLesson(section.id, true, false);
+        });
+        title.appendChild(button);
+      });
+
+      function restorePanels() {
+        var savedPanels = getCookie(panelsCookieName);
+        if (savedPanels) {
+          try {
+            JSON.parse(savedPanels).forEach(function (item) {
+              if (item && item.id) {
+                openLesson(item.id, false, Boolean(item.collapsed));
+              }
+            });
+            return;
+          } catch (error) {
+            removeCookie(panelsCookieName);
+          }
+        }
+
+        var oldSavedSection = getCookie("grammarLessonPanelSection");
+        if (oldSavedSection) {
+          openLesson(oldSavedSection, false, getCookie("grammarLessonPanelCollapsed") === "1");
+          removeCookie("grammarLessonPanelSection");
+          removeCookie("grammarLessonPanelCollapsed");
+          savePanels();
+        }
+      }
+
+      restorePanels();
+    }());
+  </script>
+</body>
+</html>
