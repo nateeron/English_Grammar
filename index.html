@@ -87,16 +87,17 @@
       top: 10px;
       max-height: calc(100vh - 20px);
       overflow: auto;
-      padding: 10px;
+      padding: 58px 10px 10px;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
     .toc-toggle {
-      position: sticky;
-      top: 0;
-      z-index: 3;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 70;
       width: 38px;
       height: 38px;
       padding: 0;
@@ -110,6 +111,7 @@
       font-weight: 800;
       text-align: center;
       line-height: 1;
+      box-shadow: var(--shadow);
     }
 
     .toc-links {
@@ -132,13 +134,24 @@
     .toc a:hover { background: var(--hover); transform: translateX(2px); }
 
     body.toc-collapsed main {
-      grid-template-columns: 52px minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr);
+      width: calc(100vw - 20px);
+      margin-left: 10px;
+      margin-right: 10px;
     }
 
     body.toc-collapsed .toc {
-      padding: 8px 6px;
-      overflow: hidden;
-      align-items: center;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 70;
+      width: 38px;
+      max-height: none;
+      padding: 0;
+      overflow: visible;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
     }
 
     body.toc-collapsed .toc-links {
@@ -146,7 +159,12 @@
     }
 
     body.toc-collapsed .toc-toggle {
+      position: static;
       min-height: 38px;
+    }
+
+    body.toc-collapsed section {
+      grid-column: 1;
     }
 
     section {
@@ -462,11 +480,14 @@
       flex-direction: column;
       max-height: min(560px, calc(100vh - 20px));
       overflow: hidden;
-      border: 1px solid var(--line);
+      border: 2px solid color-mix(in srgb, var(--blue) 45%, var(--line));
       border-radius: 16px;
       background: var(--card);
       color: var(--text);
-      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.28);
+      box-shadow:
+        0 0 0 3px rgba(51, 77, 133, 0.14),
+        0 18px 46px rgba(15, 23, 42, 0.36),
+        0 8px 18px rgba(15, 23, 42, 0.22);
       font-size: 0.74rem;
     }
 
@@ -515,6 +536,10 @@
       box-shadow: none;
     }
 
+    .lesson-panel-content .section-title {
+      display: none;
+    }
+
     .lesson-panel-content .table-wrap {
       max-height: none;
     }
@@ -542,6 +567,7 @@
         top: 0;
         z-index: 20;
         max-height: none;
+        padding: 10px 10px 10px 58px;
         flex-direction: row;
         overflow-x: auto;
         overflow-y: hidden;
@@ -558,7 +584,18 @@
         gap: 6px;
       }
       body.toc-collapsed .toc {
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        z-index: 70;
+        width: 38px;
+        max-height: none;
+        padding: 0;
+        overflow: visible;
         align-items: stretch;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
       }
       body.toc-collapsed .toc-toggle {
         writing-mode: horizontal-tb;
