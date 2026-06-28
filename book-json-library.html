@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book JSON Library | อ่านหนังสือจาก JSON</title>
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --line: #d9e1ee;
+      --row: #f9fbff;
+      --row-alt: #eef5ff;
+      --blue: #334d85;
+      --green: #059669;
+      --purple: #7c3aed;
+      --teal: #0891b2;
+      --red: #dc2626;
+      --shadow: 0 12px 30px rgba(22, 38, 66, 0.12);
+      --radius: 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --text: #e5e7eb;
+        --muted: #b6c0cf;
+        --line: #334155;
+        --row: #162033;
+        --row-alt: #1d293d;
+        --shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", "Noto Sans Thai", Tahoma, Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    header {
+      padding: 14px;
+      color: white;
+      text-align: center;
+      background: linear-gradient(135deg, #21356d, #7c3aed, #db2777);
+    }
+
+    header h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.35rem, 4vw, 2.35rem);
+    }
+
+    header p {
+      max-width: 980px;
+      margin: 0 auto;
+      opacity: 0.94;
+      font-size: 0.86rem;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .button,
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .link-button {
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .button.secondary {
+      background: linear-gradient(135deg, var(--green), var(--teal));
+    }
+
+    .layout-toggle.is-active {
+      background: linear-gradient(135deg, var(--red), #b91c1c);
+    }
+
+    main {
+      width: min(1380px, calc(100vw - 24px));
+      margin: 16px auto 34px;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr) minmax(300px, 0.42fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    body.hide-left main {
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.42fr);
+    }
+
+    body.hide-right main {
+      grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
+    }
+
+    body.hide-left.hide-right main {
+      grid-template-columns: minmax(0, 1fr);
+      width: min(1080px, calc(100vw - 24px));
+    }
+
+    body.hide-left .layout-left,
+    body.hide-right .layout-right {
+      display: none;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .card-head {
+      padding: 12px 14px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+    }
+
+    .card-head h2 {
+      margin: 0;
+      font-size: 1.06rem;
+      letter-spacing: 0.01em;
+    }
+
+    .card-head p {
+      margin: 3px 0 0;
+      opacity: 0.92;
+      font-size: 0.8rem;
+    }
+
+    .card-body {
+      padding: 12px;
+    }
+
+    .library-actions,
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .book-list {
+      display: grid;
+      gap: 8px;
+      max-height: 70vh;
+      overflow: auto;
+    }
+
+    .book-list button {
+      display: block;
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--row);
+      box-shadow: none;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 750;
+      text-align: left;
+      overflow-wrap: anywhere;
+      line-height: 1.35;
+    }
+
+    .book-list button:hover,
+    .book-list button.is-active {
+      color: white;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+    }
+
+    .book-content {
+      min-height: 68vh;
+      max-height: 78vh;
+      padding: 16px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0)),
+        var(--row-alt);
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      line-height: 1.85;
+      outline: none;
+    }
+
+    .book-title-card,
+    .book-section-card {
+      max-width: 880px;
+      margin: 0 auto 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.75) inset,
+        0 10px 24px rgba(22, 38, 66, 0.09);
+    }
+
+    .book-title-card {
+      padding: 16px 18px;
+      color: white;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      font-weight: 900;
+      white-space: pre-wrap;
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+    }
+
+    .book-section-title {
+      padding: 12px 16px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+    }
+
+    .book-section-body {
+      padding: 16px 18px 18px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      color: color-mix(in srgb, var(--text) 92%, var(--muted));
+      font-size: clamp(0.96rem, 1.2vw, 1.06rem);
+      line-height: 1.9;
+      letter-spacing: 0.004em;
+    }
+
+    .chapter-card {
+      margin: 0 0 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--row) 86%, var(--card));
+    }
+
+    .chapter-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .chapter-image {
+      margin: 0;
+      border-bottom: 1px solid var(--line);
+      background: #0f172a;
+    }
+
+    .chapter-image img {
+      display: block;
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+    }
+
+    .chapter-title {
+      padding: 11px 14px;
+      color: white;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      font-size: 0.98rem;
+      font-weight: 900;
+    }
+
+    .chapter-body {
+      padding: 14px 16px 16px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      color: color-mix(in srgb, var(--text) 92%, var(--muted));
+      font-size: clamp(0.96rem, 1.2vw, 1.06rem);
+      line-height: 1.9;
+    }
+
+    .book-content:focus {
+      border-color: color-mix(in srgb, var(--teal) 70%, var(--line));
+      box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.14);
+    }
+
+    .status {
+      min-height: 1.35em;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .result-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .result-box {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--row);
+    }
+
+    .result-box h3 {
+      margin: 0 0 6px;
+      color: var(--teal);
+      font-size: 0.88rem;
+    }
+
+    .result-text {
+      min-height: 2.6em;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    .hint-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .floating-translate {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      z-index: 80;
+      display: none;
+      width: min(340px, calc(100vw - 20px));
+      max-height: min(520px, calc(100vh - 24px));
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--teal) 55%, var(--line));
+      border-radius: 14px;
+      background: var(--card);
+      box-shadow:
+        0 0 0 2px rgba(8, 145, 178, 0.12),
+        0 14px 34px rgba(15, 23, 42, 0.28);
+      touch-action: none;
+    }
+
+    .floating-translate.is-open {
+      display: block;
+    }
+
+    .floating-translate-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 7px 9px;
+      color: white;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      cursor: move;
+      user-select: none;
+      touch-action: none;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .floating-translate-close {
+      width: 26px;
+      height: 26px;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 999px;
+      color: white;
+      background: var(--red);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .floating-translate-body {
+      display: grid;
+      gap: 7px;
+      max-height: calc(100vh - 78px);
+      padding: 8px;
+      overflow: auto;
+    }
+
+    .floating-translate .result-box {
+      padding: 8px;
+      border-radius: 10px;
+    }
+
+    .floating-translate .result-box h3 {
+      margin-bottom: 4px;
+      font-size: 0.76rem;
+    }
+
+    .floating-translate .result-text {
+      min-height: 1.6em;
+      max-height: 96px;
+      overflow: auto;
+      font-size: 0.78rem;
+      line-height: 1.42;
+    }
+
+    .floating-translate .result-actions {
+      gap: 6px;
+      margin-bottom: 0;
+    }
+
+    .floating-translate .button {
+      padding: 6px 9px;
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 1020px) {
+      main {
+        width: 100%;
+        margin: 0;
+        display: block;
+      }
+
+      .card {
+        border-radius: 0;
+      }
+
+      .book-list,
+      .book-content {
+        max-height: 52vh;
+      }
+
+      .book-content {
+        padding: 10px;
+      }
+
+      .book-title-card,
+      .book-section-card {
+        max-width: none;
+        margin-bottom: 10px;
+        border-radius: 12px;
+      }
+
+      .book-title-card {
+        padding: 13px 14px;
+      }
+
+      .book-section-title {
+        padding: 10px 12px;
+      }
+
+      .book-section-body {
+        padding: 12px;
+        font-size: 0.94rem;
+        line-height: 1.78;
+      }
+
+      .floating-translate {
+        right: 8px;
+        bottom: 8px;
+        width: min(320px, calc(100vw - 16px));
+        max-height: min(430px, calc(100vh - 16px));
+        border-radius: 12px;
+      }
+
+      .floating-translate-body {
+        max-height: calc(100vh - 66px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Book JSON Library</h1>
+    <p>อ่านไฟล์ JSON จาก grammar/Book โดยเฉพาะ เลือกข้อความเพื่อแปล ดูคำอ่าน และฟังเสียงอ่านได้ทันที</p>
+    <div class="header-actions">
+      <a class="link-button" href="index.html">← กลับหน้า Grammar</a>
+      <a class="link-button" href="book-reader.html">เปิด Book Reader</a>
+      <button class="button layout-toggle" id="toggleLeftButton" type="button" aria-pressed="false">ซ่อน Left</button>
+      <button class="button layout-toggle" id="toggleRightButton" type="button" aria-pressed="false">ซ่อน Right</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card layout-left" aria-labelledby="libraryTitle">
+      <div class="card-head">
+        <h2 id="libraryTitle">Book JSON Files | ไฟล์ JSON หนังสือ</h2>
+        <p>รายการนี้อ่านจาก Book/books.json แล้วโหลดไฟล์ Book/*.json ตาม manifest</p>
+      </div>
+      <div class="card-body">
+        <div class="library-actions">
+          <button class="button secondary" id="loadBooksButton" type="button">Load JSON Files</button>
+        </div>
+        <div class="book-list" id="bookList" aria-live="polite">กำลังโหลดรายการหนังสือ...</div>
+        <p class="status" id="bookListStatus">พร้อมโหลดไฟล์ JSON</p>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="contentTitle">
+      <div class="card-head">
+        <h2 id="contentTitle">Book Content | เนื้อหาหนังสือ</h2>
+        <p>ลากเลือกคำหรือประโยคในเนื้อหาเพื่อแปล EN/TH</p>
+      </div>
+      <div class="card-body">
+        <div class="book-content" id="bookContent" tabindex="0" aria-label="Book JSON content">เลือกหนังสือจากรายการด้านซ้ายเพื่อเริ่มอ่าน</div>
+        <p class="status" id="bookStatus">ยังไม่ได้เลือกหนังสือ</p>
+      </div>
+    </section>
+
+    <aside class="card layout-right" aria-labelledby="resultTitle">
+      <div class="card-head">
+        <h2 id="resultTitle">Select Text Result | ผลจากข้อความที่เลือก</h2>
+        <p>เลือกคำหรือประโยค แล้วระบบจะแปล EN/TH และเตรียมเสียงอ่าน</p>
+      </div>
+      <div class="card-body">
+        <div class="result-actions">
+          <button class="button secondary" id="speakButton" type="button">🔊 ฟังเสียงอ่าน</button>
+          <button class="button" id="copyResultButton" type="button">คัดลอกผลแปล</button>
+        </div>
+        <div class="result-grid">
+          <div class="result-box">
+            <h3>Selected | ข้อความที่เลือก</h3>
+            <div class="result-text" id="selectedText">ยังไม่ได้เลือกข้อความ</div>
+          </div>
+          <div class="result-box">
+            <h3>Translation | คำแปล</h3>
+            <div class="result-text" id="translatedText">เลือกข้อความเพื่อแปล</div>
+          </div>
+          <div class="result-box">
+            <h3>Pronunciation | คำอ่าน / เสียงอ่าน</h3>
+            <div class="result-text" id="pronunciationText">เลือกข้อความแล้วกดฟังเสียงอ่านได้</div>
+          </div>
+          <div class="result-box">
+            <h3>วิธีใช้เร็ว</h3>
+            <ul class="hint-list">
+              <li>เลือกหนังสือจากรายการ JSON</li>
+              <li>ลากเลือกคำหรือประโยคในเนื้อหา</li>
+              <li>ระบบจะแปล EN ↔ TH และแสดงคำอ่านถ้า Google ส่งข้อมูลกลับมา</li>
+              <li>กด 🔊 เพื่อฟังเสียงอ่านด้วย browser speech</li>
+            </ul>
+          </div>
+        </div>
+        <p class="status" id="translateStatus">พร้อมแปลข้อความที่เลือก</p>
+      </div>
+    </aside>
+  </main>
+
+  <aside class="floating-translate" id="floatingTranslate" aria-live="polite" aria-label="Floating translation dialog">
+    <div class="floating-translate-head">
+      <div>Translate | แปลข้อความที่เลือก</div>
+      <button class="floating-translate-close" id="floatingTranslateClose" type="button" aria-label="ปิดหน้าต่างแปล">×</button>
+    </div>
+    <div class="floating-translate-body">
+      <div class="result-box">
+        <h3>Selected | ข้อความที่เลือก</h3>
+        <div class="result-text" id="floatingSelectedText">ยังไม่ได้เลือกข้อความ</div>
+      </div>
+      <div class="result-box">
+        <h3>Translation | คำแปล</h3>
+        <div class="result-text" id="floatingTranslatedText">เลือกข้อความเพื่อแปล</div>
+      </div>
+      <div class="result-box">
+        <h3>Pronunciation | คำอ่าน / เสียงอ่าน</h3>
+        <div class="result-text" id="floatingPronunciationText">เลือกข้อความแล้วกดฟังเสียงอ่านได้</div>
+      </div>
+      <div class="result-actions">
+        <button class="button secondary" id="floatingSpeakButton" type="button">🔊 ฟังเสียงอ่าน</button>
+        <button class="button" id="floatingCopyButton" type="button">คัดลอกผลแปล</button>
+      </div>
+    </div>
+  </aside>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    (function () {
+      var translateTimer = null;
+      var lastSelectedText = "";
+      var books = [];
+
+      var bookList = document.getElementById("bookList");
+      var bookListStatus = document.getElementById("bookListStatus");
+      var bookContent = document.getElementById("bookContent");
+      var bookStatus = document.getElementById("bookStatus");
+      var selectedText = document.getElementById("selectedText");
+      var translatedText = document.getElementById("translatedText");
+      var pronunciationText = document.getElementById("pronunciationText");
+      var translateStatus = document.getElementById("translateStatus");
+      var loadBooksButton = document.getElementById("loadBooksButton");
+      var speakButton = document.getElementById("speakButton");
+      var copyResultButton = document.getElementById("copyResultButton");
+      var toggleLeftButton = document.getElementById("toggleLeftButton");
+      var toggleRightButton = document.getElementById("toggleRightButton");
+      var floatingTranslate = document.getElementById("floatingTranslate");
+      var floatingTranslateClose = document.getElementById("floatingTranslateClose");
+      var floatingTranslateHead = floatingTranslate ? floatingTranslate.querySelector(".floating-translate-head") : null;
+      var floatingSelectedText = document.getElementById("floatingSelectedText");
+      var floatingTranslatedText = document.getElementById("floatingTranslatedText");
+      var floatingPronunciationText = document.getElementById("floatingPronunciationText");
+      var floatingSpeakButton = document.getElementById("floatingSpeakButton");
+      var floatingCopyButton = document.getElementById("floatingCopyButton");
+
+      function setBookListStatus(message) {
+        bookListStatus.textContent = message;
+      }
+
+      function setBookStatus(message) {
+        bookStatus.textContent = message;
+      }
+
+      function setTranslateStatus(message) {
+        translateStatus.textContent = message;
+      }
+
+      function isRightHidden() {
+        return document.body.classList.contains("hide-right");
+      }
+
+      function setFloatingTranslateOpen(isOpen) {
+        if (floatingTranslate) {
+          floatingTranslate.classList.toggle("is-open", isOpen);
+        }
+      }
+
+      function clampDialogPosition(left, top) {
+        var margin = 8;
+        var rect = floatingTranslate.getBoundingClientRect();
+        var maxLeft = window.innerWidth - rect.width - margin;
+        var maxTop = window.innerHeight - rect.height - margin;
+
+        return {
+          left: Math.min(Math.max(left, margin), Math.max(margin, maxLeft)),
+          top: Math.min(Math.max(top, margin), Math.max(margin, maxTop))
+        };
+      }
+
+      function setFloatingTranslatePosition(left, top) {
+        var position = clampDialogPosition(left, top);
+        floatingTranslate.style.left = position.left + "px";
+        floatingTranslate.style.top = position.top + "px";
+        floatingTranslate.style.right = "auto";
+        floatingTranslate.style.bottom = "auto";
+        localStorage.setItem("bookJsonFloatLeft", String(Math.round(position.left)));
+        localStorage.setItem("bookJsonFloatTop", String(Math.round(position.top)));
+      }
+
+      function restoreFloatingTranslatePosition() {
+        var left = Number(localStorage.getItem("bookJsonFloatLeft"));
+        var top = Number(localStorage.getItem("bookJsonFloatTop"));
+        if (!Number.isFinite(left) || !Number.isFinite(top)) return;
+
+        window.setTimeout(function () {
+          setFloatingTranslatePosition(left, top);
+        }, 0);
+      }
+
+      function initFloatingDrag() {
+        if (!floatingTranslate || !floatingTranslateHead) return;
+
+        var dragState = null;
+        restoreFloatingTranslatePosition();
+
+        floatingTranslateHead.addEventListener("pointerdown", function (event) {
+          if (event.target === floatingTranslateClose) return;
+
+          var rect = floatingTranslate.getBoundingClientRect();
+          dragState = {
+            pointerId: event.pointerId,
+            offsetX: event.clientX - rect.left,
+            offsetY: event.clientY - rect.top
+          };
+          floatingTranslateHead.setPointerCapture(event.pointerId);
+          event.preventDefault();
+        });
+
+        floatingTranslateHead.addEventListener("pointermove", function (event) {
+          if (!dragState || dragState.pointerId !== event.pointerId) return;
+
+          setFloatingTranslatePosition(event.clientX - dragState.offsetX, event.clientY - dragState.offsetY);
+        });
+
+        function endDrag(event) {
+          if (!dragState || dragState.pointerId !== event.pointerId) return;
+          dragState = null;
+        }
+
+        floatingTranslateHead.addEventListener("pointerup", endDrag);
+        floatingTranslateHead.addEventListener("pointercancel", endDrag);
+
+        window.addEventListener("resize", function () {
+          if (!floatingTranslate.classList.contains("is-open")) return;
+          var rect = floatingTranslate.getBoundingClientRect();
+          setFloatingTranslatePosition(rect.left, rect.top);
+        });
+      }
+
+      function syncFloatingTranslate() {
+        if (!floatingTranslate) return;
+
+        floatingSelectedText.textContent = selectedText.textContent;
+        floatingTranslatedText.textContent = translatedText.textContent;
+        floatingPronunciationText.textContent = pronunciationText.textContent;
+      }
+
+      function formatBookName(name) {
+        return String(name || "")
+          .replace(/^\d{8}-\d{6}-/, "")
+          .replace(/\.(json|md)$/i, "")
+          .replace(/-/g, " ");
+      }
+
+      function renderBookList() {
+        if (!window.jQuery) {
+          bookList.textContent = "ต้องเชื่อมต่ออินเทอร์เน็ตเพื่อโหลด JQuery หรือเพิ่ม JQuery local file";
+          setBookListStatus("JQuery ยังไม่พร้อมใช้งาน");
+          return;
+        }
+
+        var $bookList = $(bookList);
+        $bookList.empty();
+
+        if (!books.length) {
+          bookList.textContent = "ยังไม่มีรายการหนังสือใน Book/books.json";
+          setBookListStatus("ไม่พบหนังสือ");
+          return;
+        }
+
+        books.forEach(function (book) {
+          var $button = $("<button>", {
+            type: "button",
+            text: book.title || formatBookName(book.fileName),
+            title: book.fileName || book.path
+          });
+
+          $button.on("click", function () {
+            $bookList.find("button").removeClass("is-active");
+            $button.addClass("is-active");
+            loadBook(book);
+          });
+
+          $bookList.append($button);
+        });
+
+        setBookListStatus("พบหนังสือ " + books.length + " ไฟล์");
+      }
+
+      function loadBookManifest() {
+        setBookListStatus("กำลังอ่าน Book/books.json...");
+        return fetch("Book/books.json?fresh=" + Date.now(), { cache: "no-store" })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error("Cannot load Book/books.json");
+            }
+            return response.json();
+          })
+          .then(function (manifest) {
+            if (!manifest || !Array.isArray(manifest.books)) {
+              throw new Error("Book/books.json format is invalid");
+            }
+
+            books = manifest.books.filter(function (book) {
+              return book && book.path;
+            });
+
+            if (!books.length) {
+              throw new Error("Book/books.json has no book entries");
+            }
+
+            renderBookList();
+            setBookListStatus("โหลดจาก Book/books.json แล้ว พบหนังสือ " + books.length + " ไฟล์");
+          })
+          .catch(function (error) {
+            books = [];
+            renderBookList();
+            setBookListStatus(error.message + " | ไม่พบ manifest dynamic กรุณาเปิดผ่าน local server หรือรัน AppCraete_Book/main.py");
+          });
+      }
+
+      function loadBook(book) {
+        setBookStatus("กำลังโหลด: " + (book.title || book.fileName));
+        $.getJSON(book.path + "?fresh=" + Date.now())
+          .then(function (data) {
+            var content = data && data.content ? data.content : "";
+            if (!content) {
+              throw new Error("Empty book content");
+            }
+
+            renderBookContentCards(content, data || book);
+            setBookStatus("โหลดแล้ว: " + (data.title || book.title || book.fileName));
+          })
+          .catch(function () {
+            setBookStatus("โหลด JSON ไม่สำเร็จ ตรวจสอบไฟล์ใน grammar/Book หรือเปิดผ่าน local server");
+          });
+      }
+
+      function splitMarkdownSections(content) {
+        var lines = content.split(/\r?\n/);
+        var titleLines = [];
+        var sections = [];
+        var current = null;
+
+        lines.forEach(function (line) {
+          if (/^##\s+/.test(line)) {
+            if (current) {
+              sections.push(current);
+            }
+
+            current = {
+              title: line.replace(/^##\s+/, "").trim(),
+              body: []
+            };
+            return;
+          }
+
+          if (current) {
+            current.body.push(line);
+          } else {
+            titleLines.push(line);
+          }
+        });
+
+        if (current) {
+          sections.push(current);
+        }
+
+        return {
+          title: titleLines.join("\n").trim(),
+          sections: sections
+        };
+      }
+
+      function splitChapterBlocks(text) {
+        var lines = String(text || "").split(/\r?\n/);
+        var introLines = [];
+        var chapters = [];
+        var current = null;
+
+        lines.forEach(function (line) {
+          if (/^###\s+/.test(line)) {
+            if (current) {
+              chapters.push(current);
+            }
+
+            current = {
+              title: line.replace(/^###\s+/, "").trim(),
+              body: []
+            };
+            return;
+          }
+
+          if (current) {
+            current.body.push(line);
+          } else {
+            introLines.push(line);
+          }
+        });
+
+        if (current) {
+          chapters.push(current);
+        }
+
+        return {
+          intro: introLines.join("\n").trim(),
+          chapters: chapters
+        };
+      }
+
+      function imageFolderFromBook(book) {
+        if (book && book.imageFolderPath) {
+          return String(book.imageFolderPath).replace(/\/+$/, "");
+        }
+
+        var fileName = book && (book.fileName || String(book.jsonPath || book.path || "").split("/").pop());
+        if (!fileName) return "";
+
+        return "image_Book/" + String(fileName).replace(/\.json$/i, "");
+      }
+
+      function setChapterImageSource(img, figure, imageFolder, chapterNumber) {
+        var extensions = [".png", ".jpg", ".jpeg", ".webp"];
+        var index = 0;
+
+        function tryNext() {
+          if (index >= extensions.length) {
+            figure.remove();
+            return;
+          }
+
+          img.src = imageFolder + "/" + chapterNumber + extensions[index] + "?fresh=" + Date.now();
+          index += 1;
+        }
+
+        img.addEventListener("error", tryNext);
+        tryNext();
+      }
+
+      function createChapterImage(imageFolder, chapterNumber, chapterTitle) {
+        if (!imageFolder) return null;
+
+        var figure = document.createElement("figure");
+        var img = document.createElement("img");
+
+        figure.className = "chapter-image";
+        img.alt = "Chapter " + chapterNumber + " illustration: " + chapterTitle;
+        img.loading = "lazy";
+        setChapterImageSource(img, figure, imageFolder, chapterNumber);
+        figure.appendChild(img);
+        return figure;
+      }
+
+      function renderChapterCards(parent, section, book) {
+        var parsed = splitChapterBlocks(section.body.join("\n").trim());
+        var imageFolder = imageFolderFromBook(book);
+
+        if (parsed.intro) {
+          var intro = document.createElement("div");
+          intro.className = "book-section-body";
+          intro.textContent = parsed.intro;
+          parent.appendChild(intro);
+        }
+
+        parsed.chapters.forEach(function (chapter, index) {
+          var chapterNumber = index + 1;
+          var card = document.createElement("article");
+          var title = document.createElement("div");
+          var body = document.createElement("div");
+          var image = createChapterImage(imageFolder, chapterNumber, chapter.title);
+
+          card.className = "chapter-card";
+          title.className = "chapter-title";
+          body.className = "chapter-body";
+          title.textContent = chapter.title;
+          body.textContent = chapter.body.join("\n").trim();
+
+          if (image) {
+            card.appendChild(image);
+          }
+          card.appendChild(title);
+          card.appendChild(body);
+          parent.appendChild(card);
+        });
+
+        if (!parsed.intro && !parsed.chapters.length) {
+          var fallback = document.createElement("div");
+          fallback.className = "book-section-body";
+          fallback.textContent = section.body.join("\n").trim();
+          parent.appendChild(fallback);
+        }
+      }
+
+      function renderBookContentCards(content, book) {
+        var parsed = splitMarkdownSections(content);
+        bookContent.replaceChildren();
+
+        if (parsed.title) {
+          var titleCard = document.createElement("div");
+          titleCard.className = "book-title-card";
+          titleCard.textContent = parsed.title;
+          bookContent.appendChild(titleCard);
+        }
+
+        parsed.sections.forEach(function (section) {
+          var card = document.createElement("section");
+          var title = document.createElement("div");
+          var body = document.createElement("div");
+
+          card.className = "book-section-card";
+          title.className = "book-section-title";
+          body.className = "book-section-body";
+          title.textContent = section.title;
+
+          card.appendChild(title);
+          if (/^chapters\b/i.test(section.title)) {
+            renderChapterCards(card, section, book);
+          } else {
+            body.textContent = section.body.join("\n").trim();
+            card.appendChild(body);
+          }
+          bookContent.appendChild(card);
+        });
+
+        if (!parsed.title && !parsed.sections.length) {
+          bookContent.textContent = content;
+        }
+      }
+
+      function cleanSelection(text) {
+        return text
+          .replace(/\s+/g, " ")
+          .replace(/^[\s"'“”‘’()[\]{}.,!?;:|/\\-]+|[\s"'“”‘’()[\]{}.,!?;:|/\\-]+$/g, "")
+          .trim();
+      }
+
+      function detectLang(text) {
+        return /[\u0E00-\u0E7F]/.test(text) ? "th" : "en";
+      }
+
+      function getSelectionFromContent() {
+        var selection = window.getSelection ? window.getSelection() : null;
+        if (!selection || !selection.rangeCount) return "";
+
+        var range = selection.getRangeAt(0);
+        if (!bookContent.contains(range.commonAncestorContainer)) return "";
+        return cleanSelection(selection.toString());
+      }
+
+      function extractTranslatedText(data) {
+        return Array.isArray(data && data[0])
+          ? data[0].map(function (part) { return part && part[0] ? part[0] : ""; }).join("")
+          : "";
+      }
+
+      function extractPronunciation(data) {
+        if (!Array.isArray(data && data[0])) return "";
+
+        return data[0].map(function (part) {
+          if (!Array.isArray(part)) return "";
+          return part[3] || "";
+        }).filter(Boolean).join(" ");
+      }
+
+      function requestTranslation(text) {
+        var sourceLang = detectLang(text);
+        var targetLang = sourceLang === "th" ? "en" : "th";
+        var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" +
+          encodeURIComponent(sourceLang) +
+          "&tl=" + encodeURIComponent(targetLang) +
+          "&dt=t&dt=rm&q=" + encodeURIComponent(text);
+
+        setTranslateStatus("กำลังแปลข้อความที่เลือก...");
+        selectedText.textContent = text;
+        translatedText.textContent = "กำลังแปล...";
+        pronunciationText.textContent = "กำลังหาคำอ่าน...";
+        syncFloatingTranslate();
+        if (isRightHidden()) {
+          setFloatingTranslateOpen(true);
+        }
+
+        fetch(url)
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error("Translate request failed");
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            var result = extractTranslatedText(data);
+            var pronunciation = extractPronunciation(data);
+
+            translatedText.textContent = result || "ไม่พบผลแปล";
+            pronunciationText.textContent = pronunciation || "ไม่พบคำอ่านจาก API ใช้ปุ่ม 🔊 เพื่อฟังเสียงอ่าน";
+            syncFloatingTranslate();
+            setTranslateStatus("แปลเสร็จแล้ว: " + sourceLang.toUpperCase() + " → " + targetLang.toUpperCase());
+          })
+          .catch(function () {
+            translatedText.textContent = "แปลไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง";
+            pronunciationText.textContent = "ใช้ปุ่ม 🔊 เพื่อฟังเสียงอ่านจาก browser ได้";
+            syncFloatingTranslate();
+            setTranslateStatus("Google Translate API ไม่พร้อมใช้งาน");
+          });
+      }
+
+      function queueTranslateSelectedText() {
+        window.clearTimeout(translateTimer);
+        translateTimer = window.setTimeout(function () {
+          var text = getSelectionFromContent();
+          if (!text || text === lastSelectedText) return;
+
+          lastSelectedText = text;
+          requestTranslation(text);
+        }, 150);
+      }
+
+      function speakSelectedText() {
+        if (!lastSelectedText || !("speechSynthesis" in window)) {
+          setTranslateStatus("Browser นี้ไม่รองรับเสียงอ่าน หรือยังไม่ได้เลือกข้อความ");
+          return;
+        }
+
+        window.speechSynthesis.cancel();
+        var utterance = new SpeechSynthesisUtterance(lastSelectedText);
+        utterance.lang = detectLang(lastSelectedText) === "th" ? "th-TH" : "en-US";
+        utterance.rate = 0.88;
+        window.speechSynthesis.speak(utterance);
+        setTranslateStatus("กำลังอ่านออกเสียง...");
+      }
+
+      function setLayoutHidden(side, isHidden) {
+        var className = side === "left" ? "hide-left" : "hide-right";
+        var button = side === "left" ? toggleLeftButton : toggleRightButton;
+        var label = side === "left" ? "Left" : "Right";
+
+        document.body.classList.toggle(className, isHidden);
+        localStorage.setItem("bookJsonHide" + label, isHidden ? "1" : "0");
+
+        if (button) {
+          button.classList.toggle("is-active", isHidden);
+          button.textContent = (isHidden ? "แสดง " : "ซ่อน ") + label;
+          button.setAttribute("aria-pressed", String(isHidden));
+        }
+
+        if (side === "right" && !isHidden) {
+          setFloatingTranslateOpen(false);
+        }
+      }
+
+      function initLayoutToggles() {
+        setLayoutHidden("left", localStorage.getItem("bookJsonHideLeft") === "1");
+        setLayoutHidden("right", localStorage.getItem("bookJsonHideRight") === "1");
+
+        toggleLeftButton.addEventListener("click", function () {
+          setLayoutHidden("left", !document.body.classList.contains("hide-left"));
+        });
+
+        toggleRightButton.addEventListener("click", function () {
+          setLayoutHidden("right", !document.body.classList.contains("hide-right"));
+        });
+      }
+
+      function init() {
+        initLayoutToggles();
+        initFloatingDrag();
+        loadBookManifest();
+
+        loadBooksButton.addEventListener("click", loadBookManifest);
+        bookContent.addEventListener("mouseup", queueTranslateSelectedText);
+        bookContent.addEventListener("keyup", queueTranslateSelectedText);
+        speakButton.addEventListener("click", speakSelectedText);
+        floatingSpeakButton.addEventListener("click", speakSelectedText);
+        floatingTranslateClose.addEventListener("click", function () {
+          setFloatingTranslateOpen(false);
+        });
+
+        copyResultButton.addEventListener("click", function () {
+          var text = translatedText.textContent.trim();
+          if (!text || text === "เลือกข้อความเพื่อแปล") return;
+
+          navigator.clipboard.writeText(text).then(function () {
+            setTranslateStatus("คัดลอกผลแปลแล้ว");
+          }).catch(function () {
+            setTranslateStatus("คัดลอกไม่สำเร็จ");
+          });
+        });
+
+        floatingCopyButton.addEventListener("click", function () {
+          var text = floatingTranslatedText.textContent.trim();
+          if (!text || text === "เลือกข้อความเพื่อแปล") return;
+
+          navigator.clipboard.writeText(text).then(function () {
+            setTranslateStatus("คัดลอกผลแปลแล้ว");
+          }).catch(function () {
+            setTranslateStatus("คัดลอกไม่สำเร็จ");
+          });
+        });
+      }
+
+      init();
+    }());
+  </script>
+</body>
+</html>

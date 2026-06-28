@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Reader Translator | อ่านหนังสือและแปลคำ</title>
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --line: #d9e1ee;
+      --row: #f9fbff;
+      --row-alt: #eef5ff;
+      --blue: #334d85;
+      --green: #059669;
+      --purple: #7c3aed;
+      --teal: #0891b2;
+      --red: #dc2626;
+      --shadow: 0 12px 30px rgba(22, 38, 66, 0.12);
+      --radius: 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --text: #e5e7eb;
+        --muted: #b6c0cf;
+        --line: #334155;
+        --row: #162033;
+        --row-alt: #1d293d;
+        --shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 14px;
+      color: white;
+      text-align: center;
+      background: linear-gradient(135deg, #21356d, #7c3aed, #db2777);
+    }
+
+    header h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.35rem, 4vw, 2.35rem);
+    }
+
+    header p {
+      max-width: 980px;
+      margin: 0 auto;
+      opacity: 0.94;
+      font-size: 0.86rem;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .button,
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .link-button {
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .button.secondary {
+      background: linear-gradient(135deg, var(--green), var(--teal));
+    }
+
+    .button.danger {
+      background: linear-gradient(135deg, var(--red), #b91c1c);
+    }
+
+    main {
+      width: min(1280px, calc(100vw - 24px));
+      margin: 16px auto 34px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .card-head {
+      padding: 12px 14px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+    }
+
+    .card-head h2 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .card-head p {
+      margin: 3px 0 0;
+      opacity: 0.92;
+      font-size: 0.76rem;
+    }
+
+    .card-body {
+      padding: 12px;
+    }
+
+    .reader-actions,
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .book-input {
+      width: 100%;
+      min-height: 340px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--row);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.86rem;
+      line-height: 1.65;
+      resize: vertical;
+      outline: none;
+    }
+
+    .book-input:focus,
+    .book-view:focus {
+      border-color: color-mix(in srgb, var(--teal) 70%, var(--line));
+      box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.14);
+    }
+
+    .book-view {
+      min-height: 260px;
+      max-height: 62vh;
+      margin-top: 12px;
+      padding: 14px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--row-alt);
+      outline: none;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      line-height: 1.75;
+    }
+
+    .status {
+      min-height: 1.35em;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .result-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .library-card {
+      grid-column: 1 / -1;
+    }
+
+    .library-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .book-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 8px;
+      max-height: 240px;
+      overflow: auto;
+    }
+
+    .book-list button {
+      display: block;
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--row);
+      box-shadow: none;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 750;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+
+    .book-list button:hover,
+    .book-list button.is-active {
+      color: white;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+    }
+
+    .result-box {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--row);
+    }
+
+    .result-box h3 {
+      margin: 0 0 6px;
+      color: var(--teal);
+      font-size: 0.82rem;
+    }
+
+    .result-text {
+      min-height: 2.6em;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .hint-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 880px) {
+      main {
+        width: 100%;
+        margin: 0;
+        display: block;
+      }
+
+      .card {
+        border-radius: 0;
+      }
+
+      .book-input {
+        min-height: 260px;
+      }
+
+      .book-view {
+        max-height: 50vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📖 Book Reader Translator</h1>
+    <p>วางข้อความหนังสือ บันทึกลง localStorage แล้วเลือกคำหรือประโยคเพื่อแปลและฟังเสียงอ่าน | Paste book text, save it locally, then select text to translate and hear pronunciation.</p>
+    <div class="header-actions">
+      <a class="link-button" href="index.html">← กลับหน้า Grammar</a>
+      <a class="link-button" href="book-json-library.html">Book JSON Library</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="card library-card" aria-labelledby="libraryTitle">
+      <div class="card-head">
+        <h2 id="libraryTitle">Book JSON Library | รายชื่อหนังสือจาก JSON</h2>
+        <p>อ่านไฟล์ JSON รายเล่มจาก grammar/Book โดยตรง</p>
+      </div>
+      <div class="card-body">
+        <div class="library-actions">
+          <button class="button secondary" id="refreshBooksButton" type="button">Load JSON Files</button>
+        </div>
+        <div class="book-list" id="bookList" aria-live="polite">กำลังโหลดรายชื่อหนังสือจาก JSON...</div>
+        <p class="status" id="bookListStatus">แหล่งข้อมูล: Book/*.json</p>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="readerTitle">
+      <div class="card-head">
+        <h2 id="readerTitle">Text Book Input | ช่องวางข้อความหนังสือ</h2>
+        <p>ข้อความจะ auto-save ลง localStorage หลังพิมพ์หรือวางข้อความ เลือกข้อความในช่อง input หรือ preview เพื่อแปล</p>
+      </div>
+      <div class="card-body">
+        <div class="reader-actions">
+          <button class="button secondary" id="saveButton" type="button">Save Local</button>
+          <button class="button" id="renderButton" type="button">Update Preview</button>
+          <button class="button danger" id="clearButton" type="button">Clear</button>
+        </div>
+        <textarea class="book-input" id="bookTextInput" placeholder="วาง Text หนังสือที่นี่..."></textarea>
+        <p class="status" id="saveStatus">กำลังโหลดข้อความที่เคยบันทึก...</p>
+        <div class="book-view" id="bookTextView" tabindex="0" aria-label="Book text preview">Preview จะแสดงที่นี่หลังวางข้อความ</div>
+      </div>
+    </section>
+
+    <aside class="card" aria-labelledby="resultTitle">
+      <div class="card-head">
+        <h2 id="resultTitle">Select Text Result | ผลจากข้อความที่เลือก</h2>
+        <p>เลือกคำหรือประโยค แล้วระบบจะแปล EN/TH และเตรียมเสียงอ่าน</p>
+      </div>
+      <div class="card-body">
+        <div class="result-actions">
+          <button class="button secondary" id="speakButton" type="button">🔊 ฟังเสียงอ่าน</button>
+          <button class="button" id="copyResultButton" type="button">คัดลอกผลแปล</button>
+        </div>
+        <div class="result-grid">
+          <div class="result-box">
+            <h3>Selected | ข้อความที่เลือก</h3>
+            <div class="result-text" id="selectedText">ยังไม่ได้เลือกข้อความ</div>
+          </div>
+          <div class="result-box">
+            <h3>Translation | คำแปล</h3>
+            <div class="result-text" id="translatedText">เลือกข้อความเพื่อแปล</div>
+          </div>
+          <div class="result-box">
+            <h3>Pronunciation | คำอ่าน / เสียงอ่าน</h3>
+            <div class="result-text" id="pronunciationText">เลือกข้อความแล้วกดฟังเสียงอ่านได้</div>
+          </div>
+          <div class="result-box">
+            <h3>วิธีใช้เร็ว</h3>
+            <ul class="hint-list">
+              <li>วางข้อความในช่อง input แล้วรอ auto-save</li>
+              <li>ลากเลือกคำหรือประโยคใน input หรือ preview</li>
+              <li>ระบบจะแปล EN ↔ TH และแสดงคำอ่านถ้า Google ส่งข้อมูลกลับมา</li>
+              <li>กด 🔊 เพื่อฟังเสียงอ่านด้วย browser speech</li>
+            </ul>
+          </div>
+        </div>
+        <p class="status" id="translateStatus">พร้อมแปลข้อความที่เลือก</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    (function () {
+      var storageKey = "bookReaderText";
+      var legacyCookieBaseName = "bookReaderText";
+      var legacyCookieCountName = "bookReaderTextParts";
+      var legacyMaxCookieParts = 60;
+      var saveTimer = null;
+      var translateTimer = null;
+      var lastSelectedText = "";
+      var loadedBooks = [
+        {
+          title: "The Mender of Moments",
+          fileName: "20260628-144733-the-mender-of-moments.json",
+          path: "Book/20260628-144733-the-mender-of-moments.json"
+        },
+        {
+          title: "The Paper Robot",
+          fileName: "20260628-143751-the-paper-robot.json",
+          path: "Book/20260628-143751-the-paper-robot.json"
+        },
+        {
+          title: "The Whispering Server of Oakhaven",
+          fileName: "20260629-141536-The-Whispering-Server-of-Oakhaven.json",
+          path: "Book/20260629-141536-The-Whispering-Server-of-Oakhaven.json"
+        },
+        {
+          title: "The Clockwork Garden",
+          fileName: "20260628-141834-the-clockwork-garden.json",
+          path: "Book/20260628-141834-the-clockwork-garden.json"
+        },
+        {
+          title: "The Secret of the Glass House",
+          fileName: "20260628-141239-the-secret-of-the-glass-house.json",
+          path: "Book/20260628-141239-the-secret-of-the-glass-house.json"
+        }
+      ];
+
+      var bookTextInput = document.getElementById("bookTextInput");
+      var bookTextView = document.getElementById("bookTextView");
+      var saveStatus = document.getElementById("saveStatus");
+      var translateStatus = document.getElementById("translateStatus");
+      var selectedText = document.getElementById("selectedText");
+      var translatedText = document.getElementById("translatedText");
+      var pronunciationText = document.getElementById("pronunciationText");
+      var saveButton = document.getElementById("saveButton");
+      var renderButton = document.getElementById("renderButton");
+      var clearButton = document.getElementById("clearButton");
+      var speakButton = document.getElementById("speakButton");
+      var copyResultButton = document.getElementById("copyResultButton");
+      var refreshBooksButton = document.getElementById("refreshBooksButton");
+      var bookList = document.getElementById("bookList");
+      var bookListStatus = document.getElementById("bookListStatus");
+
+      function getCookie(name) {
+        var prefix = name + "=";
+        return document.cookie.split(";").map(function (item) {
+          return item.trim();
+        }).reduce(function (found, item) {
+          if (found) return found;
+          return item.indexOf(prefix) === 0 ? decodeURIComponent(item.slice(prefix.length)) : "";
+        }, "");
+      }
+
+      function removeCookie(name) {
+        document.cookie = name + "=; max-age=0; path=/; SameSite=Lax";
+      }
+
+      function setSaveStatus(message) {
+        saveStatus.textContent = message;
+      }
+
+      function setTranslateStatus(message) {
+        translateStatus.textContent = message;
+      }
+
+      function setBookListStatus(message) {
+        if (bookListStatus) {
+          bookListStatus.textContent = message;
+        }
+      }
+
+      function removeLegacyTextCookies() {
+        var oldCount = Number(getCookie(legacyCookieCountName)) || 0;
+        for (var index = 0; index < Math.max(oldCount, legacyMaxCookieParts); index += 1) {
+          removeCookie(legacyCookieBaseName + index);
+        }
+        removeCookie(legacyCookieCountName);
+      }
+
+      function saveTextLocally(text) {
+        try {
+          localStorage.setItem(storageKey, text);
+          setSaveStatus("Saved locally: " + text.length + " characters");
+        } catch (error) {
+          setSaveStatus("บันทึก localStorage ไม่สำเร็จ ข้อความอาจยาวเกินไป");
+        }
+      }
+
+      function loadTextLocally() {
+        return localStorage.getItem(storageKey) || "";
+      }
+
+      function removeLocalText() {
+        localStorage.removeItem(storageKey);
+      }
+
+      function renderBookText() {
+        var text = bookTextInput.value.trim();
+        bookTextView.textContent = text || "Preview จะแสดงที่นี่หลังวางข้อความ";
+      }
+
+      function formatBookName(name) {
+        return String(name || "")
+          .replace(/^\d{8}-\d{6}-/, "")
+          .replace(/\.(json|md)$/i, "")
+          .replace(/-/g, " ");
+      }
+
+      function loadBookFile(book) {
+        if (!book || !book.path) return;
+
+        setBookListStatus("กำลังโหลด: " + (book.title || book.fileName));
+        $.getJSON(book.path)
+          .then(function (data) {
+            var text = data && data.content ? data.content : "";
+            if (!text) {
+              throw new Error("Empty book content");
+            }
+
+            bookTextInput.value = text;
+            renderBookText();
+            saveTextLocally(text);
+            setBookListStatus("โหลด JSON แล้ว: " + (data.title || book.title || book.fileName));
+          })
+          .catch(function () {
+            setBookListStatus("โหลด JSON ไม่สำเร็จ ตรวจสอบว่าไฟล์อยู่ใน grammar/Book และเปิดผ่าน local server");
+          });
+      }
+
+      function renderBookList(books) {
+        if (!window.jQuery) {
+          bookList.textContent = "ต้องเชื่อมต่ออินเทอร์เน็ตเพื่อโหลด JQuery หรือเพิ่ม JQuery local file";
+          setBookListStatus("JQuery ยังไม่พร้อมใช้งาน");
+          return;
+        }
+
+        var $bookList = $(bookList);
+        $bookList.empty();
+
+        if (!books || !books.length) {
+          $bookList.text("ยังไม่มีรายการไฟล์ JSON");
+          setBookListStatus("เพิ่มไฟล์ JSON ใน loadedBooks array ของหน้านี้");
+          return;
+        }
+
+        books.forEach(function (book) {
+          var $button = $("<button>", {
+            type: "button",
+            text: book.title || formatBookName(book.fileName),
+            title: book.fileName || book.path
+          });
+
+          $button.on("click", function () {
+            $bookList.find("button").removeClass("is-active");
+            $button.addClass("is-active");
+            loadBookFile(book);
+          });
+
+          $bookList.append($button);
+        });
+
+        setBookListStatus("พบหนังสือ " + books.length + " ไฟล์ เลือกไฟล์เพื่ออ่าน");
+      }
+
+      function loadBookList() {
+        bookList.textContent = "กำลังแสดงรายการ JSON files...";
+        setBookListStatus("อ่านรายชื่อไฟล์จาก loadedBooks array โดยตรง");
+        renderBookList(loadedBooks);
+      }
+
+      function queueSave() {
+        window.clearTimeout(saveTimer);
+        setSaveStatus("กำลังเตรียมบันทึก...");
+        saveTimer = window.setTimeout(function () {
+          saveTextLocally(bookTextInput.value);
+          renderBookText();
+        }, 650);
+      }
+
+      function cleanSelection(text) {
+        return text
+          .replace(/\s+/g, " ")
+          .replace(/^[\s"'“”‘’()[\]{}.,!?;:|/\\-]+|[\s"'“”‘’()[\]{}.,!?;:|/\\-]+$/g, "")
+          .trim();
+      }
+
+      function detectLang(text) {
+        return /[\u0E00-\u0E7F]/.test(text) ? "th" : "en";
+      }
+
+      function getSelectionFromInput() {
+        var start = bookTextInput.selectionStart;
+        var end = bookTextInput.selectionEnd;
+        if (typeof start !== "number" || typeof end !== "number" || start === end) return "";
+        return bookTextInput.value.slice(start, end);
+      }
+
+      function getSelectionFromPreview() {
+        var selection = window.getSelection ? window.getSelection() : null;
+        if (!selection || !selection.rangeCount) return "";
+
+        var range = selection.getRangeAt(0);
+        if (!bookTextView.contains(range.commonAncestorContainer)) return "";
+        return selection.toString();
+      }
+
+      function getActiveSelectedText(event) {
+        var fromInput = event && event.target === bookTextInput ? getSelectionFromInput() : "";
+        return cleanSelection(fromInput || getSelectionFromPreview());
+      }
+
+      function extractTranslatedText(data) {
+        return Array.isArray(data && data[0])
+          ? data[0].map(function (part) { return part && part[0] ? part[0] : ""; }).join("")
+          : "";
+      }
+
+      function extractPronunciation(data) {
+        if (!Array.isArray(data && data[0])) return "";
+
+        return data[0].map(function (part) {
+          if (!Array.isArray(part)) return "";
+          return part[3] || "";
+        }).filter(Boolean).join(" ");
+      }
+
+      function requestTranslation(text) {
+        var sourceLang = detectLang(text);
+        var targetLang = sourceLang === "th" ? "en" : "th";
+        var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" +
+          encodeURIComponent(sourceLang) +
+          "&tl=" + encodeURIComponent(targetLang) +
+          "&dt=t&dt=rm&q=" + encodeURIComponent(text);
+
+        setTranslateStatus("กำลังแปลข้อความที่เลือก...");
+        selectedText.textContent = text;
+        translatedText.textContent = "กำลังแปล...";
+        pronunciationText.textContent = "กำลังหาคำอ่าน...";
+
+        fetch(url)
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error("Translate request failed");
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            var result = extractTranslatedText(data);
+            var pronunciation = extractPronunciation(data);
+
+            translatedText.textContent = result || "ไม่พบผลแปล";
+            pronunciationText.textContent = pronunciation || "ไม่พบคำอ่านจาก API ใช้ปุ่ม 🔊 เพื่อฟังเสียงอ่าน";
+            setTranslateStatus("แปลเสร็จแล้ว: " + (sourceLang.toUpperCase()) + " → " + (targetLang.toUpperCase()));
+          })
+          .catch(function () {
+            translatedText.textContent = "แปลไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง";
+            pronunciationText.textContent = "ใช้ปุ่ม 🔊 เพื่อฟังเสียงอ่านจาก browser ได้";
+            setTranslateStatus("Google Translate API ไม่พร้อมใช้งาน");
+          });
+      }
+
+      function queueTranslateSelectedText(event) {
+        window.clearTimeout(translateTimer);
+        translateTimer = window.setTimeout(function () {
+          var text = getActiveSelectedText(event);
+          if (!text || text === lastSelectedText) return;
+
+          lastSelectedText = text;
+          requestTranslation(text);
+        }, 150);
+      }
+
+      function speakSelectedText() {
+        if (!lastSelectedText || !("speechSynthesis" in window)) {
+          setTranslateStatus("Browser นี้ไม่รองรับเสียงอ่าน หรือยังไม่ได้เลือกข้อความ");
+          return;
+        }
+
+        window.speechSynthesis.cancel();
+        var utterance = new SpeechSynthesisUtterance(lastSelectedText);
+        utterance.lang = detectLang(lastSelectedText) === "th" ? "th-TH" : "en-US";
+        utterance.rate = 0.88;
+        window.speechSynthesis.speak(utterance);
+        setTranslateStatus("กำลังอ่านออกเสียง...");
+      }
+
+      function init() {
+        removeLegacyTextCookies();
+
+        var savedText = loadTextLocally();
+        if (savedText) {
+          bookTextInput.value = savedText;
+          setSaveStatus("Loaded from localStorage: " + savedText.length + " characters");
+        } else {
+          setSaveStatus("ยังไม่มีข้อความที่บันทึกไว้");
+        }
+        renderBookText();
+
+        bookTextInput.addEventListener("input", queueSave);
+        bookTextInput.addEventListener("mouseup", queueTranslateSelectedText);
+        bookTextInput.addEventListener("keyup", queueTranslateSelectedText);
+        bookTextView.addEventListener("mouseup", queueTranslateSelectedText);
+        bookTextView.addEventListener("keyup", queueTranslateSelectedText);
+
+        saveButton.addEventListener("click", function () {
+          saveTextLocally(bookTextInput.value);
+          renderBookText();
+        });
+
+        renderButton.addEventListener("click", renderBookText);
+
+        clearButton.addEventListener("click", function () {
+          bookTextInput.value = "";
+          lastSelectedText = "";
+          selectedText.textContent = "ยังไม่ได้เลือกข้อความ";
+          translatedText.textContent = "เลือกข้อความเพื่อแปล";
+          pronunciationText.textContent = "เลือกข้อความแล้วกดฟังเสียงอ่านได้";
+          removeLocalText();
+          removeLegacyTextCookies();
+          renderBookText();
+          setSaveStatus("ล้างข้อความและ localStorage แล้ว");
+        });
+
+        speakButton.addEventListener("click", speakSelectedText);
+        refreshBooksButton.addEventListener("click", loadBookList);
+
+        copyResultButton.addEventListener("click", function () {
+          var text = translatedText.textContent.trim();
+          if (!text || text === "เลือกข้อความเพื่อแปล") return;
+
+          navigator.clipboard.writeText(text).then(function () {
+            setTranslateStatus("คัดลอกผลแปลแล้ว");
+          }).catch(function () {
+            setTranslateStatus("คัดลอกไม่สำเร็จ");
+          });
+        });
+
+        loadBookList();
+      }
+
+      init();
+    }());
+  </script>
+</body>
+</html>

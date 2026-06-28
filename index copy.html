@@ -64,35 +64,6 @@
     header h1 { margin: 0 0 6px; font-size: clamp(1.55rem, 4vw, 2.8rem); }
     header p { max-width: 920px; margin: 0 auto; font-size: 0.92rem; opacity: 0.95; }
 
-    .header-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .header-link-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 7px 12px;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      border-radius: 999px;
-      color: white;
-      background: rgba(255, 255, 255, 0.16);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
-      font-size: 0.78rem;
-      font-weight: 850;
-      text-decoration: none;
-    }
-
-    .header-link-button:hover {
-      background: rgba(255, 255, 255, 0.24);
-      transform: translateY(-1px);
-    }
-
     main {
       width: min(1500px, 97vw);
       margin: 16px auto 34px;
@@ -500,16 +471,6 @@
     #verbs .mini-card p {
       font-size: 0.74rem;
     }
-    #verbs .verb-group-title {
-      margin: 12px 12px 0;
-      padding: 7px 10px;
-      border-left: 4px solid var(--green);
-      border-radius: 8px;
-      background: var(--row-alt);
-      color: var(--green);
-      font-size: 0.74rem;
-      font-weight: 900;
-    }
 
     #tenses th:nth-child(1), #tenses td:nth-child(1) { width: 11%; }
     #tenses th:nth-child(2), #tenses td:nth-child(2),
@@ -519,117 +480,6 @@
 
     #vocab th:nth-child(1), #vocab td:nth-child(1) { width: 150px; }
     #vocab th:nth-child(2), #vocab td:nth-child(2) { width: auto; }
-
-    .vocab-open-button {
-      display: inline-block;
-      padding: 7px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: white;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      cursor: pointer;
-      font: inherit;
-      font-size: 0.74rem;
-      font-weight: 800;
-      box-shadow: var(--shadow);
-    }
-
-    .vocab-preview {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 0.74rem;
-      line-height: 1.35;
-    }
-
-    .vocab-dialog {
-      width: min(1100px, calc(100vw - 32px));
-      max-width: calc(100vw - 32px);
-      height: min(760px, calc(100dvh - 32px));
-      max-height: calc(100dvh - 32px);
-      padding: 0;
-      border: 2px solid color-mix(in srgb, var(--teal) 45%, var(--line));
-      border-radius: 16px;
-      background: var(--card);
-      color: var(--text);
-      box-shadow:
-        0 0 0 3px rgba(8, 145, 178, 0.14),
-        0 18px 46px rgba(15, 23, 42, 0.36);
-      overflow: hidden;
-    }
-
-    .vocab-dialog[open] {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .vocab-dialog::backdrop {
-      background: rgba(15, 23, 42, 0.48);
-    }
-
-    .vocab-dialog-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 12px;
-      color: white;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      flex: 0 0 auto;
-    }
-
-    .vocab-dialog-title {
-      font-size: 0.86rem;
-      font-weight: 900;
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .vocab-dialog-close {
-      width: 30px;
-      height: 30px;
-      padding: 0;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 999px;
-      color: white;
-      background: var(--red);
-      cursor: pointer;
-      font: inherit;
-      font-size: 1rem;
-      font-weight: 900;
-      line-height: 1;
-      flex: 0 0 auto;
-    }
-
-    .vocab-dialog-body {
-      flex: 1 1 auto;
-      min-height: 0;
-      padding: 12px;
-      overflow: auto;
-      overscroll-behavior: contain;
-    }
-
-    .vocab-word-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 8px;
-      align-items: start;
-    }
-
-    .vocab-word-card {
-      padding: 8px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: var(--row);
-      font-size: 0.74rem;
-      line-height: 1.35;
-      overflow-wrap: anywhere;
-    }
-
-    .vocab-word-card b {
-      color: var(--teal);
-    }
 
     #mistakes th:nth-child(2), #mistakes td:nth-child(2),
     #mistakes th:nth-child(3), #mistakes td:nth-child(3) { width: 18%; }
@@ -668,13 +518,6 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 10px;
       padding: 12px;
-    }
-
-    .advanced-grid,
-    .advanced-grid .mini-card,
-    .advanced-grid .mini-card h3,
-    .advanced-grid .mini-card p {
-      font-size: 0.74rem;
     }
 
     .mini-card {
@@ -977,32 +820,6 @@
       .lesson-panel-stack { top: auto; right: 10px; bottom: 10px; width: calc(100vw - 20px); max-height: 80vh; }
       .lesson-panel { max-height: 55vh; }
       table { min-width: 880px; font-size: 0.7rem; }
-      .vocab-dialog {
-        width: calc(100vw - 16px);
-        max-width: calc(100vw - 16px);
-        height: calc(100dvh - 16px);
-        max-height: calc(100dvh - 16px);
-        border-radius: 12px;
-      }
-      .vocab-dialog-head {
-        padding: 8px 10px;
-      }
-      .vocab-dialog-title {
-        font-size: 0.78rem;
-      }
-      .vocab-dialog-body {
-        padding: 10px;
-      }
-      .vocab-word-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      }
-      .vocab-word-card {
-        font-size: 0.7rem;
-      }
-      .advanced-grid,
-      .advanced-grid .mini-card,
-      .advanced-grid .mini-card h3,
-      .advanced-grid .mini-card p,
       #structure .grid,
       #structure .mini-card,
       #structure .mini-card h3,
@@ -1010,8 +827,7 @@
       #verbs .grid,
       #verbs .mini-card,
       #verbs .mini-card h3,
-      #verbs .mini-card p,
-      #verbs .verb-group-title {
+      #verbs .mini-card p {
         font-size: 0.7rem;
       }
       th, td { padding: 4px 5px; }
@@ -1059,7 +875,6 @@
       .word .dialog { display: none; }
       .lesson-popout-btn,
       .translate-widget,
-      .vocab-dialog,
       .lesson-panel-stack { display: none !important; }
     }
   </style>
@@ -1068,9 +883,6 @@
   <header>
     <h4>📘 English Grammar Cheat Sheet</h4>
     <p>สรุปไวยากรณ์อังกฤษพร้อมคำอ่าน คำแปลภาษาไทย ตัวอย่าง และเทคนิคจำง่าย | English + Thai visual reference for learners.</p>
-    <div class="header-actions">
-      <a class="header-link-button" href="book-reader.html">📖 Book Reader | อ่านหนังสือ</a>
-    </div>
   </header>
 
   <div class="lesson-panel-stack" id="lessonPanelStack" aria-live="polite" aria-label="Separated lesson windows"></div>
@@ -1118,16 +930,6 @@
     </div>
   </div>
 
-  <dialog class="vocab-dialog" id="vocabDialog">
-    <div class="vocab-dialog-head">
-      <div class="vocab-dialog-title" id="vocabDialogTitle">Vocabulary | คำศัพท์</div>
-      <button class="vocab-dialog-close" id="vocabDialogClose" type="button" aria-label="ปิดคำศัพท์" title="ปิด">×</button>
-    </div>
-    <div class="vocab-dialog-body">
-      <div class="vocab-word-grid" id="vocabDialogWords"></div>
-    </div>
-  </dialog>
-
   <main>
     <nav class="toc" aria-label="Table of contents">
       <button class="toc-toggle" type="button" aria-expanded="true" aria-controls="mainMenu" aria-label="หุบเมนู" title="หุบเมนู">☰</button>
@@ -1154,48 +956,6 @@
 
     <section id="parts">
       <div class="section-title"><h2>1. 🧩 Parts of Speech | ชนิดของคำ</h2><p>คำทุกคำมีหน้าที่ในประโยค | Every word has a job.</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>ทำไมต้องรู้ Parts of Speech?</h3>
-          <p><b>เหตุผล:</b> ชนิดของคำบอกว่า “คำนี้ทำหน้าที่อะไร” ในประโยค ถ้ารู้หน้าที่ จะรู้ว่าคำควรอยู่ตรงไหน ต้องเติม s/es ไหม ต้องใช้ V-ing หรือ V3 ไหม และต้องใช้ article/preposition หรือไม่</p>
-          <p><b>ภาพจำ:</b> ประโยคเหมือนทีมทำงาน: noun/pronoun เป็นคนหรือสิ่งที่พูดถึง, verb เป็นการกระทำ, adjective/adverb เพิ่มรายละเอียด, preposition/conjunction เชื่อมความสัมพันธ์</p>
-          <p><b>ตัวอย่าง:</b> <b>The manager</b> quickly approved <b>the request</b> yesterday. = manager/request เป็น noun, approved เป็น verb, quickly/yesterday เป็น adverb</p>
-        </div>
-        <div class="mini-card">
-          <h3>ใช้งานจริง | หน้าที่เปลี่ยนได้ตามตำแหน่ง</h3>
-          <p><b>คำหนึ่งคำไม่ได้มีชนิดเดียวเสมอ:</b> light เป็น noun ได้ใน <b>Turn on the light</b>, adjective ได้ใน <b>a light bag</b>, และ verb ได้ใน <b>light a candle</b>.</p>
-          <p><b>วิธีคิด:</b> อย่าจำจากคำอย่างเดียว ให้ดูว่าอยู่ตำแหน่งไหน ทำหน้าที่อะไร และตอบคำถามอะไรในประโยค</p>
-        </div>
-        <div class="mini-card">
-          <h3>Word Form | รูปคำที่เจอบ่อย</h3>
-          <p><b>Noun:</b> application, decision, meeting, reservation | <b>Verb:</b> apply, decide, meet, reserve</p>
-          <p><b>Adjective:</b> available, responsible, suitable, urgent | <b>Adverb:</b> quickly, carefully, professionally, politely</p>
-          <p><b>ใช้จริง:</b> I <b>applied</b> for the job. / My <b>application</b> was accepted. / I am <b>available</b> for an interview.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Phrase vs Clause | วลีกับอนุประโยค</h3>
-          <p><b>Phrase:</b> กลุ่มคำที่ยังไม่มีประธาน+กริยาครบ เช่น <b>in the morning</b>, <b>very beautiful</b>.</p>
-          <p><b>Clause:</b> กลุ่มคำที่มีประธาน+กริยา เช่น <b>when I arrived</b>, <b>because she was tired</b>.</p>
-        </div>
-        <div class="mini-card">
-          <h3>วิธีแยกประโยคเป็นชิ้น | Chunking</h3>
-          <p><b>ขั้นตอน:</b> 1) หา verb หลัก 2) ย้อนหาประธาน 3) ดูว่ามีกรรมไหม 4) แยกส่วนขยายเวลา/สถานที่/เหตุผล</p>
-          <p><b>ตัวอย่างงาน:</b> I will send the report to my manager by Friday. = I ประธาน, will send กริยา, the report กรรม, to my manager ผู้รับ, by Friday เวลา</p>
-          <p><b>ตัวอย่างท่องเที่ยว:</b> We need to check in at the hotel before noon. = We ประธาน, need to check in กริยา, at the hotel สถานที่, before noon เวลา</p>
-        </div>
-        <div class="mini-card">
-          <h3>Collocation ตามชนิดคำ | คำที่มักมาด้วยกัน</h3>
-          <p><b>Verb + Noun:</b> submit an application, attend a meeting, book a hotel, confirm a reservation</p>
-          <p><b>Adjective + Noun:</b> urgent request, available position, direct flight, valid passport</p>
-          <p><b>Preposition phrase:</b> interested in, responsible for, arrive at, check in to/at</p>
-        </div>
-        <div class="mini-card">
-          <h3>ตัวอย่างตามสถานการณ์ | Work / Job / Travel</h3>
-          <p><b>Work:</b> The team completed the project successfully. = team/project เป็น noun, completed เป็น verb, successfully เป็น adverb</p>
-          <p><b>Job:</b> I am interested in the marketing position. = interested เป็น adjective, in the marketing position เป็น preposition phrase</p>
-          <p><b>Travel:</b> The flight was delayed because of bad weather. = flight/weather เป็น noun, delayed เป็น verb/adjective, because of บอกเหตุผล</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>No.</th><th>Thai Name</th><th>English Name</th><th>Definition</th><th>Main Function</th><th>Ask Yourself Question</th><th>Position in Sentence</th><th>Examples</th><th>Example Sentence</th><th>Common Mistakes</th><th>Memory Trick</th></tr></thead>
@@ -1224,64 +984,6 @@
           <p><b>ตัวอย่าง:</b> <b>She</b> reads a book. | เธออ่านหนังสือ / <b>The cat</b> sleeps. | แมวนอน / <b>Learning English</b> is fun. | การเรียนภาษาอังกฤษสนุก</p>
           <p><b>จำง่าย:</b> Subject มักอยู่ต้นประโยค และกริยาต้องเปลี่ยนตามประธาน เช่น <b>She likes</b> music แต่ <b>They like</b> music.</p>
         </div>
-        <div class="mini-card">
-          <h3>โครงสร้างประโยคใช้งานจริง | ช่องสำคัญในประโยค</h3>
-          <p><b>Core:</b> Subject + Verb คือแกนหลัก เช่น <b>Birds fly.</b> ถ้าเพิ่ม object จะรู้ว่าการกระทำนั้นไปกระทบอะไร เช่น <b>She reads a book.</b></p>
-          <p><b>Extra information:</b> Adverbial บอกเวลา/สถานที่/วิธี เช่น <b>She studies English at night.</b> = at night เป็นข้อมูลเพิ่ม ไม่ใช่กรรม</p>
-        </div>
-        <div class="mini-card">
-          <h3>Object vs Complement | กรรม vs ส่วนเติมเต็ม</h3>
-          <p><b>Object:</b> สิ่งที่ถูกกระทำ เช่น <b>He opened the door.</b> เปิดอะไร? the door</p>
-          <p><b>Complement:</b> คำที่เติมความหมายให้ประธานหรือกรรม เช่น <b>She is happy.</b> happy บอกสภาพของ She</p>
-        </div>
-        <div class="mini-card">
-          <h3>Word Order | ลำดับคำพื้นฐาน</h3>
-          <p><b>สูตรจำ:</b> Subject + Verb + Object + Place + Time. ภาษาอังกฤษมักวาง “ใคร + ทำอะไร + กับอะไร + ที่ไหน + เมื่อไร”</p>
-          <p><b>ตัวอย่างงาน:</b> I will send the report to the manager tomorrow. = ฉันจะส่งรายงานให้ผู้จัดการพรุ่งนี้</p>
-          <p><b>ระวัง:</b> ไม่เรียงแบบไทย เช่น Tomorrow I report send manager. ❌</p>
-        </div>
-        <div class="mini-card">
-          <h3>Sentence Expansion | ขยายประโยคให้ละเอียด</h3>
-          <p><b>เริ่มจากแกน:</b> I sent the email.</p>
-          <p><b>เพิ่มผู้รับ:</b> I sent the email to HR.</p>
-          <p><b>เพิ่มเหตุผล/เวลา:</b> I sent the email to HR yesterday because I wanted to confirm the interview schedule.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Main Clause + Dependent Clause | ประโยคหลัก + อนุประโยค</h3>
-          <p><b>Main clause:</b> อยู่เดี่ยวได้ เช่น <b>I called the hotel.</b></p>
-          <p><b>Dependent clause:</b> อยู่เดี่ยวไม่ได้ เช่น <b>because my booking was missing</b>.</p>
-          <p><b>รวมกัน:</b> I called the hotel because my booking was missing. = ฉันโทรหาโรงแรมเพราะการจองหาย</p>
-        </div>
-        <div class="mini-card">
-          <h3>Work Structure | โครงสร้างประโยคในการทำงาน</h3>
-          <p><b>Request:</b> Could you + V1...? เช่น Could you review this document?</p>
-          <p><b>Update:</b> I have + V3... เช่น I have completed the task.</p>
-          <p><b>Deadline:</b> S + need(s) to + V1 + by + time เช่น We need to submit the report by Friday.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Job Application Structure | โครงสร้างประโยคสมัครงาน</h3>
-          <p><b>Interest:</b> I am interested in + noun/V-ing. เช่น I am interested in the sales position.</p>
-          <p><b>Experience:</b> I have experience in + noun/V-ing. เช่น I have experience in handling customers.</p>
-          <p><b>Availability:</b> I am available for + noun. เช่น I am available for an interview next week.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Travel Structure | โครงสร้างประโยคท่องเที่ยว</h3>
-          <p><b>Direction:</b> How do I get to + place? เช่น How do I get to the airport?</p>
-          <p><b>Booking:</b> I have a reservation under + name. เช่น I have a reservation under Anan.</p>
-          <p><b>Problem:</b> There is a problem with + noun. เช่น There is a problem with my ticket.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Active vs Passive | ผู้กระทำ vs ผู้ถูกกระทำ</h3>
-          <p><b>Active:</b> The company invited me for an interview. = บริษัทเชิญฉันสัมภาษณ์</p>
-          <p><b>Passive:</b> I was invited for an interview. = ฉันได้รับเชิญไปสัมภาษณ์</p>
-          <p><b>ใช้เมื่อ:</b> ไม่รู้/ไม่เน้นผู้กระทำ หรืออยากเน้นสิ่งที่เกิดกับประธาน</p>
-        </div>
-        <div class="mini-card">
-          <h3>Common Sentence Problems | จุดที่มักผิด</h3>
-          <p><b>Fragment:</b> Because I was late. ❌ ต้องมีประโยคหลัก: Because I was late, I missed the meeting.</p>
-          <p><b>Run-on:</b> I was tired I went home. ❌ ต้องเชื่อม: I was tired, so I went home.</p>
-          <p><b>Missing verb:</b> My manager very busy. ❌ ต้องมี be: My manager is very busy.</p>
-        </div>
       </div>
       <div class="table-wrap">
         <table>
@@ -1294,12 +996,6 @@
             <tr><td>S + V + O + C</td><td>Subject + Verb + Object + Complement</td><td>Object becomes/gets description | กรรมถูกเติมความหมาย</td><td>They made him captain.</td><td>พวกเขาแต่งตั้งเขาเป็นกัปตัน</td><td>C describes object | C ขยายกรรม</td></tr>
             <tr><td>There is</td><td>There is + singular/uncountable noun</td><td>Existence | มี/มีอยู่</td><td>There is a cat.</td><td>มีแมวหนึ่งตัว</td><td>Use with one thing | ใช้กับเอกพจน์</td></tr>
             <tr><td>There are</td><td>There are + plural noun</td><td>Existence | มี/มีอยู่</td><td>There are many books.</td><td>มีหนังสือหลายเล่ม</td><td>Use with plural | ใช้กับพหูพจน์</td></tr>
-            <tr><td>S + V + O + to + person</td><td>Subject + Verb + Object + to + Receiver</td><td>Send/give/explain something to someone | ส่ง/ให้/อธิบายบางอย่างให้ใคร</td><td>I sent my resume to HR.</td><td>ฉันส่งเรซูเม่ให้ฝ่าย HR</td><td>Useful for work emails | ใช้บ่อยในอีเมลงาน</td></tr>
-            <tr><td>Question</td><td>Auxiliary + S + V?</td><td>Ask yes/no question | ถามว่าใช่หรือไม่</td><td>Could you review this file?</td><td>คุณช่วยตรวจไฟล์นี้ได้ไหม</td><td>Auxiliary before subject | กริยาช่วยอยู่หน้าประธาน</td></tr>
-            <tr><td>WH Question</td><td>WH + auxiliary + S + V?</td><td>Ask missing information | ถามข้อมูลที่ขาด</td><td>When will the meeting start?</td><td>ประชุมจะเริ่มเมื่อไร</td><td>Use what/where/when/why/how | ใช้คำถามนำ</td></tr>
-            <tr><td>Passive</td><td>S + be + V3</td><td>Focus on receiver | เน้นผู้ถูกกระทำ</td><td>The booking was confirmed.</td><td>การจองได้รับการยืนยันแล้ว</td><td>Common in formal writing | ใช้บ่อยในภาษาเขียนทางการ</td></tr>
-            <tr><td>Conditional</td><td>If + S + V, S + will/can + V1</td><td>Condition and result | เงื่อนไขและผลลัพธ์</td><td>If you send the file, I will review it.</td><td>ถ้าคุณส่งไฟล์ ฉันจะตรวจให้</td><td>If-clause uses present for future | if ใช้ present แทนอนาคต</td></tr>
-            <tr><td>Polite Request</td><td>Could/Would + S + V?</td><td>Ask politely | ขอร้องแบบสุภาพ</td><td>Could you call a taxi for me?</td><td>คุณช่วยเรียกแท็กซี่ให้ฉันได้ไหม</td><td>Good for work/travel | เหมาะกับงานและท่องเที่ยว</td></tr>
           </tbody>
         </table>
       </div>
@@ -1307,7 +1003,6 @@
 
     <section id="verbs">
       <div class="section-title"><h2>3. 🏃 Verb Forms | กริยา 3 ช่องและ V-ing</h2><p>Common verbs with Thai meaning, pronunciation idea, and examples | กริยาพบบ่อยพร้อมความหมายและตัวอย่าง</p></div>
-      <div class="verb-group-title">Group 1: Big Picture | ภาพรวมว่าทำไมต้องเปลี่ยนรูปกริยา</div>
       <div class="grid">
         <div class="mini-card">
           <h3>ทำไมต้องแบ่งเป็นกริยา 3 ช่อง?</h3>
@@ -1323,9 +1018,6 @@
           <p><b>ใช้เป็นคำนามกริยา:</b> <b>Swimming</b> is fun. | การว่ายน้ำสนุก / I enjoy <b>reading</b>. | ฉันสนุกกับการอ่าน</p>
           <p><b>จำง่าย:</b> V-ing ไม่ใช่อดีต แต่คือรูปที่บอก “กำลังทำ” หรือ “การทำสิ่งนั้น” ต้องดูคำช่วยและตำแหน่งในประโยคประกอบ</p>
         </div>
-      </div>
-      <div class="verb-group-title">Group 2: Core Forms | รูปหลัก V1, V2, V3</div>
-      <div class="grid">
         <div class="mini-card">
           <h3>V1 = Base Verb | กริยาช่อง 1</h3>
           <p><b>ภาพจำ:</b> รูปตั้งต้นของคำกริยา เหมือนชื่อจริงของกริยา ใช้พูดถึงปัจจุบัน ความจริงทั่วไป นิสัย คำสั่ง และใช้ตามหลังคำช่วยบางคำ</p>
@@ -1346,72 +1038,6 @@
           <p><b>สูตรที่พบบ่อย:</b> has/have/had + V3, be + V3</p>
           <p><b>ตัวอย่าง:</b> I have <b>gone</b> there. | ฉันเคยไปที่นั่น / The window was <b>broken</b>. | หน้าต่างถูกทำแตก</p>
           <p><b>จำง่าย:</b> V2 = เล่าอดีตตรง ๆ ส่วน V3 = ใช้คู่กับ have/has/had หรือ be เพื่อบอกผล ประสบการณ์ หรือถูกกระทำ</p>
-        </div>
-      </div>
-      <div class="verb-group-title">Group 3: Choosing the Right Verb | เลือกกริยาให้ตรงสถานการณ์</div>
-      <div class="grid">
-        <div class="mini-card">
-          <h3>เลือกกริยาให้ตรงงานที่พูด | Verb Choice</h3>
-          <p><b>Transitive verb:</b> ต้องมีกรรม เช่น <b>make a cake</b>, <b>open the door</b>. ถ้าพูดว่า I opened ต้องถามต่อว่า opened what?</p>
-          <p><b>Intransitive verb:</b> ไม่ต้องมีกรรม เช่น <b>sleep</b>, <b>arrive</b>, <b>happen</b>. เช่น <b>The meeting happened yesterday.</b></p>
-          <p><b>Regular/Irregular:</b> regular เติม -ed เช่น work/worked/worked แต่ irregular ต้องจำรูป เช่น go/went/gone, eat/ate/eaten.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Verb Patterns | กริยาตามด้วยอะไร</h3>
-          <p><b>Verb + to V1:</b> want to apply, plan to travel, need to submit, decide to accept.</p>
-          <p><b>Verb + V-ing:</b> enjoy working, avoid making mistakes, consider applying, keep learning.</p>
-          <p><b>Verb + object + to V1:</b> ask him to wait, invite me to interview, remind us to check in.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Work Verbs | กริยาใช้บ่อยในการทำงาน</h3>
-          <p><b>submit:</b> submit a report / submit an application | ส่งรายงาน/ใบสมัคร</p>
-          <p><b>approve:</b> The manager approved the request. / The request was approved. | อนุมัติ/ได้รับอนุมัติ</p>
-          <p><b>follow up:</b> I followed up on the invoice. / I have followed up twice. | ติดตามงาน</p>
-        </div>
-        <div class="mini-card">
-          <h3>Travel Verbs | กริยาใช้บ่อยเวลาเดินทาง</h3>
-          <p><b>book/reserve:</b> I booked a room. / The room has been reserved. | จองห้อง/ถูกจองแล้ว</p>
-          <p><b>arrive/depart:</b> The flight arrived late. / The train departed on time. | มาถึง/ออกเดินทาง</p>
-          <p><b>check in/check out:</b> We are checking in now. / We checked out before noon. | เช็กอิน/เช็กเอาต์</p>
-        </div>
-      </div>
-      <div class="verb-group-title">Group 4: Harder Examples | ตัวอย่างที่ยากขึ้นและใช้จริง</div>
-      <div class="grid">
-        <div class="mini-card">
-          <h3>Perfect + Passive | have/has been + V3</h3>
-          <p><b>โครงสร้าง:</b> S + has/have been + V3 ใช้บอกว่า “ถูกทำแล้วและมีผลถึงตอนนี้”</p>
-          <p><b>Work:</b> The report <b>has been submitted</b> to the manager. | รายงานถูกส่งให้ผู้จัดการแล้ว</p>
-          <p><b>Travel:</b> My booking <b>has been confirmed</b> by the hotel. | การจองของฉันได้รับการยืนยันแล้ว</p>
-        </div>
-        <div class="mini-card">
-          <h3>Past Perfect | had + V3</h3>
-          <p><b>ใช้เมื่อ:</b> มีอดีต 2 เหตุการณ์ และอยากบอกว่าอะไรเกิดก่อน</p>
-          <p><b>Job:</b> I <b>had prepared</b> my portfolio before the interview started. | ฉันเตรียมแฟ้มผลงานก่อนสัมภาษณ์เริ่ม</p>
-          <p><b>Travel:</b> We <b>had checked in</b> before the gate closed. | เราเช็กอินแล้วก่อนประตูขึ้นเครื่องปิด</p>
-        </div>
-        <div class="mini-card">
-          <h3>Continuous + Interruption | was/were + V-ing + when</h3>
-          <p><b>ใช้เมื่อ:</b> เหตุการณ์หนึ่งกำลังเกิด แล้วอีกเหตุการณ์แทรกเข้ามา</p>
-          <p><b>Work:</b> I <b>was reviewing</b> the contract when the client called. | ฉันกำลังตรวจสัญญาตอนลูกค้าโทรมา</p>
-          <p><b>Travel:</b> We <b>were waiting</b> at the gate when the flight was delayed. | เรากำลังรอที่เกตตอนเที่ยวบินล่าช้า</p>
-        </div>
-        <div class="mini-card">
-          <h3>Gerund vs Infinitive | V-ing vs to V1</h3>
-          <p><b>ความหมายเปลี่ยน:</b> remember to call = จำว่าจะโทร / remember calling = จำได้ว่าเคยโทร</p>
-          <p><b>Job:</b> I remembered <b>to attach</b> my resume. | ฉันจำได้ว่าต้องแนบเรซูเม่</p>
-          <p><b>Work:</b> I remember <b>attending</b> that meeting. | ฉันจำได้ว่าเคยเข้าประชุมนั้น</p>
-        </div>
-        <div class="mini-card">
-          <h3>Causative Verbs | make / let / have / get</h3>
-          <p><b>make/let + object + V1:</b> The manager made us revise the report. / Let me explain.</p>
-          <p><b>have/get + object + V3:</b> I had my passport renewed. / I got the document translated.</p>
-          <p><b>ใช้จริง:</b> I got my resume reviewed before applying. | ฉันให้คนตรวจเรซูเม่ก่อนสมัคร</p>
-        </div>
-        <div class="mini-card">
-          <h3>Reporting Verbs | กริยาใช้เล่าคำพูด</h3>
-          <p><b>say/tell:</b> She said she was available. / She told me she was available.</p>
-          <p><b>ask:</b> HR asked me to send my portfolio. | HR ขอให้ฉันส่งแฟ้มผลงาน</p>
-          <p><b>explain:</b> The agent explained that the flight had been cancelled. | เจ้าหน้าที่อธิบายว่าเที่ยวบินถูกยกเลิกแล้ว</p>
         </div>
       </div>
       <div class="table-wrap">
@@ -1531,18 +1157,6 @@
             <tr><td>watch (วอทช์)</td><td>watch</td><td>watched</td><td>watched</td><td>watching</td><td>ดู/เฝ้าดู</td><td>Watch TV. | ดูทีวี</td></tr>
             <tr><td>work (เวิร์ค)</td><td>work</td><td>worked</td><td>worked</td><td>working</td><td>ทำงาน</td><td>Work together. | ทำงานร่วมกัน</td></tr>
             <tr><td>worry (เวอร์-รี)</td><td>worry</td><td>worried</td><td>worried</td><td>worrying</td><td>กังวล</td><td>Do not worry. | อย่ากังวล</td></tr>
-            <tr><td>apply (อะ-พลาย)</td><td>apply</td><td>applied</td><td>applied</td><td>applying</td><td>สมัคร/ประยุกต์ใช้</td><td>I have applied for three positions this month. | เดือนนี้ฉันสมัครไปสามตำแหน่งแล้ว</td></tr>
-            <tr><td>submit (ซับ-มิท)</td><td>submit</td><td>submitted</td><td>submitted</td><td>submitting</td><td>ส่งงาน/ยื่นเอกสาร</td><td>The report has been submitted to the manager. | รายงานถูกส่งให้ผู้จัดการแล้ว</td></tr>
-            <tr><td>approve (อะ-พรูฟ)</td><td>approve</td><td>approved</td><td>approved</td><td>approving</td><td>อนุมัติ</td><td>The request was approved after the budget had been reviewed. | คำขอได้รับอนุมัติหลังจากงบถูกตรวจแล้ว</td></tr>
-            <tr><td>confirm (คอน-เฟิร์ม)</td><td>confirm</td><td>confirmed</td><td>confirmed</td><td>confirming</td><td>ยืนยัน</td><td>Could you confirm whether my booking has been confirmed? | ช่วยยืนยันได้ไหมว่าการจองของฉันถูกยืนยันแล้วหรือยัง</td></tr>
-            <tr><td>reschedule (รี-สเคด-จูล)</td><td>reschedule</td><td>rescheduled</td><td>rescheduled</td><td>rescheduling</td><td>เปลี่ยนเวลา/เลื่อนนัด</td><td>The interview was rescheduled because the hiring manager was traveling. | การสัมภาษณ์ถูกเลื่อนเพราะผู้จัดการฝ่ายจ้างงานเดินทางอยู่</td></tr>
-            <tr><td>reserve (รี-เซิร์ฟ)</td><td>reserve</td><td>reserved</td><td>reserved</td><td>reserving</td><td>จอง/สำรอง</td><td>We had reserved a room before we arrived at the hotel. | เราจองห้องไว้ก่อนมาถึงโรงแรม</td></tr>
-            <tr><td>cancel (แคน-เซิล)</td><td>cancel</td><td>cancelled/canceled</td><td>cancelled/canceled</td><td>cancelling/canceling</td><td>ยกเลิก</td><td>Our flight was cancelled while we were waiting at the gate. | เที่ยวบินถูกยกเลิกตอนเรากำลังรอที่เกต</td></tr>
-            <tr><td>negotiate (นิ-โก-ชี-เอท)</td><td>negotiate</td><td>negotiated</td><td>negotiated</td><td>negotiating</td><td>เจรจา</td><td>She is negotiating the salary before accepting the offer. | เธอกำลังเจรจาเงินเดือนก่อนรับข้อเสนอ</td></tr>
-            <tr><td>recommend (เรค-คะ-เมนด์)</td><td>recommend</td><td>recommended</td><td>recommended</td><td>recommending</td><td>แนะนำ</td><td>The recruiter recommended that I revise my resume. | นายหน้าจัดหางานแนะนำให้ฉันแก้เรซูเม่</td></tr>
-            <tr><td>require (รี-ไควร์)</td><td>require</td><td>required</td><td>required</td><td>requiring</td><td>ต้องการ/กำหนดให้มี</td><td>This position requires candidates to communicate clearly. | ตำแหน่งนี้กำหนดให้ผู้สมัครสื่อสารได้ชัดเจน</td></tr>
-            <tr><td>arrange (อะ-เรนจ์)</td><td>arrange</td><td>arranged</td><td>arranged</td><td>arranging</td><td>จัดเตรียม/จัดการ</td><td>HR has arranged an online interview for next Monday. | HR จัดสัมภาษณ์ออนไลน์ไว้วันจันทร์หน้า</td></tr>
-            <tr><td>translate (แทรนซ์-เลท)</td><td>translate</td><td>translated</td><td>translated</td><td>translating</td><td>แปล</td><td>I got the document translated before submitting my application. | ฉันให้แปลเอกสารก่อนส่งใบสมัคร</td></tr>
           </tbody>
         </table>
       </div>
@@ -1550,19 +1164,6 @@
 
     <section id="tenses">
       <div class="section-title"><h2>4. ⏰ 12 English Tenses | กาลภาษาอังกฤษ 12 แบบ</h2><p>Timeline symbols: Past ← Now → Future | อดีต ปัจจุบัน อนาคต</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>เลือก Tense จากเวลาและมุมมอง</h3>
-          <p><b>Simple:</b> มองเหตุการณ์เป็นภาพรวม เช่น <b>I worked yesterday.</b></p>
-          <p><b>Continuous:</b> มองเหตุการณ์ที่กำลังดำเนิน เช่น <b>I was working at 8.</b></p>
-          <p><b>Perfect:</b> มองผลหรือความเชื่อมโยงกับอีกเวลา เช่น <b>I have finished.</b></p>
-        </div>
-        <div class="mini-card">
-          <h3>Choosing Tense | วิธีเลือก tense</h3>
-          <p><b>ถาม 3 คำถาม:</b> เกิดเมื่อไร? จบหรือยัง? อยากเน้นการกระทำหรือผลลัพธ์?</p>
-          <p><b>ตัวอย่าง:</b> I <b>lived</b> there in 2020. = จบแล้ว / I <b>have lived</b> here since 2020. = ยังเกี่ยวกับตอนนี้</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Tense</th><th>Formula</th><th>Signal Words</th><th>Usage</th><th>Positive</th><th>Negative</th><th>Question</th><th>Example</th><th>Timeline</th><th>Thai Meaning</th></tr></thead>
@@ -1586,18 +1187,6 @@
 
     <section id="questions">
       <div class="section-title"><h2>5. ❓ Question Words | คำแสดงคำถาม</h2><p>WH/H words help you ask for missing information | คำถามช่วยค้นหาข้อมูลที่ขาด</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Subject vs Object Questions | ถามประธาน vs ถามกรรม</h3>
-          <p><b>Subject question:</b> ไม่ต้องใช้ do/does/did เช่น <b>Who called you?</b> = ใครโทรหาคุณ</p>
-          <p><b>Object question:</b> ต้องใช้ auxiliary เช่น <b>Who did you call?</b> = คุณโทรหาใคร</p>
-        </div>
-        <div class="mini-card">
-          <h3>Embedded Questions | คำถามซ้อน</h3>
-          <p><b>สุภาพขึ้น:</b> ใช้โครงสร้างประโยคบอกเล่าหลังคำถามนำ เช่น <b>Where is the station?</b> → <b>Could you tell me where the station is?</b></p>
-          <p><b>ระวัง:</b> ไม่ใช้ <b>where is the station</b> หลัง Could you tell me</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Word</th><th>Meaning</th><th>Used For</th><th>Example</th></tr></thead>
@@ -1624,18 +1213,6 @@
 
     <section id="prepositions">
       <div class="section-title"><h2>6. 📍 Prepositions | คำบุพบท</h2><p>Prepositions show time, place, movement, direction, method, and reason | บอกเวลา สถานที่ การเคลื่อนที่ ทิศทาง วิธี เหตุผล</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Preposition Collocations | คำที่ต้องมาคู่กัน</h3>
-          <p><b>จำเป็นชุด:</b> interested <b>in</b>, good <b>at</b>, depend <b>on</b>, afraid <b>of</b>, responsible <b>for</b>.</p>
-          <p><b>ตัวอย่าง:</b> She is interested <b>in</b> grammar. / This depends <b>on</b> the weather.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Literal vs Abstract | จริง vs นามธรรม</h3>
-          <p><b>Place:</b> in the room = อยู่ในห้อง / <b>Abstract:</b> in trouble = อยู่ในปัญหา</p>
-          <p><b>Tip:</b> preposition จำนวนมากแปลตรงตัวไม่ได้ ต้องจำเป็นกลุ่มความหมายและตัวอย่าง</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Group</th><th>Prepositions</th><th>Rules / Thai Meaning</th><th>Examples</th></tr></thead>
@@ -1653,54 +1230,6 @@
 
     <section id="conjunctions">
       <div class="section-title"><h2>7. 🔗 Conjunctions | คำสันธาน</h2><p>Connect ideas smoothly | เชื่อมความคิดให้ลื่นไหล</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Logic of Ideas | ความสัมพันธ์ของความคิด</h3>
-          <p><b>Reason:</b> because, since / <b>Contrast:</b> although, but, however / <b>Result:</b> so, therefore</p>
-          <p><b>ตัวอย่าง:</b> Although it was raining, we went out. = แม้ฝนตก แต่เราก็ออกไป</p>
-        </div>
-        <div class="mini-card">
-          <h3>Punctuation Tip | เครื่องหมายวรรคตอน</h3>
-          <p><b>Dependent clause ก่อน:</b> ใช้ comma เช่น <b>Because I was tired, I slept early.</b></p>
-          <p><b>Main clause ก่อน:</b> มักไม่ต้อง comma เช่น <b>I slept early because I was tired.</b></p>
-        </div>
-        <div class="mini-card">
-          <h3>Reason | บอกเหตุผล</h3>
-          <p><b>because + clause:</b> I called HR because I had not received a reply. | ฉันโทรหา HR เพราะยังไม่ได้รับคำตอบ</p>
-          <p><b>because of + noun:</b> The flight was delayed because of bad weather. | เที่ยวบินล่าช้าเพราะอากาศไม่ดี</p>
-          <p><b>since/as:</b> ใช้บอกเหตุผลที่ผู้ฟังพอรู้อยู่แล้ว เช่น Since the deadline is close, we should finish today.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Contrast | บอกความขัดแย้ง</h3>
-          <p><b>but:</b> เชื่อมความคิดสั้น ๆ เช่น I prepared well, but I was nervous.</p>
-          <p><b>although/even though:</b> แม้ว่า เช่น Although the interview was difficult, I answered clearly.</p>
-          <p><b>however:</b> ใช้ขึ้นประโยคใหม่แบบเป็นทางการ เช่น The hotel was expensive. However, the location was excellent.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Result and Purpose | ผลลัพธ์และจุดประสงค์</h3>
-          <p><b>so:</b> ผลลัพธ์ เช่น I missed the train, so I took a taxi.</p>
-          <p><b>therefore:</b> ทางการกว่า so เช่น The documents were incomplete; therefore, the application was rejected.</p>
-          <p><b>so that:</b> จุดประสงค์ เช่น I saved the file so that my manager could review it.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Condition | เงื่อนไข</h3>
-          <p><b>if:</b> ถ้า เช่น If you send the document today, I will review it tomorrow.</p>
-          <p><b>unless:</b> ถ้าไม่/เว้นแต่ เช่น Unless we leave now, we will miss the flight.</p>
-          <p><b>as long as:</b> ตราบใดที่ เช่น You can check in early as long as a room is available.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Time Connectors | เชื่อมเวลา</h3>
-          <p><b>when/while:</b> when = จุดเวลา, while = ระหว่างที่ เช่น I was waiting while the agent checked my booking.</p>
-          <p><b>before/after:</b> We had submitted the application before the deadline. / After I arrived, I called the hotel.</p>
-          <p><b>until:</b> ทำต่อไปจนถึงเวลา เช่น Please wait until your name is called.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Correlative Connectors | คำเชื่อมเป็นคู่</h3>
-          <p><b>both...and:</b> Both my resume and portfolio are ready.</p>
-          <p><b>either...or:</b> You can contact me either by email or by phone.</p>
-          <p><b>not only...but also:</b> The job requires not only English skills but also teamwork.</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Group</th><th>Words</th><th>Use / Thai Meaning</th><th>Examples</th></tr></thead>
@@ -1708,13 +1237,6 @@
             <tr><td>Coordinating | FANBOYS</td><td>for, and, nor, but, or, yet, so</td><td>Connect equal ideas | เชื่อมสิ่งที่เท่ากัน</td><td>I like tea and coffee. | ฉันชอบชาและกาแฟ; She was tired, but she studied. | เธอเหนื่อยแต่เธอเรียน</td></tr>
             <tr><td>Subordinating</td><td>because, although, if, when, while, before, after, since, until, unless</td><td>Connect main clause + dependent clause | เชื่อมประโยคหลักกับอนุประโยค</td><td>I stayed home because it rained. | ฉันอยู่บ้านเพราะฝนตก</td></tr>
             <tr><td>Correlative</td><td>both...and, either...or, neither...nor, not only...but also, whether...or</td><td>Paired connectors | คำเชื่อมเป็นคู่</td><td>Both Tom and Ann are kind. | ทั้งทอมและแอนใจดี</td></tr>
-            <tr><td>Reason | เหตุผล</td><td>because, since, as, because of, due to</td><td>Explain why something happens | อธิบายสาเหตุ</td><td>I followed up because I had not received a reply. | ฉันติดตามผลเพราะยังไม่ได้รับคำตอบ</td></tr>
-            <tr><td>Contrast | ขัดแย้ง</td><td>but, although, even though, however, nevertheless</td><td>Show opposite or unexpected idea | แสดงความขัดแย้งหรือสิ่งที่ไม่คาดคิด</td><td>Although the flight was delayed, we arrived on time. | แม้เที่ยวบินล่าช้า เราก็มาถึงทันเวลา</td></tr>
-            <tr><td>Result | ผลลัพธ์</td><td>so, therefore, as a result, consequently</td><td>Show consequence | แสดงผลที่ตามมา</td><td>The documents were incomplete; therefore, the application was rejected. | เอกสารไม่ครบ ดังนั้นใบสมัครจึงถูกปฏิเสธ</td></tr>
-            <tr><td>Purpose | จุดประสงค์</td><td>so that, in order to, to</td><td>Show goal or purpose | บอกเป้าหมาย</td><td>I saved the receipt so that I could claim the expense. | ฉันเก็บใบเสร็จไว้เพื่อเบิกค่าใช้จ่าย</td></tr>
-            <tr><td>Condition | เงื่อนไข</td><td>if, unless, as long as, provided that</td><td>Show condition for result | บอกเงื่อนไข</td><td>You can board the plane if you have a valid boarding pass. | คุณขึ้นเครื่องได้ถ้ามีบอร์ดดิ้งพาสที่ถูกต้อง</td></tr>
-            <tr><td>Time | เวลา</td><td>when, while, before, after, until, as soon as</td><td>Connect actions by time | เชื่อมเหตุการณ์ตามเวลา</td><td>Please call me as soon as you arrive at the hotel. | โทรหาฉันทันทีที่ถึงโรงแรม</td></tr>
-            <tr><td>Addition | เพิ่มข้อมูล</td><td>and, also, moreover, in addition</td><td>Add another point | เพิ่มอีกประเด็น</td><td>I attached my resume and also included my portfolio. | ฉันแนบเรซูเม่และรวมแฟ้มผลงานไว้ด้วย</td></tr>
           </tbody>
         </table>
       </div>
@@ -1722,59 +1244,6 @@
 
     <section id="pronouns">
       <div class="section-title"><h2>8. 👤 Pronouns | คำสรรพนาม</h2><p>Use the right form by position | เลือกรูปให้ตรงตำแหน่ง</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Pronoun คืออะไร? | ใช้แทนคำนาม</h3>
-          <p><b>หน้าที่หลัก:</b> ใช้แทนคำนามเพื่อไม่ให้พูดซ้ำ เช่น <b>Maria sent Maria's resume</b> → <b>Maria sent her resume.</b></p>
-          <p><b>ภาพจำ:</b> pronoun เหมือน “ตัวแทน” ของคน/สิ่งของที่พูดถึงแล้ว ต้องเลือกให้ตรงกับเพศ จำนวน และตำแหน่งในประโยค</p>
-        </div>
-        <div class="mini-card">
-          <h3>Reference Clarity | ต้องรู้ว่าแทนใคร</h3>
-          <p><b>ไม่ชัด:</b> Tom told Jack that he was late. = he คือใคร?</p>
-          <p><b>ชัดขึ้น:</b> Tom told Jack, "You are late." หรือ Tom was late, so he apologized to Jack.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Case by Position | รูปตามตำแหน่ง</h3>
-          <p><b>Subject:</b> She and I work here. / <b>Object:</b> The manager called her and me.</p>
-          <p><b>Possessive adjective:</b> my book ต้องมีนามตามหลัง แต่ <b>mine</b> ยืนเดี่ยวได้</p>
-        </div>
-        <div class="mini-card">
-          <h3>Subject vs Object | ประธาน vs กรรม</h3>
-          <p><b>Subject:</b> I, you, he, she, it, we, they อยู่หน้ากริยา เช่น <b>She submitted the application.</b></p>
-          <p><b>Object:</b> me, you, him, her, it, us, them อยู่หลัง verb/preposition เช่น <b>HR contacted her.</b> / <b>The email was sent to me.</b></p>
-          <p><b>ผิดบ่อย:</b> Me and him are available. ❌ → <b>He and I are available.</b></p>
-        </div>
-        <div class="mini-card">
-          <h3>Possessive Forms | แสดงความเป็นเจ้าของ</h3>
-          <p><b>Possessive adjective + noun:</b> my resume, your passport, their booking, our meeting.</p>
-          <p><b>Possessive pronoun ยืนเดี่ยว:</b> This resume is <b>mine</b>. / The luggage is <b>ours</b>.</p>
-          <p><b>ระวัง:</b> its = ของมัน, it's = it is เช่น <b>The company changed its policy.</b></p>
-        </div>
-        <div class="mini-card">
-          <h3>Reflexive Pronouns | สรรพนามสะท้อน</h3>
-          <p><b>ใช้เมื่อประธานทำกับตัวเอง:</b> I introduced myself. / She prepared herself for the interview.</p>
-          <p><b>ใช้เน้นว่าทำเอง:</b> I booked the hotel myself. = ฉันจองโรงแรมเอง</p>
-          <p><b>ไม่ใช้เกินจำเป็น:</b> I feel myself tired. ❌ → <b>I feel tired.</b></p>
-        </div>
-        <div class="mini-card">
-          <h3>Pronouns in Work / Job / Travel</h3>
-          <p><b>Work:</b> Could you send <b>me</b> the file? / I will share <b>it</b> with <b>them</b>.</p>
-          <p><b>Job:</b> HR invited <b>me</b> for an interview. / This portfolio is <b>mine</b>.</p>
-          <p><b>Travel:</b> Could you show <b>us</b> the way? / The booking is under <b>my</b> name.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Relative Pronouns | who / which / that</h3>
-          <p><b>who:</b> ใช้กับคน เช่น The recruiter <b>who called me</b> was very polite.</p>
-          <p><b>which:</b> ใช้กับสิ่งของ เช่น The document <b>which I attached</b> is my resume.</p>
-          <p><b>that:</b> ใช้ได้กับคน/สิ่งของในหลายกรณี เช่น The hotel <b>that we booked</b> is near the station.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Indefinite Pronouns | someone / anyone / everyone</h3>
-          <p><b>someone:</b> บางคน เช่น Someone called while you were away.</p>
-          <p><b>anyone:</b> ใครก็ได้/ใครสักคนในคำถาม เช่น Can anyone help me?</p>
-          <p><b>everyone/everybody:</b> ทุกคน แต่ใช้กริยาเอกพจน์ เช่น <b>Everyone is ready.</b></p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Subject</th><th>Object</th><th>Possessive Adjective</th><th>Possessive Pronoun</th><th>Reflexive</th><th>Thai Meaning</th><th>Example</th></tr></thead>
@@ -1786,11 +1255,6 @@
             <tr><td>it (อิท)</td><td>it (อิท)</td><td>its (อิทส์)</td><td>its (rare)</td><td>itself (อิท-เซลฟ์)</td><td>มัน</td><td>The cat licked itself. | แมวเลียตัวเอง</td></tr>
             <tr><td>we (วี)</td><td>us (อัส)</td><td>our (อาวร์)</td><td>ours (อาวร์ซ)</td><td>ourselves (อาวร์-เซลฟ์ซ)</td><td>พวกเรา</td><td>Our team won. | ทีมของเราชนะ</td></tr>
             <tr><td>they (เธย์)</td><td>them (เธ็ม)</td><td>their (แธร์)</td><td>theirs (แธร์ซ)</td><td>themselves (เธ็ม-เซลฟ์ซ)</td><td>พวกเขา</td><td>They did it themselves. | พวกเขาทำเอง</td></tr>
-            <tr><td>this / that</td><td>this / that</td><td>this/that + noun</td><td>this/that</td><td>-</td><td>นี้/นั้น</td><td>This is my resume. That is the hotel. | นี่คือเรซูเม่ของฉัน นั่นคือโรงแรม</td></tr>
-            <tr><td>these / those</td><td>these / those</td><td>these/those + plural noun</td><td>these/those</td><td>-</td><td>เหล่านี้/เหล่านั้น</td><td>These are my documents. Those are your bags. | เหล่านี้คือเอกสารของฉัน เหล่านั้นคือกระเป๋าของคุณ</td></tr>
-            <tr><td>who</td><td>whom/who</td><td>whose</td><td>-</td><td>-</td><td>ผู้ที่/ใคร</td><td>The person who interviewed me was kind. | คนที่สัมภาษณ์ฉันใจดี</td></tr>
-            <tr><td>which</td><td>which</td><td>whose / of which</td><td>-</td><td>-</td><td>ซึ่ง/อันที่</td><td>The flight which was delayed has departed. | เที่ยวบินที่ล่าช้าออกแล้ว</td></tr>
-            <tr><td>someone / anyone / everyone</td><td>someone / anyone / everyone</td><td>someone's / anyone's / everyone's</td><td>-</td><td>oneself</td><td>บางคน/ใครก็ได้/ทุกคน</td><td>Everyone is ready for the meeting. | ทุกคนพร้อมสำหรับประชุม</td></tr>
           </tbody>
         </table>
       </div>
@@ -1798,48 +1262,6 @@
 
     <section id="articles">
       <div class="section-title"><h2>9. 🏷️ Articles | คำนำหน้านาม</h2><p>a, an, the, and zero article | ใช้กับคำนามให้ถูกต้อง</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Article คืออะไร? | ตัวกำหนดคำนาม</h3>
-          <p><b>หน้าที่:</b> Article ช่วยบอกว่าคำนามนั้นเป็น “หนึ่งสิ่งทั่วไป” หรือ “สิ่งที่เจาะจง/รู้กันแล้ว”</p>
-          <p><b>a/an:</b> ใช้กับนามนับได้เอกพจน์ที่ยังไม่เจาะจง เช่น <b>a resume</b>, <b>an interview</b>, <b>a hotel</b>.</p>
-          <p><b>the:</b> ใช้เมื่อเจาะจงแล้ว เช่น <b>the resume I attached</b>, <b>the hotel near the station</b>.</p>
-        </div>
-        <div class="mini-card">
-          <h3>First Mention vs Second Mention | พูดครั้งแรก/พูดซ้ำ</h3>
-          <p><b>ครั้งแรก:</b> I saw <b>a</b> dog. = ยังไม่รู้ว่าตัวไหน</p>
-          <p><b>พูดซ้ำ:</b> <b>The</b> dog was friendly. = ตัวที่พูดถึงเมื่อกี้</p>
-        </div>
-        <div class="mini-card">
-          <h3>Generic Meaning | พูดทั่วไป</h3>
-          <p><b>Plural general:</b> Cats are independent. = แมวโดยทั่วไป</p>
-          <p><b>Singular class:</b> The tiger is dangerous. = เสือในฐานะสายพันธุ์</p>
-        </div>
-        <div class="mini-card">
-          <h3>A vs An | ดูเสียง ไม่ใช่แค่ตัวอักษร</h3>
-          <p><b>a + เสียงพยัญชนะ:</b> a university, a user, a European company เพราะขึ้นต้นเสียง “ยู”</p>
-          <p><b>an + เสียงสระ:</b> an hour, an honest answer, an interview เพราะขึ้นต้นเสียงสระ</p>
-          <p><b>ใช้จริง:</b> I have <b>an</b> interview with <b>a</b> European company.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Countable vs Uncountable | นับได้/นับไม่ได้</h3>
-          <p><b>นับได้เอกพจน์:</b> ต้องมี a/an/the/this/my เช่น <b>a document</b>, <b>the ticket</b>, <b>my passport</b>.</p>
-          <p><b>นับไม่ได้:</b> ไม่ใช้ a/an เช่น information, advice, luggage, equipment, traffic.</p>
-          <p><b>ผิดบ่อย:</b> an information ❌ → <b>some information</b> / a luggage ❌ → <b>a suitcase</b> หรือ <b>some luggage</b></p>
-        </div>
-        <div class="mini-card">
-          <h3>Articles in Work / Job / Travel</h3>
-          <p><b>Work:</b> Please send <b>the</b> report by Friday. = รายงานที่รู้กันแล้ว</p>
-          <p><b>Job:</b> I applied for <b>a</b> position and attached <b>my</b> resume. = ตำแหน่งหนึ่ง + เรซูเม่ของฉัน</p>
-          <p><b>Travel:</b> I have <b>a</b> reservation at <b>the</b> hotel near <b>the</b> airport. = มีการจองหนึ่งรายการ โรงแรม/สนามบินเฉพาะ</p>
-        </div>
-        <div class="mini-card">
-          <h3>No Article | ไม่ต้องใช้ article</h3>
-          <p><b>พูดทั่วไป:</b> I like coffee. / Hotels are expensive in this city.</p>
-          <p><b>ชื่อเฉพาะหลายกรณี:</b> Thailand, Bangkok, English, Monday, June ไม่ต้องใช้ the</p>
-          <p><b>มื้ออาหาร/ภาษา/วิชา:</b> have breakfast, speak English, study marketing</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Article</th><th>Pronunciation</th><th>Rules</th><th>Examples</th><th>Thai Meaning / Notes</th></tr></thead>
@@ -1848,16 +1270,6 @@
             <tr><td>an</td><td>แอน</td><td>Before singular countable noun starting with vowel sound | หน้านามนับได้เอกพจน์เสียงสระ</td><td>an apple, an hour</td><td>หนึ่ง/สักหนึ่ง | hour เสียงขึ้นต้นเป็นเอา</td></tr>
             <tr><td>the</td><td>เดอะ/ดิ</td><td>Specific noun, known noun, unique thing | นามเฉพาะเจาะจง รู้กันแล้ว สิ่งเดียว</td><td>the sun, the book on the table</td><td>นั้น/นี้/ดังกล่าว</td></tr>
             <tr><td>No article</td><td>โน อาร์-ทิ-เคิล</td><td>General plural/uncountable, names, meals, languages | นามพหูพจน์ทั่วไป นามนับไม่ได้ ชื่อ ภาษา มื้ออาหาร</td><td>I like cats. Water is important. Thai is easy.</td><td>ไม่ต้องใส่ a/an/the</td></tr>
-            <tr><td>a/an + job</td><td>อะ/แอน</td><td>Use with singular countable job/role | ใช้กับอาชีพหรือตำแหน่งเอกพจน์</td><td>She is a manager. I am an engineer.</td><td>ต้องมี a/an เพราะ manager/engineer นับได้เอกพจน์</td></tr>
-            <tr><td>the + specific document</td><td>เดอะ</td><td>Use when both speaker and listener know which one | ใช้เมื่อรู้ว่าหมายถึงอันไหน</td><td>Please review the contract I sent yesterday.</td><td>สัญญาที่ส่งเมื่อวาน เจาะจงแล้ว</td></tr>
-            <tr><td>a/an + first mention</td><td>อะ/แอน</td><td>First time mentioning one countable thing | กล่าวถึงครั้งแรก</td><td>I received an email from HR.</td><td>อีเมลฉบับหนึ่งจาก HR ยังไม่เจาะจงมาก่อน</td></tr>
-            <tr><td>the + second mention</td><td>เดอะ</td><td>Second mention of the same thing | กล่าวซ้ำสิ่งเดิม</td><td>The email included the interview schedule.</td><td>อีเมลฉบับที่พูดถึงเมื่อกี้</td></tr>
-            <tr><td>No article + uncountable</td><td>-</td><td>Use no a/an before uncountable nouns | นามนับไม่ได้ไม่ใช้ a/an</td><td>I need information about the position.</td><td>information นับไม่ได้ ใช้ some information ได้</td></tr>
-            <tr><td>No article + general plural</td><td>-</td><td>Plural nouns in general meaning | พหูพจน์แบบทั่วไป</td><td>Employees need clear instructions.</td><td>พนักงานทั่วไป ไม่ได้เจาะจงกลุ่มหนึ่ง</td></tr>
-            <tr><td>the + unique place/service</td><td>เดอะ</td><td>Use for specific/known places or services | สถานที่/บริการที่เจาะจงหรือรู้กัน</td><td>Where is the reception? Where is the baggage claim?</td><td>แผนกต้อนรับ/จุดรับกระเป๋าที่สถานที่นั้น</td></tr>
-            <tr><td>No article + transport by method</td><td>-</td><td>Use no article after by for transport method | หลัง by + วิธีเดินทาง ไม่ใช้ article</td><td>by bus, by train, by taxi, by plane</td><td>แต่พูดว่า in a taxi / on the train ได้เมื่อเจาะจง</td></tr>
-            <tr><td>the + superlative</td><td>เดอะ</td><td>Use the before superlative adjective | ใช้ the กับขั้นสุด</td><td>the best candidate, the nearest station</td><td>ผู้สมัครที่ดีที่สุด/สถานีที่ใกล้ที่สุด</td></tr>
-            <tr><td>a/an + one of many</td><td>อะ/แอน</td><td>One item/person from many possible ones | หนึ่งในหลายสิ่ง</td><td>Could you recommend a hotel near the station?</td><td>โรงแรมสักแห่งใกล้สถานี</td></tr>
           </tbody>
         </table>
       </div>
@@ -1865,18 +1277,6 @@
 
     <section id="modals">
       <div class="section-title"><h2>10. 🧠 Modal Verbs | กริยาช่วยแสดงความหมายพิเศษ</h2><p>Modal + base verb | Modal ตามด้วย V1 ไม่เติม s/es</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Degree of Certainty | ระดับความมั่นใจ</h3>
-          <p><b>must:</b> แน่ใจสูง เช่น He must be tired. = เขาต้องเหนื่อยแน่</p>
-          <p><b>might/may:</b> เป็นไปได้ เช่น It might rain. = ฝนอาจตก</p>
-        </div>
-        <div class="mini-card">
-          <h3>Past Modals | modal กับอดีต</h3>
-          <p><b>should have + V3:</b> ควรทำแต่ไม่ได้ทำ เช่น You should have called me.</p>
-          <p><b>could have + V3:</b> ทำได้แต่ไม่ได้ทำ/อาจเกิดขึ้นได้ เช่น She could have won.</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Modal</th><th>Use</th><th>Meaning</th><th>Examples</th></tr></thead>
@@ -1900,18 +1300,6 @@
 
     <section id="rules">
       <div class="section-title"><h2>11. 📏 Common Grammar Rules | กฎไวยากรณ์สำคัญ</h2><p>High-frequency rules for exams and writing | กฎที่ใช้บ่อยในการสอบและการเขียน</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Grammar Editing Workflow | ขั้นตอนตรวจประโยค</h3>
-          <p><b>1.</b> หา subject และ verb หลัก <b>2.</b> เช็ก tense จากเวลา <b>3.</b> เช็ก agreement <b>4.</b> เช็ก article/preposition <b>5.</b> อ่านว่าไหลลื่นไหม</p>
-          <p><b>ตัวอย่าง:</b> She go yesterday → subject = She, time = yesterday, past needed → <b>She went yesterday.</b></p>
-        </div>
-        <div class="mini-card">
-          <h3>ลำดับการตรวจ Grammar | กฎไหนสำคัญก่อน</h3>
-          <p><b>ความหมายมาก่อน:</b> ถ้า tense ผิด ความหมายเวลาเปลี่ยนทันที เช่น I live here vs I lived here.</p>
-          <p><b>ความเป็นธรรมชาติ:</b> หลังแก้ grammar แล้วให้ดู collocation เช่น make a decision, take a break, do homework.</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Rule</th><th>English Explanation</th><th>Thai Explanation</th><th>Example</th><th>Tip</th></tr></thead>
@@ -1935,18 +1323,6 @@
 
     <section id="mistakes">
       <div class="section-title"><h2>12. ⚠️ Common Mistakes | ข้อผิดพลาดที่พบบ่อย</h2><p>Wrong vs correct with reasons | เปรียบเทียบผิด-ถูกพร้อมเหตุผล</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Error Pattern | มองข้อผิดพลาดเป็นแพตเทิร์น</h3>
-          <p><b>อย่าแก้ทีละคำอย่างเดียว:</b> ให้ถามว่าเป็นปัญหา tense, agreement, article, preposition, word order หรือ word form.</p>
-          <p><b>ตัวอย่าง:</b> She don't like tea. = agreement/auxiliary error → <b>She doesn't like tea.</b></p>
-        </div>
-        <div class="mini-card">
-          <h3>Self-Correction Questions | คำถามตรวจเอง</h3>
-          <p><b>ประโยคมี verb หลักไหม?</b> <b>เวลาอยู่ตรงไหน?</b> <b>คำนามนับได้ต้องมี a/an/the หรือ plural ไหม?</b></p>
-          <p><b>Tip:</b> ถ้าประโยคยาว ให้ตัดส่วนขยายออกก่อน แล้วตรวจแกน S + V</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>No.</th><th>Wrong</th><th>Correct</th><th>Reason</th><th>Example</th></tr></thead>
@@ -2057,63 +1433,35 @@
     </section>
 
     <section id="vocab">
-      <div class="section-title"><h2>13. 🗂️ Vocabulary Categories | หมวดคำศัพท์</h2><p>500+ practical words for work, job applications, travel, and daily life | คำศัพท์ใช้งานจริง 500+ คำ สำหรับงาน สมัครงาน ท่องเที่ยว และชีวิตประจำวัน</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Word Families | ครอบครัวคำศัพท์</h3>
-          <p><b>เรียนเป็นชุด:</b> decide (v), decision (n), decisive (adj), decisively (adv). จะช่วยอ่านและเขียนได้เร็วขึ้น</p>
-          <p><b>ตัวอย่าง:</b> We decided quickly. / It was a quick decision.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Collocation Practice | จำคำที่ใช้คู่กัน</h3>
-          <p><b>ธรรมชาติของภาษา:</b> make a mistake, do homework, take a photo, have a meeting, give advice.</p>
-          <p><b>วิธีฝึก:</b> จดคำศัพท์พร้อมคำที่มักมากับมัน ไม่จดคำเดี่ยวอย่างเดียว</p>
-        </div>
-      </div>
+      <div class="section-title"><h2>13. 🗂️ Vocabulary Categories | หมวดคำศัพท์</h2><p>Each category has 30 words with Thai meanings | แต่ละหมวดมี 30 คำพร้อมคำแปล</p></div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Category</th><th>500 Words | คำศัพท์ 500 คำ</th></tr></thead>
+          <thead><tr><th>Category</th><th>30 Words | คำศัพท์ 30 คำ</th></tr></thead>
           <tbody>
-            <tr><td>Family | ครอบครัว</td><td>father (ฟา-เธอร์)=พ่อ, mother (มา-เธอร์)=แม่, parent=ผู้ปกครอง, son=ลูกชาย, daughter=ลูกสาว, child=เด็ก/ลูก, brother=พี่/น้องชาย, sister=พี่/น้องสาว, husband=สามี, wife=ภรรยา, grandfather=ปู่/ตา, grandmother=ย่า/ยาย, grandson=หลานชายของปู่ย่าตายาย, granddaughter=หลานสาวของปู่ย่าตายาย, grandchild=หลาน, uncle=ลุง/อา, aunt=ป้า/น้า, cousin=ลูกพี่ลูกน้อง, nephew=หลานชาย, niece=หลานสาว, family=ครอบครัว, relative=ญาติ, sibling=พี่น้อง, twin=ฝาแฝด, baby=ทารก, toddler=เด็กวัยหัดเดิน, teenager=วัยรุ่น, adult=ผู้ใหญ่, elder=ผู้สูงอายุ, ancestor=บรรพบุรุษ, descendant=ลูกหลาน, stepfather=พ่อเลี้ยง, stepmother=แม่เลี้ยง, stepson=ลูกเลี้ยงชาย, stepdaughter=ลูกเลี้ยงหญิง, half-brother=พี่/น้องชายต่างพ่อหรือแม่, half-sister=พี่/น้องสาวต่างพ่อหรือแม่, in-law=ญาติฝ่ายคู่สมรส, father-in-law=พ่อตา/พ่อสามี, mother-in-law=แม่ยาย/แม่สามี, son-in-law=ลูกเขย, daughter-in-law=ลูกสะใภ้, brother-in-law=พี่/น้องเขย, sister-in-law=พี่/น้องสะใภ้, guardian=ผู้ปกครอง, caregiver=ผู้ดูแล, spouse=คู่สมรส, partner=คู่ชีวิต, fiancé=คู่หมั้นชาย, fiancée=คู่หมั้นหญิง, single parent=พ่อ/แม่เลี้ยงเดี่ยว, nuclear family=ครอบครัวเดี่ยว, extended family=ครอบครัวขยาย, household=ครัวเรือน, generation=รุ่น, family tree=แผนผังครอบครัว, adoption=การรับเลี้ยงบุตรบุญธรรม, adopted child=ลูกบุญธรรม, orphan=เด็กกำพร้า, marriage=การแต่งงาน, divorce=การหย่า, wedding=งานแต่งงาน, anniversary=วันครบรอบ, relationship=ความสัมพันธ์</td></tr>
-            <tr><td>Food | อาหาร</td><td>rice=ข้าว, bread=ขนมปัง, noodle=ก๋วยเตี๋ยว, pasta=พาสต้า, chicken=ไก่, pork=หมู, beef=เนื้อวัว, fish=ปลา, seafood=อาหารทะเล, shrimp=กุ้ง, squid=ปลาหมึก, crab=ปู, egg=ไข่, milk=นม, cheese=ชีส, butter=เนย, yogurt=โยเกิร์ต, soup=ซุป, salad=สลัด, fruit=ผลไม้, vegetable=ผัก, apple=แอปเปิล, banana=กล้วย, orange=ส้ม, mango=มะม่วง, pineapple=สับปะรด, watermelon=แตงโม, grape=องุ่น, strawberry=สตรอว์เบอร์รี, lemon=มะนาวเหลือง, lime=มะนาว, tomato=มะเขือเทศ, potato=มันฝรั่ง, onion=หัวหอม, garlic=กระเทียม, carrot=แครอต, cabbage=กะหล่ำปลี, lettuce=ผักกาดหอม, cucumber=แตงกวา, mushroom=เห็ด, sugar=น้ำตาล, salt=เกลือ, pepper=พริกไทย, chili=พริก, oil=น้ำมัน, sauce=ซอส, soy sauce=ซีอิ๊ว, vinegar=น้ำส้มสายชู, flour=แป้ง, dessert=ของหวาน, cake=เค้ก, cookie=คุกกี้, ice cream=ไอศกรีม, coffee=กาแฟ, tea=ชา, water=น้ำ, juice=น้ำผลไม้, soda=น้ำอัดลม, smoothie=สมูทตี้, breakfast=อาหารเช้า, lunch=อาหารกลางวัน, dinner=อาหารเย็น, snack=ของว่าง, appetizer=อาหารเรียกน้ำย่อย, main course=อาหารจานหลัก, side dish=เครื่องเคียง, takeout=อาหารกลับบ้าน, dine in=กินที่ร้าน, menu=เมนู, ingredient=วัตถุดิบ, recipe=สูตรอาหาร, portion=ปริมาณต่อจาน, spicy=เผ็ด, sweet=หวาน, sour=เปรี้ยว, salty=เค็ม, bitter=ขม, delicious=อร่อย</td></tr>
-            <tr><td>Animals | สัตว์</td><td>dog=สุนัข, cat=แมว, bird=นก, fish=ปลา, cow=วัว, bull=วัวตัวผู้, calf=ลูกวัว, pig=หมู, chicken=ไก่, rooster=ไก่ตัวผู้, hen=แม่ไก่, duck=เป็ด, goose=ห่าน, horse=ม้า, sheep=แกะ, goat=แพะ, buffalo=ควาย, elephant=ช้าง, tiger=เสือ, lion=สิงโต, leopard=เสือดาว, cheetah=เสือชีตาห์, monkey=ลิง, gorilla=กอริลลา, bear=หมี, panda=แพนด้า, rabbit=กระต่าย, deer=กวาง, giraffe=ยีราฟ, zebra=ม้าลาย, camel=อูฐ, kangaroo=จิงโจ้, snake=งู, turtle=เต่า, tortoise=เต่าบก, crocodile=จระเข้, lizard=กิ้งก่า, frog=กบ, toad=คางคก, mouse=หนู, rat=หนูใหญ่, squirrel=กระรอก, bat=ค้างคาว, whale=วาฬ, dolphin=โลมา, shark=ฉลาม, octopus=ปลาหมึกยักษ์, jellyfish=แมงกะพรุน, butterfly=ผีเสื้อ, bee=ผึ้ง, wasp=ตัวต่อ, ant=มด, spider=แมงมุม, mosquito=ยุง, fly=แมลงวัน, beetle=ด้วง, worm=หนอน, eagle=นกอินทรี, owl=นกฮูก, parrot=นกแก้ว, penguin=เพนกวิน, swan=หงส์, peacock=นกยูง, pet=สัตว์เลี้ยง, wild animal=สัตว์ป่า, livestock=ปศุสัตว์, insect=แมลง, reptile=สัตว์เลื้อยคลาน, mammal=สัตว์เลี้ยงลูกด้วยนม, habitat=ถิ่นอาศัย</td></tr>
-            <tr><td>Business | ธุรกิจ</td><td>company=บริษัท, business=ธุรกิจ, enterprise=องค์กรธุรกิจ, corporation=บริษัทขนาดใหญ่, market=ตลาด, marketplace=ตลาดซื้อขาย, customer=ลูกค้า, client=ลูกค้าองค์กร, consumer=ผู้บริโภค, product=สินค้า, service=บริการ, solution=โซลูชัน, price=ราคา, pricing=การตั้งราคา, cost=ต้นทุน, expense=ค่าใช้จ่าย, profit=กำไร, loss=ขาดทุน, margin=ส่วนต่างกำไร, revenue=รายได้, income=รายรับ, turnover=ยอดขายรวม, sale=การขาย, sales=ยอดขาย, contract=สัญญา, agreement=ข้อตกลง, deal=ข้อตกลงธุรกิจ, partnership=ความร่วมมือ, vendor=ผู้ขาย, supplier=ผู้จัดหา, distributor=ผู้จัดจำหน่าย, wholesaler=ผู้ค้าส่ง, retailer=ผู้ค้าปลีก, invoice=ใบแจ้งหนี้, receipt=ใบเสร็จ, quotation=ใบเสนอราคา, purchase order=ใบสั่งซื้อ, budget=งบประมาณ, forecast=การคาดการณ์, investment=การลงทุน, investor=นักลงทุน, shareholder=ผู้ถือหุ้น, stakeholder=ผู้มีส่วนได้ส่วนเสีย, asset=สินทรัพย์, liability=หนี้สิน, equity=ส่วนของเจ้าของ, cash flow=กระแสเงินสด, accounting=การบัญชี, finance=การเงิน, tax=ภาษี, audit=การตรวจสอบบัญชี, brand=แบรนด์, branding=การสร้างแบรนด์, marketing=การตลาด, campaign=แคมเปญ, advertisement=โฆษณา, promotion=โปรโมชัน, discount=ส่วนลด, competitor=คู่แข่ง, competition=การแข่งขัน, strategy=กลยุทธ์, objective=วัตถุประสงค์, goal=เป้าหมาย, target=เป้าหมาย, KPI=ตัวชี้วัดผลงาน, performance=ผลงาน, growth=การเติบโต, expansion=การขยายตัว, operation=การดำเนินงาน, process=กระบวนการ, workflow=ลำดับงาน, policy=นโยบาย, procedure=ขั้นตอนปฏิบัติ, compliance=การปฏิบัติตามกฎ, risk=ความเสี่ยง, opportunity=โอกาส, negotiation=การเจรจา, proposal=ข้อเสนอ, presentation=การนำเสนอ, report=รายงาน, analysis=การวิเคราะห์, data=ข้อมูล, insight=ข้อมูลเชิงลึก, trend=แนวโน้ม, demand=อุปสงค์, supply=อุปทาน, logistics=โลจิสติกส์, delivery=การจัดส่ง, shipment=การขนส่งสินค้า, inventory=สินค้าคงคลัง, warehouse=คลังสินค้า, stock=สต็อกสินค้า, startup=ธุรกิจเริ่มต้น, franchise=แฟรนไชส์, merger=การควบรวม, acquisition=การเข้าซื้อกิจการ, bankruptcy=การล้มละลาย, sustainability=ความยั่งยืน</td></tr>
-            <tr><td>Computer | คอมพิวเตอร์</td><td>computer=คอมพิวเตอร์, desktop=คอมพิวเตอร์ตั้งโต๊ะ, laptop=แล็ปท็อป, tablet=แท็บเล็ต, smartphone=สมาร์ตโฟน, keyboard=แป้นพิมพ์, mouse=เมาส์, touchpad=แผ่นสัมผัส, monitor=จอภาพ, screen=หน้าจอ, printer=เครื่องพิมพ์, scanner=เครื่องสแกน, speaker=ลำโพง, microphone=ไมโครโฟน, webcam=กล้องเว็บแคม, camera=กล้อง, cable=สาย, charger=ที่ชาร์จ, adapter=อะแดปเตอร์, battery=แบตเตอรี่, hard drive=ฮาร์ดไดรฟ์, SSD=หน่วยเก็บข้อมูลแบบ SSD, memory=หน่วยความจำ, RAM=แรม, processor=ตัวประมวลผล, motherboard=เมนบอร์ด, software=ซอฟต์แวร์, hardware=ฮาร์ดแวร์, operating system=ระบบปฏิบัติการ, application=แอปพลิเคชัน, program=โปรแกรม, file=ไฟล์, folder=โฟลเดอร์, document=เอกสาร, spreadsheet=สเปรดชีต, presentation=งานนำเสนอ, image=รูปภาพ, video=วิดีโอ, internet=อินเทอร์เน็ต, website=เว็บไซต์, browser=เบราว์เซอร์, tab=แท็บ, link=ลิงก์, URL=ที่อยู่เว็บไซต์, search engine=เครื่องมือค้นหา, password=รหัสผ่าน, username=ชื่อผู้ใช้, account=บัญชี, login=เข้าสู่ระบบ, logout=ออกจากระบบ, email=อีเมล, inbox=กล่องขาเข้า, spam=อีเมลขยะ, download=ดาวน์โหลด, upload=อัปโหลด, install=ติดตั้ง, uninstall=ถอนการติดตั้ง, update=อัปเดต, setting=การตั้งค่า, notification=การแจ้งเตือน, network=เครือข่าย, Wi-Fi=ไวไฟ, router=เราเตอร์, cloud=คลาวด์, database=ฐานข้อมูล, server=เซิร์ฟเวอร์, backup=สำรองข้อมูล, restore=กู้คืน, virus=ไวรัส, malware=มัลแวร์, firewall=ไฟร์วอลล์, encryption=การเข้ารหัส, shortcut=ทางลัด, screenshot=ภาพหน้าจอ, clipboard=คลิปบอร์ด</td></tr>
-            <tr><td>Programming | การเขียนโปรแกรม</td><td>code=โค้ด, program=โปรแกรม, application=แอปพลิเคชัน, software=ซอฟต์แวร์, developer=นักพัฒนา, programmer=โปรแกรมเมอร์, function=ฟังก์ชัน, variable=ตัวแปร, constant=ค่าคงที่, parameter=พารามิเตอร์, argument=อาร์กิวเมนต์, return value=ค่าที่ส่งกลับ, array=อาร์เรย์, list=ลิสต์, object=ออบเจ็กต์, class=คลาส, method=เมธอด, property=พร็อพเพอร์ตี, module=โมดูล, package=แพ็กเกจ, library=ไลบรารี, framework=เฟรมเวิร์ก, loop=ลูป, condition=เงื่อนไข, boolean=ค่าจริงเท็จ, string=ข้อความ, number=ตัวเลข, integer=จำนวนเต็ม, float=เลขทศนิยม, null=ค่าว่าง, undefined=ยังไม่กำหนดค่า, error=ข้อผิดพลาด, exception=ข้อยกเว้น, bug=บั๊ก, debug=ดีบัก, log=บันทึกการทำงาน, compiler=คอมไพเลอร์, interpreter=ตัวแปลคำสั่ง, syntax=ไวยากรณ์โค้ด, statement=คำสั่ง, expression=นิพจน์, operator=ตัวดำเนินการ, API=เอพีไอ, endpoint=ปลายทาง API, request=คำขอ, response=คำตอบ, payload=ข้อมูลที่ส่ง, authentication=การยืนยันตัวตน, authorization=การอนุญาต, token=โทเคน, server=เซิร์ฟเวอร์, client=ไคลเอนต์, database=ฐานข้อมูล, query=คำสั่งค้นข้อมูล, schema=โครงสร้างฐานข้อมูล, migration=การย้ายโครงสร้างข้อมูล, repository=คลังโค้ด, branch=สาขาโค้ด, commit=บันทึกการเปลี่ยนแปลง, pull request=คำขอรวมโค้ด, merge=รวมโค้ด, conflict=ความขัดแย้งของโค้ด, deployment=การปล่อยระบบ, environment=สภาพแวดล้อม, production=ระบบจริง, staging=ระบบทดสอบก่อนจริง, testing=การทดสอบ, unit test=การทดสอบหน่วยย่อย, integration test=การทดสอบการทำงานร่วมกัน, refactor=ปรับโครงสร้างโค้ด, documentation=เอกสารประกอบ</td></tr>
-            <tr><td>Travel | การเดินทาง</td><td>travel=เดินทาง, trip=ทริป, journey=การเดินทาง, tour=ทัวร์, vacation=วันหยุดพักผ่อน, holiday=วันหยุด, itinerary=แผนการเดินทาง, destination=จุดหมาย, route=เส้นทาง, map=แผนที่, guide=ไกด์, guidebook=หนังสือนำเที่ยว, tourist=นักท่องเที่ยว, traveler=ผู้เดินทาง, backpacker=นักเดินทางแบกเป้, flight=เที่ยวบิน, airline=สายการบิน, airport=สนามบิน, terminal=อาคารผู้โดยสาร, gate=ประตูขึ้นเครื่อง, boarding pass=บัตรขึ้นเครื่อง, ticket=ตั๋ว, passport=หนังสือเดินทาง, visa=วีซ่า, immigration=ตรวจคนเข้าเมือง, customs=ศุลกากร, security check=การตรวจความปลอดภัย, baggage=สัมภาระ, luggage=กระเป๋าเดินทาง, carry-on=กระเป๋าถือขึ้นเครื่อง, suitcase=กระเป๋าเดินทาง, backpack=กระเป๋าเป้, baggage claim=จุดรับกระเป๋า, hotel=โรงแรม, hostel=โฮสเทล, resort=รีสอร์ต, accommodation=ที่พัก, reservation=การจอง, booking=การจอง, confirmation=การยืนยัน, check-in=เช็กอิน, check-out=เช็กเอาต์, reception=แผนกต้อนรับ, room key=กุญแจห้อง, single room=ห้องเดี่ยว, double room=ห้องคู่, twin room=ห้องเตียงคู่, breakfast included=รวมอาหารเช้า, amenities=สิ่งอำนวยความสะดวก, elevator=ลิฟต์, lobby=ล็อบบี้, taxi=แท็กซี่, train=รถไฟ, bus=รถบัส, boat=เรือ, ferry=เรือข้ามฟาก, subway=รถไฟใต้ดิน, tram=รถราง, station=สถานี, platform=ชานชาลา, stop=ป้ายจอด, fare=ค่าโดยสาร, transfer=ต่อรถ, schedule=ตารางเวลา, timetable=ตารางเดินรถ, delay=ความล่าช้า, cancellation=การยกเลิก, arrival=การมาถึง, departure=การออกเดินทาง, boarding=การขึ้นพาหนะ, landing=การลงจอด, takeoff=การบินขึ้น, beach=ชายหาด, island=เกาะ, mountain=ภูเขา, waterfall=น้ำตก, museum=พิพิธภัณฑ์, temple=วัด, landmark=จุดสังเกต, attraction=สถานที่ท่องเที่ยว, viewpoint=จุดชมวิว, souvenir=ของที่ระลึก, currency=สกุลเงิน, exchange rate=อัตราแลกเปลี่ยน, cash=เงินสด, credit card=บัตรเครดิต, receipt=ใบเสร็จ, pharmacy=ร้านขายยา, clinic=คลินิก, emergency=เหตุฉุกเฉิน, embassy=สถานทูต, police station=สถานีตำรวจ, lost and found=แผนกของหาย, direction=ทิศทาง, entrance=ทางเข้า, exit=ทางออก, restroom=ห้องน้ำ, local food=อาหารท้องถิ่น, street food=อาหารริมทาง, travel insurance=ประกันการเดินทาง</td></tr>
-            <tr><td>Office | สำนักงาน</td><td>office=สำนักงาน, workplace=ที่ทำงาน, headquarters=สำนักงานใหญ่, branch=สาขา, department=แผนก, division=ฝ่าย, desk=โต๊ะทำงาน, workstation=พื้นที่ทำงาน, chair=เก้าอี้, meeting room=ห้องประชุม, conference room=ห้องประชุมใหญ่, pantry=ห้องพักกินอาหาร, reception=แผนกต้อนรับ, lobby=ล็อบบี้, elevator=ลิฟต์, printer=เครื่องพิมพ์, copier=เครื่องถ่ายเอกสาร, scanner=เครื่องสแกน, projector=โปรเจกเตอร์, whiteboard=กระดานไวท์บอร์ด, marker=ปากกาไวท์บอร์ด, phone=โทรศัพท์, extension=เบอร์ต่อ, headset=หูฟังพร้อมไมค์, computer=คอมพิวเตอร์, laptop=แล็ปท็อป, monitor=จอภาพ, keyboard=แป้นพิมพ์, mouse=เมาส์, charger=ที่ชาร์จ, cable=สาย, internet=อินเทอร์เน็ต, Wi-Fi=ไวไฟ, email=อีเมล, inbox=กล่องขาเข้า, calendar=ปฏิทิน, schedule=ตารางงาน, appointment=นัดหมาย, meeting=ประชุม, agenda=วาระประชุม, minutes=บันทึกการประชุม, memo=บันทึกข้อความ, announcement=ประกาศ, document=เอกสาร, file=แฟ้ม, folder=โฟลเดอร์, attachment=ไฟล์แนบ, form=แบบฟอร์ม, template=แม่แบบ, spreadsheet=สเปรดชีต, slide deck=ชุดสไลด์, presentation=การนำเสนอ, report=รายงาน, proposal=ข้อเสนอ, contract=สัญญา, invoice=ใบแจ้งหนี้, receipt=ใบเสร็จ, cabinet=ตู้เก็บเอกสาร, drawer=ลิ้นชัก, stationery=เครื่องเขียน, pen=ปากกา, pencil=ดินสอ, notebook=สมุด, sticky note=กระดาษโน้ต, stapler=ที่เย็บกระดาษ, staple=ลวดเย็บ, clip=คลิป, paperclip=คลิปหนีบกระดาษ, envelope=ซองจดหมาย, stamp=แสตมป์, mail=จดหมาย, courier=พนักงานส่งเอกสาร, colleague=เพื่อนร่วมงาน, coworker=เพื่อนร่วมงาน, boss=หัวหน้า, supervisor=หัวหน้างาน, manager=ผู้จัดการ, director=ผู้อำนวยการ, assistant=ผู้ช่วย, intern=นักศึกษาฝึกงาน, receptionist=พนักงานต้อนรับ, cleaner=พนักงานทำความสะอาด, security guard=เจ้าหน้าที่รักษาความปลอดภัย, break=พัก, lunch break=พักกลางวัน, overtime=ล่วงเวลา, leave=การลา, sick leave=ลาป่วย, annual leave=ลาพักร้อน, attendance=การเข้างาน, badge=บัตรพนักงาน, access card=บัตรผ่านเข้าออก, deadline=กำหนดส่ง, task=งาน, project=โครงการ, assignment=งานที่ได้รับมอบหมาย, workflow=ลำดับงาน</td></tr>
-            <tr><td>Work Communication | การสื่อสารในที่ทำงาน</td><td>update=อัปเดต, follow up=ติดตามงาน, confirm=ยืนยัน, clarify=ชี้แจง, request=ร้องขอ, approve=อนุมัติ, reject=ปฏิเสธ, assign=มอบหมาย, delegate=มอบหมายแทน, inform=แจ้งให้ทราบ, notify=แจ้งเตือน, announce=ประกาศ, remind=เตือน, explain=อธิบาย, discuss=หารือ, consult=ปรึกษา, negotiate=เจรจา, propose=เสนอ, suggest=แนะนำ, recommend=แนะนำ, advise=ให้คำแนะนำ, ask=ถาม, answer=ตอบ, respond=ตอบกลับ, reply=ตอบกลับ, forward=ส่งต่อ, cc=สำเนาถึง, bcc=สำเนาลับ, attach=แนบไฟล์, share=แชร์, submit=ส่ง, review=ตรวจทาน, revise=แก้ไข, edit=แก้ไข, proofread=ตรวจคำผิด, approve=อนุมัติ, sign off=อนุมัติขั้นสุดท้าย, escalate=ส่งต่อให้ระดับสูงกว่า, resolve=แก้ไข, troubleshoot=แก้ปัญหา, coordinate=ประสานงาน, collaborate=ร่วมมือ, cooperate=ให้ความร่วมมือ, support=สนับสนุน, assist=ช่วยเหลือ, arrange=จัดเตรียม, schedule=กำหนดเวลา, reschedule=เปลี่ยนเวลา, postpone=เลื่อนออกไป, cancel=ยกเลิก, deadline=กำหนดส่ง, due date=วันที่ครบกำหนด, priority=ความสำคัญ, urgent=เร่งด่วน, important=สำคัญ, optional=ไม่บังคับ, mandatory=บังคับ, issue=ปัญหา, problem=ปัญหา, concern=ข้อกังวล, risk=ความเสี่ยง, blocker=สิ่งที่ติดขัด, dependency=สิ่งที่ต้องพึ่งพา, requirement=ความต้องการ, scope=ขอบเขตงาน, timeline=กรอบเวลา, milestone=หมุดหมาย, deliverable=สิ่งที่ต้องส่งมอบ, progress=ความคืบหน้า, status=สถานะ, pending=ค้างอยู่, in progress=กำลังดำเนินการ, completed=เสร็จแล้ว, delayed=ล่าช้า, on track=เป็นไปตามแผน, action item=งานที่ต้องทำ, owner=ผู้รับผิดชอบ, stakeholder=ผู้เกี่ยวข้อง, agenda=วาระประชุม, minutes=บันทึกการประชุม, decision=การตัดสินใจ, feedback=ข้อเสนอแนะ, comment=ความคิดเห็น, note=บันทึก, summary=สรุป, conclusion=ข้อสรุป, next step=ขั้นตอนถัดไป, follow-up email=อีเมลติดตามผล, reminder=การเตือน, invitation=คำเชิญ, availability=เวลาที่ว่าง, confirmation=การยืนยัน, clarification=การชี้แจง, misunderstanding=ความเข้าใจผิด, expectation=ความคาดหวัง, alignment=ความสอดคล้อง, agreement=ข้อตกลง, disagreement=ความไม่เห็นด้วย</td></tr>
-            <tr><td>Job Application | สมัครงาน</td><td>resume=เรซูเม่, CV=ประวัติย่อ, cover letter=จดหมายสมัครงาน, portfolio=แฟ้มผลงาน, application=ใบสมัคร, application form=แบบฟอร์มสมัครงาน, applicant=ผู้สมัคร, candidate=ผู้สมัครที่ผ่านคัดเลือก, job seeker=ผู้หางาน, recruiter=นายหน้าจัดหางาน, hiring manager=ผู้จัดการฝ่ายจ้างงาน, HR=ฝ่ายทรัพยากรบุคคล, vacancy=ตำแหน่งว่าง, job opening=ตำแหน่งงานว่าง, position=ตำแหน่ง, role=บทบาท, title=ชื่อตำแหน่ง, department=แผนก, industry=อุตสาหกรรม, company profile=ข้อมูลบริษัท, job description=รายละเอียดงาน, responsibility=ความรับผิดชอบ, duty=หน้าที่, qualification=คุณสมบัติ, requirement=ข้อกำหนด, preferred qualification=คุณสมบัติที่พิจารณาเป็นพิเศษ, experience=ประสบการณ์, work experience=ประสบการณ์ทำงาน, internship=ฝึกงาน, skill=ทักษะ, hard skill=ทักษะเฉพาะทาง, soft skill=ทักษะด้านคน, strength=จุดแข็ง, weakness=จุดอ่อน, achievement=ความสำเร็จ, accomplishment=ความสำเร็จ, project=โครงการ, reference=ผู้รับรอง, referee=ผู้ให้ข้อมูลอ้างอิง, recommendation letter=จดหมายรับรอง, certificate=ใบรับรอง, license=ใบอนุญาต, degree=วุฒิการศึกษา, diploma=ประกาศนียบัตร, transcript=ใบแสดงผลการเรียน, GPA=เกรดเฉลี่ย, major=สาขาวิชา, minor=วิชาโท, training=การอบรม, workshop=เวิร์กช็อป, language proficiency=ความสามารถทางภาษา, computer skill=ทักษะคอมพิวเตอร์, salary=เงินเดือน, expected salary=เงินเดือนที่คาดหวัง, current salary=เงินเดือนปัจจุบัน, compensation=ค่าตอบแทน, benefit=สวัสดิการ, allowance=เงินช่วยเหลือ, bonus=โบนัส, commission=ค่าคอมมิชชัน, availability=วันที่เริ่มงานได้, start date=วันเริ่มงาน, notice period=ระยะเวลาแจ้งออก, relocation=การย้ายที่อยู่, remote work=ทำงานทางไกล, hybrid work=ทำงานผสม, onsite work=ทำงานที่บริษัท, full-time=เต็มเวลา, part-time=พาร์ตไทม์, temporary=ชั่วคราว, permanent=ประจำ, contract job=งานสัญญาจ้าง, freelance=ฟรีแลนซ์, probation=ทดลองงาน, probation period=ระยะทดลองงาน, shortlist=คัดเข้ารอบ, shortlisted=ผ่านคัดรอบแรก, screening=การคัดกรอง, interview=สัมภาษณ์, phone interview=สัมภาษณ์ทางโทรศัพท์, online interview=สัมภาษณ์ออนไลน์, panel interview=สัมภาษณ์โดยคณะกรรมการ, assessment=การประเมิน, test=แบบทดสอบ, assignment=งานทดสอบ, offer=ข้อเสนอ, job offer=ข้อเสนองาน, accept=ยอมรับ, decline=ปฏิเสธ, hired=ได้รับการจ้าง, rejected=ถูกปฏิเสธ, onboarding=การเริ่มงานและอบรม, employment contract=สัญญาจ้างงาน, background check=การตรวจสอบประวัติ</td></tr>
-            <tr><td>Interview | สัมภาษณ์งาน</td><td>interview=สัมภาษณ์, interviewer=ผู้สัมภาษณ์, interviewee=ผู้ถูกสัมภาษณ์, introduce=แนะนำตัว, introduction=การแนะนำตัว, background=ภูมิหลัง, education=การศึกษา, experience=ประสบการณ์, responsibility=ความรับผิดชอบ, achievement=ความสำเร็จ, previous job=งานก่อนหน้า, current role=บทบาทปัจจุบัน, career goal=เป้าหมายอาชีพ, motivation=แรงจูงใจ, teamwork=การทำงานเป็นทีม, leadership=ภาวะผู้นำ, problem-solving=การแก้ปัญหา, communication=การสื่อสาร, adaptability=การปรับตัว, creativity=ความคิดสร้างสรรค์, initiative=ความริเริ่ม, pressure=ความกดดัน, challenge=ความท้าทาย, conflict=ความขัดแย้ง, handle=รับมือ, improve=พัฒนา, learn=เรียนรู้, contribute=มีส่วนช่วย, suitable=เหมาะสม, expectation=ความคาดหวัง, strength=จุดแข็ง, weakness=จุดอ่อน, personality=บุคลิกภาพ, attitude=ทัศนคติ, punctuality=การตรงต่อเวลา, reliability=ความน่าเชื่อถือ, flexibility=ความยืดหยุ่น, responsibility=ความรับผิดชอบ, decision-making=การตัดสินใจ, priority=ลำดับความสำคัญ, deadline=กำหนดส่ง, accomplishment=ผลงานสำเร็จ, failure=ความล้มเหลว, lesson learned=บทเรียนที่ได้รับ, salary expectation=เงินเดือนที่คาดหวัง, relocation=การย้ายที่อยู่, remote work=ทำงานทางไกล, onsite=ทำงานที่บริษัท, hybrid=ทำงานผสม, availability=วันที่พร้อมเริ่มงาน, start date=วันเริ่มงาน, notice period=ระยะเวลาแจ้งออก, offer=ข้อเสนอ, follow-up=การติดตามผล, reference=ผู้รับรอง, portfolio=แฟ้มผลงาน, assessment=การประเมิน, case study=กรณีศึกษา, technical test=แบบทดสอบด้านเทคนิค, behavioral question=คำถามเชิงพฤติกรรม, competency=สมรรถนะ, culture fit=ความเข้ากับวัฒนธรรมองค์กร</td></tr>
-            <tr><td>Travel Conversation | สนทนาท่องเที่ยว</td><td>check in=เช็กอิน, check out=เช็กเอาต์, reservation=การจอง, booking=การจอง, confirmation=การยืนยัน, available room=ห้องว่าง, fully booked=เต็มแล้ว, room key=กุญแจห้อง, reception=แผนกต้อนรับ, luggage storage=ฝากกระเป๋า, wake-up call=บริการโทรปลุก, housekeeping=แม่บ้านโรงแรม, extra towel=ผ้าเช็ดตัวเพิ่ม, late checkout=เช็กเอาต์ช้า, boarding pass=บัตรขึ้นเครื่อง, gate=ประตูขึ้นเครื่อง, terminal=อาคารผู้โดยสาร, immigration=ตรวจคนเข้าเมือง, customs=ศุลกากร, baggage claim=รับกระเป๋า, lost luggage=กระเป๋าหาย, exchange rate=อัตราแลกเปลี่ยน, currency=สกุลเงิน, ATM=ตู้เอทีเอ็ม, receipt=ใบเสร็จ, direction=ทิศทาง, landmark=จุดสังเกต, entrance=ทางเข้า, exit=ทางออก, restroom=ห้องน้ำ, fare=ค่าโดยสาร, ticket counter=เคาน์เตอร์ขายตั๋ว, platform=ชานชาลา, route=เส้นทาง, transfer=ต่อรถ, delay=ล่าช้า, cancellation=การยกเลิก, one-way ticket=ตั๋วเที่ยวเดียว, round-trip ticket=ตั๋วไปกลับ, emergency=ฉุกเฉิน, pharmacy=ร้านขายยา, hospital=โรงพยาบาล, police=ตำรวจ, embassy=สถานทูต, recommendation=คำแนะนำ, local food=อาหารท้องถิ่น, no spicy=ไม่เผ็ด, bill please=ขอบิลด้วย, take me to=พาไปที่, how much=ราคาเท่าไหร่, where is=อยู่ที่ไหน, I am lost=ฉันหลงทาง, help=ช่วยด้วย, allergy=ภูมิแพ้, vegetarian=มังสวิรัติ, halal=ฮาลาล, travel insurance=ประกันการเดินทาง, SIM card=ซิมการ์ด, Wi-Fi password=รหัสไวไฟ, charger=ที่ชาร์จ, adapter=หัวแปลงปลั๊ก</td></tr>
-            <tr><td>Education | การศึกษา</td><td>school=โรงเรียน, kindergarten=อนุบาล, primary school=ประถมศึกษา, secondary school=มัธยมศึกษา, high school=มัธยมปลาย, college=วิทยาลัย, university=มหาวิทยาลัย, campus=วิทยาเขต, classroom=ห้องเรียน, teacher=ครู, student=นักเรียน, pupil=นักเรียน, lecturer=อาจารย์ผู้บรรยาย, professor=ศาสตราจารย์, tutor=ติวเตอร์, principal=ผู้อำนวยการโรงเรียน, dean=คณบดี, lesson=บทเรียน, subject=วิชา, course=รายวิชา, curriculum=หลักสูตร, syllabus=แผนการสอน, homework=การบ้าน, assignment=งานมอบหมาย, project=โครงงาน, presentation=การนำเสนอ, exam=การสอบ, quiz=แบบทดสอบย่อย, test=แบบทดสอบ, grade=เกรด, score=คะแนน, mark=คะแนน, GPA=เกรดเฉลี่ย, book=หนังสือ, textbook=ตำรา, notebook=สมุด, pencil=ดินสอ, ruler=ไม้บรรทัด, calculator=เครื่องคิดเลข, dictionary=พจนานุกรม, library=ห้องสมุด, laboratory=ห้องทดลอง, lecture=การบรรยาย, seminar=สัมมนา, workshop=เวิร์กช็อป, research=วิจัย, thesis=วิทยานิพนธ์, essay=เรียงความ, knowledge=ความรู้, skill=ทักษะ, practice=การฝึก, review=การทบทวน, certificate=ประกาศนียบัตร, diploma=อนุปริญญา/ประกาศนียบัตร, degree=วุฒิการศึกษา, bachelor degree=ปริญญาตรี, master degree=ปริญญาโท, doctorate=ปริญญาเอก, scholarship=ทุนการศึกษา, tuition fee=ค่าเล่าเรียน, graduation=การสำเร็จการศึกษา, transcript=ใบแสดงผลการเรียน, attendance=การเข้าเรียน, absence=การขาดเรียน, discipline=วินัย, classmate=เพื่อนร่วมชั้น</td></tr>
-            <tr><td>Health | สุขภาพ</td><td>health=สุขภาพ, doctor=หมอ, nurse=พยาบาล, patient=ผู้ป่วย, hospital=โรงพยาบาล, clinic=คลินิก, pharmacy=ร้านขายยา, medicine=ยา, pill=เม็ดยา, tablet=ยาเม็ด, capsule=แคปซูลยา, prescription=ใบสั่งยา, dosage=ขนาดยา, fever=ไข้, cough=ไอ, cold=หวัด, flu=ไข้หวัดใหญ่, sore throat=เจ็บคอ, runny nose=น้ำมูกไหล, headache=ปวดหัว, stomachache=ปวดท้อง, backache=ปวดหลัง, toothache=ปวดฟัน, pain=ความเจ็บปวด, wound=บาดแผล, injury=การบาดเจ็บ, bruise=รอยฟกช้ำ, burn=แผลไหม้, allergy=ภูมิแพ้, rash=ผื่น, disease=โรค, infection=การติดเชื้อ, symptom=อาการ, diagnosis=การวินิจฉัย, treatment=การรักษา, surgery=การผ่าตัด, appointment=นัดหมาย, checkup=ตรวจสุขภาพ, blood test=ตรวจเลือด, X-ray=เอกซเรย์, vaccine=วัคซีน, injection=การฉีดยา, emergency=ฉุกเฉิน, ambulance=รถพยาบาล, first aid=ปฐมพยาบาล, exercise=ออกกำลังกาย, diet=อาหารควบคุม, nutrition=โภชนาการ, sleep=การนอน, rest=พักผ่อน, stress=ความเครียด, anxiety=ความวิตกกังวล, blood=เลือด, heart=หัวใจ, lung=ปอด, brain=สมอง, bone=กระดูก, muscle=กล้ามเนื้อ, skin=ผิวหนัง, eye=ตา, ear=หู, stomach=กระเพาะอาหาร, liver=ตับ, kidney=ไต, blood pressure=ความดันโลหิต, temperature=อุณหภูมิร่างกาย, pulse=ชีพจร</td></tr>
-            <tr><td>Shopping | การซื้อของ</td><td>shop=ร้านค้า, store=ร้าน, market=ตลาด, supermarket=ซูเปอร์มาร์เก็ต, convenience store=ร้านสะดวกซื้อ, mall=ห้าง, department store=ห้างสรรพสินค้า, customer=ลูกค้า, cashier=แคชเชียร์, salesperson=พนักงานขาย, price=ราคา, cost=ค่าใช้จ่าย, discount=ส่วนลด, sale=ลดราคา, promotion=โปรโมชัน, coupon=คูปอง, receipt=ใบเสร็จ, invoice=ใบแจ้งหนี้, cart=รถเข็น, basket=ตะกร้า, bag=ถุง, product=สินค้า, item=รายการสินค้า, brand=แบรนด์, size=ขนาด, color=สี, model=รุ่น, quality=คุณภาพ, quantity=ปริมาณ, stock=สต็อกสินค้า, available=มีสินค้า, out of stock=สินค้าหมด, payment=การชำระเงิน, cash=เงินสด, card=บัตร, credit card=บัตรเครดิต, debit card=บัตรเดบิต, transfer=โอนเงิน, QR payment=จ่ายด้วยคิวอาร์, refund=คืนเงิน, return=คืนสินค้า, exchange=เปลี่ยนสินค้า, delivery=จัดส่ง, shipping=การขนส่ง, pickup=รับสินค้า, online=ออนไลน์, order=คำสั่งซื้อ, checkout=ชำระเงิน, barcode=บาร์โค้ด, warranty=การรับประกัน, guarantee=การรับประกัน, customer service=บริการลูกค้า, fitting room=ห้องลองเสื้อ, try on=ลองใส่, compare=เปรียบเทียบ, review=รีวิว, rating=คะแนนรีวิว, original price=ราคาเต็ม, final price=ราคาสุดท้าย, tax=ภาษี, fee=ค่าธรรมเนียม, membership=สมาชิก, loyalty points=คะแนนสะสม, limited edition=รุ่นจำกัด, best seller=สินค้าขายดี</td></tr>
-            <tr><td>Weather | อากาศ</td><td>weather=อากาศ, sunny=แดดออก, cloudy=มีเมฆ, overcast=เมฆครึ้ม, rainy=ฝนตก, drizzle=ฝนปรอย, shower=ฝนตกเป็นช่วง, windy=ลมแรง, stormy=มีพายุ, snowy=หิมะตก, icy=เป็นน้ำแข็ง, hot=ร้อน, warm=อบอุ่น, cool=เย็น, cold=หนาว, freezing=หนาวจัด, humid=ชื้น, dry=แห้ง, wet=เปียก, foggy=มีหมอก, misty=มีหมอกบาง, clear=แจ่มใส, thunder=ฟ้าร้อง, lightning=ฟ้าแลบ, thunderstorm=พายุฝนฟ้าคะนอง, temperature=อุณหภูมิ, forecast=พยากรณ์, weather report=รายงานอากาศ, season=ฤดูกาล, spring=ฤดูใบไม้ผลิ, summer=ฤดูร้อน, autumn=ฤดูใบไม้ร่วง, fall=ฤดูใบไม้ร่วง, winter=ฤดูหนาว, climate=ภูมิอากาศ, breeze=ลมอ่อน, wind=ลม, gust=ลมกระโชก, humidity=ความชื้น, rainfall=ปริมาณฝน, snowfall=ปริมาณหิมะ, flood=น้ำท่วม, drought=ภัยแล้ง, heatwave=คลื่นความร้อน, cold wave=คลื่นความหนาว, rainbow=รุ้ง, sunrise=พระอาทิตย์ขึ้น, sunset=พระอาทิตย์ตก, UV index=ดัชนีรังสี UV, air quality=คุณภาพอากาศ, pollution=มลพิษ, haze=หมอกควัน, smog=ควันพิษ, typhoon=ไต้ฝุ่น, hurricane=เฮอริเคน, tornado=พายุทอร์นาโด, monsoon=มรสุม, cloudy sky=ท้องฟ้ามีเมฆ, clear sky=ท้องฟ้าแจ่มใส, chance of rain=โอกาสฝนตก</td></tr>
-            <tr><td>Colors | สี</td><td>red=แดง, blue=น้ำเงิน/ฟ้า, green=เขียว, yellow=เหลือง, black=ดำ, white=ขาว, gray=เทา, grey=เทา, brown=น้ำตาล, pink=ชมพู, purple=ม่วง, orange=ส้ม, gold=ทอง, silver=เงิน, bronze=บรอนซ์, beige=เบจ, cream=ครีม, ivory=งาช้าง, navy=กรมท่า, sky blue=ฟ้าอ่อน, turquoise=ฟ้าอมเขียว, teal=เขียวอมฟ้า, violet=ม่วงไวโอเลต, indigo=คราม, maroon=แดงเข้ม, burgundy=แดงไวน์, coral=ส้มอมชมพู, salmon=ชมพูแซลมอน, mint=เขียวมิ้นต์, olive=เขียวมะกอก, lime=เขียวมะนาว, emerald=เขียวมรกต, cyan=ฟ้าไซแอน, magenta=ชมพูม่วง, tan=น้ำตาลอ่อน, peach=พีช, lavender=ม่วงอ่อน, lilac=ม่วงไลแลค, charcoal=เทาเข้ม, khaki=สีกากี, mustard=เหลืองมัสตาร์ด, ruby=แดงทับทิม, sapphire=น้ำเงินไพลิน, transparent=โปร่งใส, light=อ่อน, dark=เข้ม, bright=สดใส, pale=ซีด, vivid=สีสด, pastel=สีพาสเทล, matte=ด้าน, glossy=เงา, metallic=เมทัลลิก, multicolor=หลายสี, colorful=มีสีสัน, shade=เฉดสี, tone=โทนสี, contrast=ความตัดกันของสี, pattern=ลวดลาย</td></tr>
-            <tr><td>Numbers | ตัวเลข</td><td>zero=ศูนย์, one=หนึ่ง, two=สอง, three=สาม, four=สี่, five=ห้า, six=หก, seven=เจ็ด, eight=แปด, nine=เก้า, ten=สิบ, eleven=สิบเอ็ด, twelve=สิบสอง, thirteen=สิบสาม, fourteen=สิบสี่, fifteen=สิบห้า, sixteen=สิบหก, seventeen=สิบเจ็ด, eighteen=สิบแปด, nineteen=สิบเก้า, twenty=ยี่สิบ, twenty-one=ยี่สิบเอ็ด, thirty=สามสิบ, forty=สี่สิบ, fifty=ห้าสิบ, sixty=หกสิบ, seventy=เจ็ดสิบ, eighty=แปดสิบ, ninety=เก้าสิบ, hundred=ร้อย, thousand=พัน, million=ล้าน, billion=พันล้าน, first=ที่หนึ่ง, second=ที่สอง, third=ที่สาม, fourth=ที่สี่, fifth=ที่ห้า, tenth=ที่สิบ, half=ครึ่ง, quarter=หนึ่งในสี่, decimal=ทศนิยม, percentage=เปอร์เซ็นต์, percent=ร้อยละ, plus=บวก, minus=ลบ, multiply=คูณ, divide=หาร, total=ผลรวม, amount=จำนวน, quantity=ปริมาณ, average=ค่าเฉลี่ย, minimum=ค่าต่ำสุด, maximum=ค่าสูงสุด, double=สองเท่า, triple=สามเท่า, dozen=โหล, pair=คู่, single=เดี่ยว, multiple=หลาย, few=น้อย, several=หลาย, many=มาก, count=นับ, number=ตัวเลข, digit=หลักตัวเลข, odd number=เลขคี่, even number=เลขคู่, fraction=เศษส่วน, ratio=อัตราส่วน</td></tr>
-            <tr><td>Time | เวลา</td><td>time=เวลา, second=วินาที, minute=นาที, hour=ชั่วโมง, day=วัน, week=สัปดาห์, month=เดือน, year=ปี, decade=ทศวรรษ, century=ศตวรรษ, morning=เช้า, noon=เที่ยง, afternoon=บ่าย, evening=เย็น, night=กลางคืน, midnight=เที่ยงคืน, dawn=รุ่งเช้า, dusk=พลบค่ำ, today=วันนี้, tomorrow=พรุ่งนี้, yesterday=เมื่อวาน, now=ตอนนี้, later=ภายหลัง, soon=เร็วๆ นี้, early=เร็ว/แต่เช้า, late=สาย/ช้า, before=ก่อน, after=หลัง, during=ระหว่าง, until=จนกระทั่ง, since=ตั้งแต่, schedule=ตารางเวลา, timetable=ตารางเวลา, appointment=นัดหมาย, deadline=กำหนดส่ง, due date=วันที่ครบกำหนด, calendar=ปฏิทิน, clock=นาฬิกา, watch=นาฬิกาข้อมือ, alarm=นาฬิกาปลุก, past=อดีต, present=ปัจจุบัน, future=อนาคต, moment=ช่วงเวลา, period=ช่วงเวลา, duration=ระยะเวลา, interval=ช่วงห่าง, delay=ความล่าช้า, on time=ตรงเวลา, in time=ทันเวลา, overtime=ล่วงเวลา, full-time=เต็มเวลา, part-time=พาร์ตไทม์, temporary=ชั่วคราว, permanent=ถาวร, daily=รายวัน, weekly=รายสัปดาห์, monthly=รายเดือน, yearly=รายปี, annual=ประจำปี, quarterly=รายไตรมาส, someday=สักวันหนึ่ง, anytime=เมื่อไรก็ได้, meantime=ระหว่างนั้น</td></tr>
-            <tr><td>Days | วัน</td><td>Monday=วันจันทร์, Tuesday=วันอังคาร, Wednesday=วันพุธ, Thursday=วันพฤหัสบดี, Friday=วันศุกร์, Saturday=วันเสาร์, Sunday=วันอาทิตย์, weekday=วันธรรมดา, weekend=สุดสัปดาห์, today=วันนี้, tomorrow=พรุ่งนี้, yesterday=เมื่อวาน, the day before yesterday=เมื่อวานซืน, the day after tomorrow=มะรืนนี้, holiday=วันหยุด, birthday=วันเกิด, workday=วันทำงาน, school day=วันที่มีเรียน, public holiday=วันหยุดราชการ, national holiday=วันหยุดประจำชาติ, New Year's Day=วันปีใหม่, Valentine's Day=วันวาเลนไทน์, Songkran Day=วันสงกรานต์, Labor Day=วันแรงงาน, Mother's Day=วันแม่, Father's Day=วันพ่อ, Christmas Day=วันคริสต์มาส, New Year's Eve=วันสิ้นปี, morning=ตอนเช้า, afternoon=ตอนบ่าย, evening=ตอนเย็น, night=ตอนกลางคืน, dawn=รุ่งเช้า, dusk=พลบค่ำ, Monday morning=เช้าวันจันทร์, Friday afternoon=บ่ายวันศุกร์, weekend trip=ทริปสุดสัปดาห์, weekday schedule=ตารางวันธรรมดา, business day=วันทำการ, calendar day=วันตามปฏิทิน, working day=วันทำงาน, day off=วันหยุดงาน, sick day=วันลาป่วย, vacation day=วันลาพักร้อน, due day=วันที่ครบกำหนด, payday=วันเงินเดือนออก, deadline day=วันกำหนดส่ง, meeting day=วันประชุม, interview day=วันสัมภาษณ์</td></tr>
-            <tr><td>Months | เดือน</td><td>January=มกราคม, February=กุมภาพันธ์, March=มีนาคม, April=เมษายน, May=พฤษภาคม, June=มิถุนายน, July=กรกฎาคม, August=สิงหาคม, September=กันยายน, October=ตุลาคม, November=พฤศจิกายน, December=ธันวาคม, month=เดือน, quarter=ไตรมาส, first quarter=ไตรมาสแรก, second quarter=ไตรมาสสอง, third quarter=ไตรมาสสาม, fourth quarter=ไตรมาสสี่, semester=ภาคเรียน, term=เทอม, season=ฤดูกาล, new year=ปีใหม่, midyear=กลางปี, year-end=สิ้นปี, calendar=ปฏิทิน, date=วันที่, week=สัปดาห์, weekend=สุดสัปดาห์, holiday=วันหยุด, birthday=วันเกิด, anniversary=วันครบรอบ, payday=วันเงินเดือนออก, deadline=กำหนดส่ง, schedule=ตารางเวลา, appointment=นัดหมาย, monthly report=รายงานประจำเดือน, monthly meeting=ประชุมประจำเดือน, monthly salary=เงินเดือนรายเดือน, monthly plan=แผนรายเดือน, monthly budget=งบประมาณรายเดือน, fiscal year=ปีงบประมาณ, academic year=ปีการศึกษา, calendar year=ปีปฏิทิน, financial year=ปีการเงิน, end of month=สิ้นเดือน, beginning of month=ต้นเดือน, middle of month=กลางเดือน, next month=เดือนหน้า, last month=เดือนที่แล้ว, this month=เดือนนี้, peak season=ฤดูกาลท่องเที่ยวสูงสุด, low season=ฤดูกาลท่องเที่ยวต่ำ, rainy season=ฤดูฝน, dry season=ฤดูแล้ง</td></tr>
+            <tr><td>Family | ครอบครัว</td><td>father (ฟา-เธอร์)=พ่อ, mother (มา-เธอร์)=แม่, parent=ผู้ปกครอง, son=ลูกชาย, daughter=ลูกสาว, child=เด็ก/ลูก, brother=พี่/น้องชาย, sister=พี่/น้องสาว, husband=สามี, wife=ภรรยา, grandfather=ปู่/ตา, grandmother=ย่า/ยาย, uncle=ลุง/อา, aunt=ป้า/น้า, cousin=ลูกพี่ลูกน้อง, nephew=หลานชาย, niece=หลานสาว, family=ครอบครัว, relative=ญาติ, twin=ฝาแฝด, baby=ทารก, teenager=วัยรุ่น, adult=ผู้ใหญ่, elder=ผู้สูงอายุ, ancestor=บรรพบุรุษ, descendant=ลูกหลาน, stepfather=พ่อเลี้ยง, stepmother=แม่เลี้ยง, in-law=ญาติฝ่ายคู่สมรส, sibling=พี่น้อง</td></tr>
+            <tr><td>Food | อาหาร</td><td>rice=ข้าว, bread=ขนมปัง, noodle=ก๋วยเตี๋ยว, chicken=ไก่, pork=หมู, beef=เนื้อวัว, fish=ปลา, egg=ไข่, milk=นม, cheese=ชีส, butter=เนย, soup=ซุป, salad=สลัด, fruit=ผลไม้, vegetable=ผัก, apple=แอปเปิล, banana=กล้วย, orange=ส้ม, mango=มะม่วง, sugar=น้ำตาล, salt=เกลือ, pepper=พริกไทย, oil=น้ำมัน, sauce=ซอส, dessert=ของหวาน, cake=เค้ก, coffee=กาแฟ, tea=ชา, water=น้ำ, juice=น้ำผลไม้</td></tr>
+            <tr><td>Animals | สัตว์</td><td>dog=สุนัข, cat=แมว, bird=นก, fish=ปลา, cow=วัว, pig=หมู, chicken=ไก่, duck=เป็ด, horse=ม้า, sheep=แกะ, goat=แพะ, elephant=ช้าง, tiger=เสือ, lion=สิงโต, monkey=ลิง, bear=หมี, rabbit=กระต่าย, deer=กวาง, snake=งู, turtle=เต่า, frog=กบ, mouse=หนู, rat=หนูใหญ่, whale=วาฬ, dolphin=โลมา, shark=ฉลาม, butterfly=ผีเสื้อ, bee=ผึ้ง, ant=มด, spider=แมงมุม</td></tr>
+            <tr><td>Business | ธุรกิจ</td><td>company=บริษัท, business=ธุรกิจ, market=ตลาด, customer=ลูกค้า, client=ลูกค้า, product=สินค้า, service=บริการ, price=ราคา, cost=ต้นทุน, profit=กำไร, loss=ขาดทุน, revenue=รายได้, sale=การขาย, contract=สัญญา, meeting=การประชุม, manager=ผู้จัดการ, employee=พนักงาน, employer=นายจ้าง, supplier=ผู้จัดหา, invoice=ใบแจ้งหนี้, budget=งบประมาณ, investment=การลงทุน, brand=แบรนด์, strategy=กลยุทธ์, target=เป้าหมาย, report=รายงาน, negotiation=การเจรจา, delivery=การจัดส่ง, warehouse=คลังสินค้า, startup=ธุรกิจเริ่มต้น</td></tr>
+            <tr><td>Computer | คอมพิวเตอร์</td><td>computer=คอมพิวเตอร์, laptop=แล็ปท็อป, keyboard=แป้นพิมพ์, mouse=เมาส์, monitor=จอภาพ, printer=เครื่องพิมพ์, scanner=เครื่องสแกน, speaker=ลำโพง, camera=กล้อง, cable=สาย, charger=ที่ชาร์จ, battery=แบตเตอรี่, screen=หน้าจอ, file=ไฟล์, folder=โฟลเดอร์, software=ซอฟต์แวร์, hardware=ฮาร์ดแวร์, internet=อินเทอร์เน็ต, website=เว็บไซต์, browser=เบราว์เซอร์, password=รหัสผ่าน, account=บัญชี, email=อีเมล, download=ดาวน์โหลด, upload=อัปโหลด, network=เครือข่าย, cloud=คลาวด์, database=ฐานข้อมูล, virus=ไวรัส, backup=สำรองข้อมูล</td></tr>
+            <tr><td>Programming | การเขียนโปรแกรม</td><td>code=โค้ด, program=โปรแกรม, function=ฟังก์ชัน, variable=ตัวแปร, constant=ค่าคงที่, array=อาร์เรย์, object=ออบเจ็กต์, class=คลาส, method=เมธอด, loop=ลูป, condition=เงื่อนไข, boolean=ค่าจริงเท็จ, string=ข้อความ, number=ตัวเลข, integer=จำนวนเต็ม, error=ข้อผิดพลาด, bug=บั๊ก, debug=ดีบัก, compiler=คอมไพเลอร์, interpreter=ตัวแปลคำสั่ง, syntax=ไวยากรณ์โค้ด, framework=เฟรมเวิร์ก, library=ไลบรารี, API=เอพีไอ, server=เซิร์ฟเวอร์, client=ไคลเอนต์, request=คำขอ, response=คำตอบ, repository=คลังโค้ด, branch=สาขาโค้ด</td></tr>
+            <tr><td>Travel | การเดินทาง</td><td>travel=เดินทาง, trip=ทริป, journey=การเดินทาง, flight=เที่ยวบิน, airport=สนามบิน, ticket=ตั๋ว, passport=หนังสือเดินทาง, visa=วีซ่า, luggage=กระเป๋าเดินทาง, hotel=โรงแรม, reservation=การจอง, map=แผนที่, guide=ไกด์, tourist=นักท่องเที่ยว, destination=จุดหมาย, beach=ชายหาด, mountain=ภูเขา, museum=พิพิธภัณฑ์, taxi=แท็กซี่, train=รถไฟ, bus=รถบัส, boat=เรือ, subway=รถไฟใต้ดิน, station=สถานี, platform=ชานชาลา, schedule=ตารางเวลา, delay=ความล่าช้า, arrival=การมาถึง, departure=การออกเดินทาง, souvenir=ของที่ระลึก</td></tr>
+            <tr><td>Office | สำนักงาน</td><td>office=สำนักงาน, desk=โต๊ะทำงาน, chair=เก้าอี้, meeting=ประชุม, document=เอกสาร, printer=เครื่องพิมพ์, copier=เครื่องถ่ายเอกสาร, phone=โทรศัพท์, email=อีเมล, calendar=ปฏิทิน, schedule=ตารางงาน, deadline=กำหนดส่ง, task=งาน, project=โครงการ, report=รายงาน, file=แฟ้ม, folder=โฟลเดอร์, cabinet=ตู้เก็บเอกสาร, pen=ปากกา, pencil=ดินสอ, notebook=สมุด, stapler=ที่เย็บกระดาษ, clip=คลิป, envelope=ซองจดหมาย, memo=บันทึกข้อความ, colleague=เพื่อนร่วมงาน, boss=หัวหน้า, assistant=ผู้ช่วย, reception=แผนกต้อนรับ, break=พัก</td></tr>
+            <tr><td>Education | การศึกษา</td><td>school=โรงเรียน, university=มหาวิทยาลัย, classroom=ห้องเรียน, teacher=ครู, student=นักเรียน, lesson=บทเรียน, subject=วิชา, homework=การบ้าน, exam=การสอบ, test=แบบทดสอบ, grade=เกรด, score=คะแนน, book=หนังสือ, textbook=ตำรา, notebook=สมุด, pencil=ดินสอ, ruler=ไม้บรรทัด, dictionary=พจนานุกรม, library=ห้องสมุด, laboratory=ห้องทดลอง, lecture=การบรรยาย, assignment=งานมอบหมาย, project=โครงงาน, research=วิจัย, knowledge=ความรู้, skill=ทักษะ, practice=การฝึก, certificate=ประกาศนียบัตร, scholarship=ทุนการศึกษา, graduation=การสำเร็จการศึกษา</td></tr>
+            <tr><td>Health | สุขภาพ</td><td>health=สุขภาพ, doctor=หมอ, nurse=พยาบาล, patient=ผู้ป่วย, hospital=โรงพยาบาล, clinic=คลินิก, medicine=ยา, pill=เม็ดยา, fever=ไข้, cough=ไอ, cold=หวัด, headache=ปวดหัว, stomachache=ปวดท้อง, pain=ความเจ็บปวด, wound=บาดแผล, injury=การบาดเจ็บ, disease=โรค, symptom=อาการ, treatment=การรักษา, surgery=การผ่าตัด, exercise=ออกกำลังกาย, diet=อาหารควบคุม, sleep=การนอน, rest=พักผ่อน, stress=ความเครียด, blood=เลือด, heart=หัวใจ, lung=ปอด, bone=กระดูก, muscle=กล้ามเนื้อ</td></tr>
+            <tr><td>Shopping | การซื้อของ</td><td>shop=ร้านค้า, store=ร้าน, market=ตลาด, mall=ห้าง, customer=ลูกค้า, cashier=แคชเชียร์, price=ราคา, discount=ส่วนลด, sale=ลดราคา, receipt=ใบเสร็จ, cart=รถเข็น, basket=ตะกร้า, bag=ถุง, product=สินค้า, brand=แบรนด์, size=ขนาด, color=สี, quality=คุณภาพ, quantity=ปริมาณ, payment=การชำระเงิน, cash=เงินสด, card=บัตร, refund=คืนเงิน, exchange=เปลี่ยนสินค้า, delivery=จัดส่ง, online=ออนไลน์, order=คำสั่งซื้อ, checkout=ชำระเงิน, barcode=บาร์โค้ด, warranty=การรับประกัน</td></tr>
+            <tr><td>Weather | อากาศ</td><td>weather=อากาศ, sunny=แดดออก, cloudy=มีเมฆ, rainy=ฝนตก, windy=ลมแรง, stormy=มีพายุ, snowy=หิมะตก, hot=ร้อน, warm=อบอุ่น, cool=เย็น, cold=หนาว, humid=ชื้น, dry=แห้ง, wet=เปียก, foggy=มีหมอก, clear=แจ่มใส, thunder=ฟ้าร้อง, lightning=ฟ้าแลบ, temperature=อุณหภูมิ, forecast=พยากรณ์, season=ฤดูกาล, spring=ฤดูใบไม้ผลิ, summer=ฤดูร้อน, autumn=ฤดูใบไม้ร่วง, winter=ฤดูหนาว, climate=ภูมิอากาศ, breeze=ลมอ่อน, flood=น้ำท่วม, drought=ภัยแล้ง, rainbow=รุ้ง</td></tr>
+            <tr><td>Colors | สี</td><td>red=แดง, blue=น้ำเงิน/ฟ้า, green=เขียว, yellow=เหลือง, black=ดำ, white=ขาว, gray=เทา, brown=น้ำตาล, pink=ชมพู, purple=ม่วง, orange=ส้ม, gold=ทอง, silver=เงิน, beige=เบจ, cream=ครีม, navy=กรมท่า, turquoise=ฟ้าอมเขียว, violet=ม่วงไวโอเลต, indigo=คราม, maroon=แดงเข้ม, coral=ส้มอมชมพู, mint=เขียวมิ้นต์, olive=เขียวมะกอก, lime=เขียวมะนาว, cyan=ฟ้าไซแอน, magenta=ชมพูม่วง, tan=น้ำตาลอ่อน, peach=พีช, lavender=ม่วงอ่อน, transparent=โปร่งใส</td></tr>
+            <tr><td>Numbers | ตัวเลข</td><td>zero=ศูนย์, one=หนึ่ง, two=สอง, three=สาม, four=สี่, five=ห้า, six=หก, seven=เจ็ด, eight=แปด, nine=เก้า, ten=สิบ, eleven=สิบเอ็ด, twelve=สิบสอง, thirteen=สิบสาม, fourteen=สิบสี่, fifteen=สิบห้า, sixteen=สิบหก, seventeen=สิบเจ็ด, eighteen=สิบแปด, nineteen=สิบเก้า, twenty=ยี่สิบ, thirty=สามสิบ, forty=สี่สิบ, fifty=ห้าสิบ, sixty=หกสิบ, seventy=เจ็ดสิบ, eighty=แปดสิบ, ninety=เก้าสิบ, hundred=ร้อย, thousand=พัน</td></tr>
+            <tr><td>Time | เวลา</td><td>time=เวลา, second=วินาที, minute=นาที, hour=ชั่วโมง, day=วัน, week=สัปดาห์, month=เดือน, year=ปี, morning=เช้า, noon=เที่ยง, afternoon=บ่าย, evening=เย็น, night=กลางคืน, midnight=เที่ยงคืน, today=วันนี้, tomorrow=พรุ่งนี้, yesterday=เมื่อวาน, now=ตอนนี้, later=ภายหลัง, soon=เร็วๆ นี้, early=เร็ว/แต่เช้า, late=สาย/ช้า, schedule=ตารางเวลา, appointment=นัดหมาย, deadline=กำหนดส่ง, calendar=ปฏิทิน, clock=นาฬิกา, past=อดีต, present=ปัจจุบัน, future=อนาคต</td></tr>
+            <tr><td>Days | วัน</td><td>Monday=วันจันทร์, Tuesday=วันอังคาร, Wednesday=วันพุธ, Thursday=วันพฤหัสบดี, Friday=วันศุกร์, Saturday=วันเสาร์, Sunday=วันอาทิตย์, weekday=วันธรรมดา, weekend=สุดสัปดาห์, today=วันนี้, tomorrow=พรุ่งนี้, yesterday=เมื่อวาน, holiday=วันหยุด, birthday=วันเกิด, workday=วันทำงาน, school day=วันที่มีเรียน, public holiday=วันหยุดราชการ, New Year's Day=วันปีใหม่, Valentine's Day=วันวาเลนไทน์, Songkran Day=วันสงกรานต์, Labor Day=วันแรงงาน, Mother's Day=วันแม่, Father's Day=วันพ่อ, Christmas Day=วันคริสต์มาส, morning=ตอนเช้า, afternoon=ตอนบ่าย, evening=ตอนเย็น, night=ตอนกลางคืน, dawn=รุ่งเช้า, dusk=พลบค่ำ</td></tr>
+            <tr><td>Months | เดือน</td><td>January=มกราคม, February=กุมภาพันธ์, March=มีนาคม, April=เมษายน, May=พฤษภาคม, June=มิถุนายน, July=กรกฎาคม, August=สิงหาคม, September=กันยายน, October=ตุลาคม, November=พฤศจิกายน, December=ธันวาคม, month=เดือน, quarter=ไตรมาส, semester=ภาคเรียน, season=ฤดูกาล, new year=ปีใหม่, midyear=กลางปี, year-end=สิ้นปี, calendar=ปฏิทิน, date=วันที่, week=สัปดาห์, weekend=สุดสัปดาห์, holiday=วันหยุด, birthday=วันเกิด, anniversary=วันครบรอบ, payday=วันเงินเดือนออก, deadline=กำหนดส่ง, schedule=ตารางเวลา, appointment=นัดหมาย</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <section id="patterns">
-      <div class="section-title"><h2>14. 💬 English Sentence Patterns | รูปประโยคอังกฤษที่ใช้บ่อย</h2><p>130 reusable patterns for daily life, work, job applications, and travel | 130 โครงสร้างประโยคสำหรับชีวิตประจำวัน งาน สมัครงาน และท่องเที่ยว</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>Pattern Expansion | ขยายประโยคจากโครงเดิม</h3>
-          <p><b>เริ่มสั้น:</b> I need help. → <b>เพิ่มเหตุผล:</b> I need help because the file has an error.</p>
-          <p><b>เพิ่มเวลา/สถานที่:</b> I need help with this report before noon.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Register | ระดับภาษา</h3>
-          <p><b>Casual:</b> Can you help me? / <b>Polite:</b> Could you help me, please? / <b>Formal:</b> Would you be able to assist me?</p>
-          <p><b>ใช้จริง:</b> เลือกรูปแบบตามคนฟัง สถานการณ์ และความเป็นทางการ</p>
-        </div>
-      </div>
+      <div class="section-title"><h2>14. 💬 English Sentence Patterns | รูปประโยคอังกฤษที่ใช้บ่อย</h2><p>100 reusable patterns with Thai meaning | 100 โครงสร้างประโยคนำไปใช้ได้ทันที</p></div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>No.</th><th>Pattern</th><th>Thai Meaning</th><th>Example</th></tr></thead>
@@ -2218,36 +1566,6 @@
             <tr><td>98</td><td>In my opinion,...</td><td>ในความเห็นของฉัน...</td><td>In my opinion, it is useful. | ในความเห็นฉัน มันมีประโยชน์</td></tr>
             <tr><td>99</td><td>As far as I know,...</td><td>เท่าที่ฉันรู้...</td><td>As far as I know, he is honest. | เท่าที่ฉันรู้ เขาซื่อสัตย์</td></tr>
             <tr><td>100</td><td>The reason is that...</td><td>เหตุผลคือ...</td><td>The reason is that I was sick. | เหตุผลคือฉันป่วย</td></tr>
-            <tr><td>101</td><td>Could you please confirm...?</td><td>คุณช่วยยืนยัน...ได้ไหม</td><td>Could you please confirm the meeting time? | ช่วยยืนยันเวลาประชุมได้ไหม</td></tr>
-            <tr><td>102</td><td>I would like to follow up on...</td><td>ฉันขอติดตามเรื่อง...</td><td>I would like to follow up on my application. | ฉันขอติดตามผลการสมัครงาน</td></tr>
-            <tr><td>103</td><td>Please find attached...</td><td>โปรดดู...ที่แนบมา</td><td>Please find attached my resume. | โปรดดูเรซูเม่ของฉันที่แนบมา</td></tr>
-            <tr><td>104</td><td>I am writing to inquire about...</td><td>ฉันเขียนมาเพื่อสอบถามเกี่ยวกับ...</td><td>I am writing to inquire about the job opening. | ฉันเขียนมาเพื่อสอบถามตำแหน่งงานว่าง</td></tr>
-            <tr><td>105</td><td>I am available for...</td><td>ฉันว่างสำหรับ...</td><td>I am available for an interview next week. | ฉันว่างสัมภาษณ์สัปดาห์หน้า</td></tr>
-            <tr><td>106</td><td>I have experience in...</td><td>ฉันมีประสบการณ์ด้าน...</td><td>I have experience in customer service. | ฉันมีประสบการณ์ด้านบริการลูกค้า</td></tr>
-            <tr><td>107</td><td>I am responsible for...</td><td>ฉันรับผิดชอบ...</td><td>I am responsible for preparing reports. | ฉันรับผิดชอบการเตรียมรายงาน</td></tr>
-            <tr><td>108</td><td>My main strength is...</td><td>จุดแข็งหลักของฉันคือ...</td><td>My main strength is problem-solving. | จุดแข็งของฉันคือการแก้ปัญหา</td></tr>
-            <tr><td>109</td><td>I am interested in this position because...</td><td>ฉันสนใจตำแหน่งนี้เพราะ...</td><td>I am interested in this position because it matches my skills. | ฉันสนใจตำแหน่งนี้เพราะตรงกับทักษะของฉัน</td></tr>
-            <tr><td>110</td><td>Thank you for considering my application.</td><td>ขอบคุณที่พิจารณาใบสมัครของฉัน</td><td>Thank you for considering my application. | ขอบคุณที่พิจารณาใบสมัครของฉัน</td></tr>
-            <tr><td>111</td><td>Could you send me the details?</td><td>คุณช่วยส่งรายละเอียดให้ฉันได้ไหม</td><td>Could you send me the details by email? | ช่วยส่งรายละเอียดทางอีเมลได้ไหม</td></tr>
-            <tr><td>112</td><td>Let me check and get back to you.</td><td>ขอฉันตรวจสอบแล้วติดต่อกลับ</td><td>Let me check and get back to you this afternoon. | ขอเช็กแล้วติดต่อกลับบ่ายนี้</td></tr>
-            <tr><td>113</td><td>I will update you on...</td><td>ฉันจะอัปเดตคุณเรื่อง...</td><td>I will update you on the progress tomorrow. | ฉันจะอัปเดตความคืบหน้าพรุ่งนี้</td></tr>
-            <tr><td>114</td><td>Could we reschedule...?</td><td>เราขอเปลี่ยนเวลา...ได้ไหม</td><td>Could we reschedule the meeting to Friday? | ขอเลื่อนประชุมเป็นวันศุกร์ได้ไหม</td></tr>
-            <tr><td>115</td><td>The deadline is...</td><td>กำหนดส่งคือ...</td><td>The deadline is next Monday. | กำหนดส่งคือวันจันทร์หน้า</td></tr>
-            <tr><td>116</td><td>I need clarification on...</td><td>ฉันต้องการคำชี้แจงเรื่อง...</td><td>I need clarification on the requirements. | ฉันต้องการคำชี้แจงเรื่องข้อกำหนด</td></tr>
-            <tr><td>117</td><td>Could you recommend...?</td><td>คุณช่วยแนะนำ...ได้ไหม</td><td>Could you recommend a good hotel? | ช่วยแนะนำโรงแรมดี ๆ ได้ไหม</td></tr>
-            <tr><td>118</td><td>I have a reservation under...</td><td>ฉันมีการจองในชื่อ...</td><td>I have a reservation under Somsak. | ฉันมีการจองในชื่อสมศักดิ์</td></tr>
-            <tr><td>119</td><td>How do I get to...?</td><td>ฉันจะไป...ได้อย่างไร</td><td>How do I get to the train station? | ฉันจะไปสถานีรถไฟได้อย่างไร</td></tr>
-            <tr><td>120</td><td>How much is the fare to...?</td><td>ค่าโดยสารไป...เท่าไร</td><td>How much is the fare to the airport? | ค่าโดยสารไปสนามบินเท่าไร</td></tr>
-            <tr><td>121</td><td>Where can I exchange money?</td><td>ฉันแลกเงินได้ที่ไหน</td><td>Where can I exchange money? | ฉันแลกเงินได้ที่ไหน</td></tr>
-            <tr><td>122</td><td>Could you show me on the map?</td><td>คุณช่วยชี้บนแผนที่ให้ดูได้ไหม</td><td>Could you show me on the map? | ช่วยชี้บนแผนที่ให้ดูได้ไหม</td></tr>
-            <tr><td>123</td><td>I would like to check in.</td><td>ฉันต้องการเช็กอิน</td><td>I would like to check in, please. | ฉันต้องการเช็กอินค่ะ/ครับ</td></tr>
-            <tr><td>124</td><td>What time is check-out?</td><td>เช็กเอาต์กี่โมง</td><td>What time is check-out? | เช็กเอาต์กี่โมง</td></tr>
-            <tr><td>125</td><td>Is breakfast included?</td><td>รวมอาหารเช้าไหม</td><td>Is breakfast included in the room rate? | ราคาห้องรวมอาหารเช้าไหม</td></tr>
-            <tr><td>126</td><td>Could you call a taxi for me?</td><td>ช่วยเรียกแท็กซี่ให้ฉันได้ไหม</td><td>Could you call a taxi for me? | ช่วยเรียกแท็กซี่ให้หน่อยได้ไหม</td></tr>
-            <tr><td>127</td><td>My flight has been delayed.</td><td>เที่ยวบินของฉันล่าช้า</td><td>My flight has been delayed for two hours. | เที่ยวบินของฉันล่าช้าไปสองชั่วโมง</td></tr>
-            <tr><td>128</td><td>I lost my passport.</td><td>ฉันทำพาสปอร์ตหาย</td><td>I lost my passport. Where is the embassy? | ฉันทำพาสปอร์ตหาย สถานทูตอยู่ที่ไหน</td></tr>
-            <tr><td>129</td><td>I need help with...</td><td>ฉันต้องการความช่วยเหลือเรื่อง...</td><td>I need help with my luggage. | ฉันต้องการความช่วยเหลือเรื่องกระเป๋า</td></tr>
-            <tr><td>130</td><td>Could you speak more slowly?</td><td>คุณช่วยพูดช้าลงได้ไหม</td><td>Could you speak more slowly, please? | ช่วยพูดช้าลงได้ไหม</td></tr>
           </tbody>
         </table>
       </div>
@@ -2255,13 +1573,6 @@
 
     <section id="mindmap">
       <div class="section-title"><h2>15. 🧭 Learning Mind Map | แผนผังการเรียน</h2><p>Visual grammar learning path | เส้นทางการเรียนแบบภาพรวม</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>เส้นทางจากจำ → ใช้จริง</h3>
-          <p><b>Level 1:</b> จำคำและรูปประโยค / <b>Level 2:</b> เลือก tense และโครงสร้าง / <b>Level 3:</b> เชื่อมประโยคเป็นย่อหน้า / <b>Level 4:</b> ใช้ register ให้เหมาะ</p>
-          <p><b>เป้าหมาย:</b> ไม่ใช่แค่จำตาราง แต่ใช้สร้างประโยคใหม่ได้เอง</p>
-        </div>
-      </div>
       <div class="mind-map">
         <div class="root-node">English Grammar | ไวยากรณ์อังกฤษ</div>
         <div class="branches">
@@ -2279,45 +1590,20 @@
     </section>
 
     <section id="tips">
-      <div class="section-title"><h2>16. 🌟 Learning Tips | เทคนิคการเรียน</h2><p>Study with real situations: work, job applications, travel, and daily communication | เรียนจากสถานการณ์จริง งาน สมัครงาน ท่องเที่ยว และชีวิตประจำวัน</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card"><h3>🎯 Practice Loop | วงจรฝึกแบบใช้งานจริง</h3><p>Notice → Copy → Modify → Create. เริ่มจากสังเกตประโยคจริง คัดลอกโครง เปลี่ยนคำ แล้วสร้างประโยคของตัวเอง</p><ul><li>I am interested in music.</li><li>I am interested in learning English.</li></ul></div>
-        <div class="mini-card"><h3>🔍 Error Log | สมุดบันทึกข้อผิดพลาด</h3><p>จด 3 อย่างทุกครั้ง: ประโยคผิด, ประโยคถูก, เหตุผลสั้น ๆ. ทบทวนซ้ำจะช่วยแก้จุดอ่อนเฉพาะตัว</p><ul><li>Wrong: He go.</li><li>Correct: He goes. | He/She/It + V-s</li></ul></div>
-        <div class="mini-card"><h3>🧱 Sentence Building | สร้างประโยคเป็นชั้น</h3><p>เริ่มจาก S + V + O แล้วค่อยเพิ่มเวลา สถานที่ เหตุผล และความสุภาพ</p><ul><li>I sent the file.</li><li>I sent the file to my manager before noon because it was urgent.</li></ul></div>
-        <div class="mini-card"><h3>💼 Work English | ฝึกอังกฤษที่ใช้ทำงาน</h3><p>จำเป็นกลุ่ม phrase ที่ใช้บ่อยในอีเมล แชท และประชุม จะใช้ได้เร็วกว่าจำคำเดี่ยว</p><ul><li>Could you confirm this?</li><li>I will follow up with the client.</li></ul></div>
-        <div class="mini-card"><h3>📄 Job Application | ฝึกสมัครงาน</h3><p>เตรียมประโยคแนะนำตัว ประสบการณ์ จุดแข็ง และเหตุผลที่สนใจตำแหน่งงาน</p><ul><li>I have experience in customer service.</li><li>I am applying for this role because it matches my skills.</li></ul></div>
-        <div class="mini-card"><h3>✈️ Travel Practice | ฝึกท่องเที่ยว</h3><p>ฝึกจากสถานการณ์จริง เช่น สนามบิน โรงแรม ร้านอาหาร การถามทาง และเหตุฉุกเฉิน</p><ul><li>I have a reservation under the name Tan.</li><li>Could you tell me how to get to the station?</li></ul></div>
+      <div class="section-title"><h2>16. 🌟 Learning Tips | เทคนิคการเรียน</h2><p>Colorful cards for fast review | การ์ดสีช่วยจำเร็ว</p></div>
+      <div class="grid">
         <div class="mini-card"><h3>📦 How to Identify Nouns | วิธีหาคำนาม</h3><p>Ask “Who or what?” | ถามว่า “ใครหรืออะไร?” Nouns can usually take a/an/the or plural -s.</p><ul><li>a student | นักเรียนคนหนึ่ง</li><li>three books | หนังสือสามเล่ม</li></ul></div>
         <div class="mini-card"><h3>⚙️ How to Identify Verbs | วิธีหากริยา</h3><p>Ask “What happens?” or “What does the subject do?” | ถามว่า “เกิดอะไรขึ้น/ประธานทำอะไร?”</p><ul><li>She runs. | เธอวิ่ง</li><li>They are happy. | พวกเขามีความสุข</li></ul></div>
         <div class="mini-card"><h3>🎨 How to Identify Adjectives | วิธีหาคุณศัพท์</h3><p>Ask “What kind? Which one? How many?” | ถามว่า “แบบไหน อันไหน กี่?” Adjectives describe nouns.</p><ul><li>a red car | รถสีแดง</li><li>three cats | แมวสามตัว</li></ul></div>
         <div class="mini-card"><h3>🚀 How to Identify Adverbs | วิธีหาคำวิเศษณ์</h3><p>Ask “How, when, where, how often?” | ถามว่า “อย่างไร เมื่อไร ที่ไหน บ่อยแค่ไหน?” Often ends in -ly.</p><ul><li>quickly | อย่างรวดเร็ว</li><li>always | เสมอ</li></ul></div>
-        <div class="mini-card"><h3>🔗 Connector Practice | ฝึกใช้คำเชื่อม</h3><p>อย่าจำแค่คำแปล ให้จำหน้าที่: reason, contrast, result, condition, time</p><ul><li>I missed the meeting because my flight was delayed.</li><li>Although the task was difficult, we completed it on time.</li></ul></div>
-        <div class="mini-card"><h3>🏷️ Article Check | เช็ก a/an/the</h3><p>ถามตัวเองว่าเป็นสิ่งทั่วไป สิ่งหนึ่งในหลายสิ่ง หรือสิ่งเฉพาะที่คนฟังรู้แล้ว</p><ul><li>I booked a hotel near the airport.</li><li>The hotel has a shuttle service.</li></ul></div>
-        <div class="mini-card"><h3>👤 Pronoun Clarity | ใช้สรรพนามให้ชัด</h3><p>ถ้ามีหลายคน/หลายสิ่งในประโยค อย่าใช้ he, she, it, they จนคนอ่านสับสน ให้กลับไปใช้คำนาม</p><ul><li>Unclear: I emailed Anna and Lisa because she had the report.</li><li>Clear: I emailed Anna and Lisa because Anna had the report.</li></ul></div>
-        <div class="mini-card"><h3>🗂️ Vocabulary Method | วิธีจำคำศัพท์</h3><p>จำเป็นชุดตามสถานการณ์ และแต่งประโยคทันที 3 แบบ: บอกเล่า คำถาม ปฏิเสธ</p><ul><li>confirm → I confirmed the booking.</li><li>Did you confirm the booking?</li></ul></div>
-        <div class="mini-card"><h3>🗣️ Shadowing | ฝึกพูดตาม</h3><p>ฟังประโยคสั้น ๆ แล้วพูดตามจังหวะเดิม 3 รอบ: ช้า ปกติ แล้วพูดโดยไม่ดูข้อความ</p><ul><li>Could you repeat that, please?</li><li>I would like to reschedule the appointment.</li></ul></div>
-        <div class="mini-card"><h3>✍️ Daily Output | ผลิตภาษาเองทุกวัน</h3><p>ทุกวันให้เขียนหรือพูด 5 ประโยคจากชีวิตจริง จะจำ grammar ได้แน่นกว่าการอ่านอย่างเดียว</p><ul><li>Today I reviewed the report.</li><li>Tomorrow I will prepare for the interview.</li></ul></div>
         <div class="mini-card"><h3>🧠 Memory Tricks | เทคนิคจำ</h3><p>Noun = name, Verb = action, Adjective = color, Adverb = detail, Preposition = position, Conjunction = bridge.</p><p>นาม=ชื่อ กริยา=การกระทำ คุณศัพท์=สีสัน วิเศษณ์=รายละเอียด บุพบท=ตำแหน่ง สันธาน=สะพาน</p></div>
         <div class="mini-card"><h3>⚡ Common Shortcuts | ทางลัดที่ใช้บ่อย</h3><p>He/She/It + V-s. Modal + V1. Did + V1. To + V1. Enjoy + V-ing. Be + V-ing. Have + V3.</p><p>จำสูตรสั้นก่อน แล้วค่อยเพิ่มรายละเอียด</p></div>
-        <div class="mini-card"><h3>📝 Grammar Check Order | ลำดับตรวจประโยค</h3><p>Subject → Verb tense → Object → Preposition → Article → Pronoun reference → Punctuation.</p><p>ตรวจทีละจุดจะลดความผิดพลาดตอนเขียนอีเมล สมัครงาน และสอบ</p></div>
-        <div class="mini-card"><h3>🧪 7-Day Review Plan | แผนทบทวน 7 วัน</h3><p>Day 1 words, Day 2 sentence patterns, Day 3 verb forms, Day 4 tenses, Day 5 questions, Day 6 writing, Day 7 speaking review.</p><p>วนซ้ำทุกสัปดาห์และเปลี่ยนหัวข้อเป็น work, job application, travel</p></div>
+        <div class="mini-card"><h3>📝 Exam Tips | เทคนิคสอบ</h3><p>Find the subject, check the time signal, choose the verb form, then check articles and prepositions.</p><p>หาประธาน → ดูคำบอกเวลา → เลือกกริยา → ตรวจ article/preposition</p></div>
       </div>
     </section>
 
     <section id="sentence-lesson">
       <div class="section-title"><h2>17. 🗣️ 100 Sentence Lessons | บทเรียนประโยค 100 ประโยค</h2><p>Point at or focus the highlighted words to see a CSS dialog with pronunciation, Part of Speech, and Thai meaning. | ชี้หรือกด Tab ที่คำไฮไลต์เพื่อดูคำอ่าน ชนิดคำ และคำแปล</p></div>
-      <div class="grid advanced-grid">
-        <div class="mini-card">
-          <h3>How to Study Each Sentence | วิธีใช้บทเรียนประโยค</h3>
-          <p><b>Step 1:</b> หา subject และ verb <b>Step 2:</b> ดู tense <b>Step 3:</b> ดูคำเชื่อม/บุพบท <b>Step 4:</b> เปลี่ยนคำเพื่อสร้างประโยคใหม่</p>
-          <p><b>ตัวอย่าง:</b> She reads books every day. → He reads articles every morning. → They read reports at work.</p>
-        </div>
-        <div class="mini-card">
-          <h3>Double-Click Translate | แปลคำจากหน้าเรียน</h3>
-          <p><b>ใช้งาน:</b> ดับเบิลคลิกคำในตาราง ระบบจะดึงคำนั้นไปที่กล่องแปลภาษา EN/TH และแปลให้อัตโนมัติ</p>
-          <p><b>ฝึกต่อ:</b> หลังแปลคำแล้ว ลองแต่งประโยคใหม่ด้วยคำนั้น 2-3 ประโยค</p>
-        </div>
-      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>No.</th><th>Sentence With POS Dialog</th><th>Thai Translation</th><th>Grammar Focus</th></tr></thead>
@@ -2449,10 +1735,6 @@
       var translateClear = document.getElementById("translateClear");
       var translateCopy = document.getElementById("translateCopy");
       var translateTimer = null;
-      var vocabDialog = document.getElementById("vocabDialog");
-      var vocabDialogTitle = document.getElementById("vocabDialogTitle");
-      var vocabDialogWords = document.getElementById("vocabDialogWords");
-      var vocabDialogClose = document.getElementById("vocabDialogClose");
 
       function setCookie(name, value, days) {
         var maxAge = days * 24 * 60 * 60;
@@ -2653,97 +1935,6 @@
         document.addEventListener("dblclick", translateDoubleClickedText);
       }
 
-      function parseVocabWords(rawText) {
-        return rawText.split(",").map(function (item) {
-          var cleaned = item.trim();
-          var separatorIndex = cleaned.indexOf("=");
-
-          if (separatorIndex === -1) {
-            return { word: cleaned, meaning: "" };
-          }
-
-          return {
-            word: cleaned.slice(0, separatorIndex).trim(),
-            meaning: cleaned.slice(separatorIndex + 1).trim()
-          };
-        }).filter(function (item) {
-          return item.word || item.meaning;
-        });
-      }
-
-      function openVocabDialog(category, words) {
-        if (!vocabDialog || !vocabDialogTitle || !vocabDialogWords) return;
-
-        vocabDialogTitle.textContent = category + " | " + words.length + " words";
-        vocabDialogWords.replaceChildren();
-
-        words.forEach(function (item) {
-          var card = document.createElement("div");
-          var word = document.createElement("b");
-          var meaning = document.createElement("span");
-
-          card.className = "vocab-word-card";
-          word.textContent = item.word;
-          meaning.textContent = item.meaning ? " = " + item.meaning : "";
-
-          card.appendChild(word);
-          card.appendChild(meaning);
-          vocabDialogWords.appendChild(card);
-        });
-
-        if (typeof vocabDialog.showModal === "function") {
-          vocabDialog.showModal();
-        } else {
-          vocabDialog.setAttribute("open", "");
-        }
-      }
-
-      function initVocabDialog() {
-        var vocabRows = document.querySelectorAll("#vocab tbody tr");
-        if (!vocabDialog || !vocabRows.length) return;
-
-        vocabRows.forEach(function (row) {
-          var categoryCell = row.cells[0];
-          var wordsCell = row.cells[1];
-          if (!categoryCell || !wordsCell || wordsCell.querySelector(".vocab-open-button")) return;
-
-          var category = categoryCell.textContent.trim();
-          var rawText = wordsCell.textContent.trim();
-          var words = parseVocabWords(rawText);
-          var previewText = words.slice(0, 5).map(function (item) {
-            return item.word;
-          }).join(", ");
-          var button = document.createElement("button");
-          var preview = document.createElement("div");
-
-          button.type = "button";
-          button.className = "vocab-open-button";
-          button.textContent = "เปิดคำศัพท์ (" + words.length + " คำ)";
-          button.addEventListener("click", function () {
-            openVocabDialog(category, words);
-          });
-
-          preview.className = "vocab-preview";
-          preview.textContent = previewText ? "Preview: " + previewText + "..." : "กดเพื่อดูคำศัพท์ในหมวดนี้";
-
-          wordsCell.textContent = "";
-          wordsCell.appendChild(button);
-          wordsCell.appendChild(preview);
-        });
-
-        if (vocabDialogClose) {
-          vocabDialogClose.addEventListener("click", function () {
-            vocabDialog.close();
-          });
-        }
-
-        vocabDialog.addEventListener("click", function (event) {
-          if (event.target === vocabDialog) {
-            vocabDialog.close();
-          }
-        });
-      }
-
       function cleanClone(clone) {
         clone.removeAttribute("id");
         clone.querySelectorAll(".lesson-popout-btn").forEach(function (button) {
@@ -2891,7 +2082,6 @@
       initTocToggle();
       initTranslateToggle();
       initTranslateApp();
-      initVocabDialog();
       restorePanels();
     }());
   </script>

@@ -1,0 +1,55 @@
+{
+  "updatedAt": "2026-06-28T16:16:12+0700",
+  "type": "book-json-manifest",
+  "books": [
+    {
+      "title": "The Workshop of Wobbly Gears",
+      "fileName": "20260628-151957-the-workshop-of-wobbly-gears.json",
+      "path": "Book/20260628-151957-the-workshop-of-wobbly-gears.json",
+      "imageFolderName": "20260628-151957-the-workshop-of-wobbly-gears",
+      "imageFolderPath": "image_Book/20260628-151957-the-workshop-of-wobbly-gears"
+    },
+    {
+      "title": "The Redacted Archive",
+      "fileName": "20260628-160048-the-redacted-archive.json",
+      "path": "Book/20260628-160048-the-redacted-archive.json",
+      "imageFolderName": "20260628-160048-the-redacted-archive",
+      "imageFolderPath": "image_Book/20260628-160048-the-redacted-archive"
+    },
+    {
+      "title": "The Whispering Server of Oakhaven",
+      "fileName": "20260629-141536-The-Whispering-Server-of-Oakhaven.json",
+      "path": "Book/20260629-141536-The-Whispering-Server-of-Oakhaven.json",
+      "imageFolderName": "20260629-141536-The-Whispering-Server-of-Oakhaven",
+      "imageFolderPath": "image_Book/20260629-141536-The-Whispering-Server-of-Oakhaven"
+    },
+    {
+      "title": "The Mender of Moments",
+      "fileName": "20260628-144733-the-mender-of-moments.json",
+      "path": "Book/20260628-144733-the-mender-of-moments.json",
+      "imageFolderName": "20260628-144733-the-mender-of-moments",
+      "imageFolderPath": "image_Book/20260628-144733-the-mender-of-moments"
+    },
+    {
+      "title": "The Paper Robot",
+      "fileName": "20260628-143751-the-paper-robot.json",
+      "path": "Book/20260628-143751-the-paper-robot.json",
+      "imageFolderName": "20260628-143751-the-paper-robot",
+      "imageFolderPath": "image_Book/20260628-143751-the-paper-robot"
+    },
+    {
+      "title": "The Secret of the Glass House",
+      "fileName": "20260628-141239-the-secret-of-the-glass-house.json",
+      "path": "Book/20260628-141239-the-secret-of-the-glass-house.json",
+      "imageFolderName": "20260628-141239-the-secret-of-the-glass-house",
+      "imageFolderPath": "image_Book/20260628-141239-the-secret-of-the-glass-house"
+    },
+    {
+      "title": "The Clockwork Garden",
+      "fileName": "20260628-141834-the-clockwork-garden.json",
+      "path": "Book/20260628-141834-the-clockwork-garden.json",
+      "imageFolderName": "20260628-141834-the-clockwork-garden",
+      "imageFolderPath": "image_Book/20260628-141834-the-clockwork-garden"
+    }
+  ]
+}
