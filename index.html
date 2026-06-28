@@ -93,6 +93,31 @@
       gap: 6px;
     }
 
+    .toc-toggle {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      cursor: pointer;
+      font: inherit;
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .toc-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
     .toc a {
       display: block;
       color: var(--text);
@@ -105,6 +130,24 @@
     }
 
     .toc a:hover { background: var(--hover); transform: translateX(2px); }
+
+    body.toc-collapsed main {
+      grid-template-columns: 52px minmax(0, 1fr);
+    }
+
+    body.toc-collapsed .toc {
+      padding: 8px 6px;
+      overflow: hidden;
+      align-items: center;
+    }
+
+    body.toc-collapsed .toc-links {
+      display: none;
+    }
+
+    body.toc-collapsed .toc-toggle {
+      min-height: 38px;
+    }
 
     section {
       grid-column: 2;
@@ -504,6 +547,24 @@
         overflow-y: hidden;
         white-space: nowrap;
       }
+      .toc-toggle {
+        width: 38px;
+        flex: 0 0 auto;
+      }
+      .toc-links {
+        flex: 1 1 auto;
+        min-width: 0;
+        flex-direction: row;
+        gap: 6px;
+      }
+      body.toc-collapsed .toc {
+        align-items: stretch;
+      }
+      body.toc-collapsed .toc-toggle {
+        writing-mode: horizontal-tb;
+        min-height: 38px;
+        padding: 0;
+      }
       .toc a { flex: 0 0 auto; }
       .section-title { padding-right: 12px; }
       .lesson-popout-btn { position: static; margin-top: 8px; }
@@ -541,6 +602,8 @@
         padding: 0;
         margin: 0 0 8px;
       }
+      .toc-toggle { display: none; }
+      .toc-links { display: block; }
       .toc a { display: inline-block; padding: 2px 5px; border: 0; }
       section { box-shadow: none; page-break-inside: avoid; margin: 8px 0; }
       header { padding: 6px; }
@@ -566,6 +629,8 @@
 
   <main>
     <nav class="toc" aria-label="Table of contents">
+      <button class="toc-toggle" type="button" aria-expanded="true" aria-controls="mainMenu" aria-label="หุบเมนู" title="หุบเมนู">☰</button>
+      <div id="mainMenu" class="toc-links">
       <a href="#parts">1. Parts of Speech | ชนิดของคำ</a>
       <a href="#structure">2. Sentence Structure | โครงสร้างประโยค</a>
       <a href="#verbs">3. Verb Forms | กริยา 3 ช่อง</a>
@@ -583,6 +648,7 @@
       <a href="#mindmap">15. Mind Map | แผนผัง</a>
       <a href="#tips">16. Learning Tips | เทคนิคเรียน</a>
       <a href="#sentence-lesson">17. 100 Sentences | บทเรียนประโยค</a>
+      </div>
     </nav>
 
     <section id="parts">
@@ -1325,6 +1391,9 @@
     (function () {
       var panelStack = document.getElementById("lessonPanelStack");
       var panelsCookieName = "grammarLessonPanels";
+      var toc = document.querySelector(".toc");
+      var tocToggle = document.querySelector(".toc-toggle");
+      var tocCookieName = "grammarTocCollapsed";
 
       function setCookie(name, value, days) {
         var maxAge = days * 24 * 60 * 60;
@@ -1343,6 +1412,30 @@
 
       function removeCookie(name) {
         document.cookie = name + "=; max-age=0; path=/; SameSite=Lax";
+      }
+
+      function setTocCollapsed(isCollapsed, shouldSave) {
+        if (!toc || !tocToggle) return;
+
+        document.body.classList.toggle("toc-collapsed", isCollapsed);
+        toc.classList.toggle("is-collapsed", isCollapsed);
+        tocToggle.textContent = isCollapsed ? "›" : "☰";
+        tocToggle.setAttribute("aria-label", isCollapsed ? "เปิดเมนู" : "หุบเมนู");
+        tocToggle.setAttribute("title", isCollapsed ? "เปิดเมนู" : "หุบเมนู");
+        tocToggle.setAttribute("aria-expanded", String(!isCollapsed));
+
+        if (shouldSave !== false) {
+          setCookie(tocCookieName, isCollapsed ? "1" : "0", 30);
+        }
+      }
+
+      function initTocToggle() {
+        if (!toc || !tocToggle) return;
+
+        setTocCollapsed(getCookie(tocCookieName) === "1", false);
+        tocToggle.addEventListener("click", function () {
+          setTocCollapsed(!document.body.classList.contains("toc-collapsed"), true);
+        });
       }
 
       function cleanClone(clone) {
@@ -1489,6 +1582,7 @@
         }
       }
 
+      initTocToggle();
       restorePanels();
     }());
   </script>
