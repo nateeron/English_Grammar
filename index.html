@@ -21,7 +21,7 @@
       --blue: #334d85;
       --green: #059669;
       --purple: #7c3aed;
-      --orange: #ea580c;
+      --orange: #e47336;
       --pink: #db2777;
       --teal: #0891b2;
       --red: #dc2626;
@@ -196,6 +196,8 @@
     #verbs th:nth-child(1), #verbs td:nth-child(1),
     #verbs th:nth-child(6), #verbs td:nth-child(6) { width: 15%; }
     #verbs th:nth-child(7), #verbs td:nth-child(7) { width: 25%; }
+    #verbs .grid { font-size: 0.74rem; }
+    #verbs .mini-card h3 { font-size: 0.74rem; }
 
     #tenses th:nth-child(1), #tenses td:nth-child(1) { width: 11%; }
     #tenses th:nth-child(2), #tenses td:nth-child(2),
@@ -252,7 +254,7 @@
       border: 1px solid var(--line);
     }
 
-    .mini-card h3 { margin: 0 0 5px; color: var(--blue); font-size: 1rem; }
+    .mini-card h3 { margin: 0 0 5px; color: var(--orange); font-size: 1rem; }
     .mini-card p { margin: 6px 0; }
     .mini-card ul { margin: 5px 0 0; padding-left: 18px; }
 
@@ -422,6 +424,7 @@
       background: var(--card);
       color: var(--text);
       box-shadow: 0 14px 36px rgba(15, 23, 42, 0.28);
+      font-size: 0.74rem;
     }
 
     .lesson-panel.is-collapsed {
@@ -442,7 +445,7 @@
       min-width: 0;
       font-weight: 900;
       line-height: 1.2;
-      font-size: 0.9rem;
+      font-size: 0.74rem;
     }
 
     .lesson-panel-actions {
@@ -471,6 +474,13 @@
 
     .lesson-panel-content .table-wrap {
       max-height: none;
+    }
+
+    .lesson-panel-content .section-title h2,
+    .lesson-panel-content .section-title p,
+    .lesson-panel-content .mini-card h3,
+    .lesson-panel-content .word {
+      font-size: 0.74rem;
     }
 
     .lesson-panel.is-collapsed .lesson-panel-content {
@@ -614,6 +624,29 @@
 
     <section id="verbs">
       <div class="section-title"><h2>3. 🏃 Verb Forms | กริยา 3 ช่องและ V-ing</h2><p>Common verbs with Thai meaning, pronunciation idea, and examples | กริยาพบบ่อยพร้อมความหมายและตัวอย่าง</p></div>
+      <div class="grid">
+        <div class="mini-card">
+          <h3>V1 = Base Verb | กริยาช่อง 1</h3>
+          <p><b>ภาพจำ:</b> รูปตั้งต้นของคำกริยา เหมือนชื่อจริงของกริยา ใช้พูดถึงปัจจุบัน ความจริงทั่วไป นิสัย คำสั่ง และใช้ตามหลังคำช่วยบางคำ</p>
+          <p><b>สูตรที่พบบ่อย:</b> S + V1, do/does + V1, did + V1, can/will/must + V1, to + V1</p>
+          <p><b>ตัวอย่าง:</b> I <b>go</b> to school. | ฉันไปโรงเรียน / She <b>does not go</b>. | เธอไม่ไป / Can you <b>go</b>? | คุณไปได้ไหม</p>
+          <p><b>ระวัง:</b> Present Simple กับ he/she/it มักเติม s/es เช่น he <b>goes</b>, she <b>studies</b> แต่หลัง do/does/did/modal ต้องกลับมาเป็น V1 เช่น Does he <b>go</b>?</p>
+        </div>
+        <div class="mini-card">
+          <h3>V2 = Past Verb | กริยาช่อง 2</h3>
+          <p><b>ภาพจำ:</b> รูปที่บอกว่าเหตุการณ์เกิดและจบไปแล้วในอดีต ใช้เล่าเรื่องเมื่อวาน เมื่อก่อน ปีที่แล้ว หรือตอนเวลาหนึ่งในอดีต</p>
+          <p><b>สูตรที่พบบ่อย:</b> S + V2</p>
+          <p><b>ตัวอย่าง:</b> I <b>went</b> to school yesterday. | เมื่อวานฉันไปโรงเรียน / She <b>ate</b> rice. | เธอกินข้าวแล้ว</p>
+          <p><b>ระวัง:</b> ถ้ามี did แล้ว ห้ามใช้ V2 ซ้ำ ให้ใช้ V1 เช่น I <b>did not go</b>. ไม่ใช่ I did not went.</p>
+        </div>
+        <div class="mini-card">
+          <h3>V3 = Past Participle | กริยาช่อง 3</h3>
+          <p><b>ภาพจำ:</b> รูปที่ไม่ค่อยยืนเดี่ยว ต้องมีตัวช่วยนำหน้า ใช้กับประสบการณ์/ผลลัพธ์ที่เกี่ยวกับปัจจุบัน หรือประโยคถูกกระทำ</p>
+          <p><b>สูตรที่พบบ่อย:</b> has/have/had + V3, be + V3</p>
+          <p><b>ตัวอย่าง:</b> I have <b>gone</b> there. | ฉันเคยไปที่นั่น / The window was <b>broken</b>. | หน้าต่างถูกทำแตก</p>
+          <p><b>จำง่าย:</b> V2 = เล่าอดีตตรง ๆ ส่วน V3 = ใช้คู่กับ have/has/had หรือ be เพื่อบอกผล ประสบการณ์ หรือถูกกระทำ</p>
+        </div>
+      </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Verb</th><th>V1</th><th>V2</th><th>V3</th><th>V-ing</th><th>Meaning</th><th>Example</th></tr></thead>
